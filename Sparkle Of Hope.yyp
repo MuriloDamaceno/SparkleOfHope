@@ -1,0 +1,49 @@
+{
+  "$GMProject":"v1",
+  "%Name":"Sparkle Of Hope",
+  "AudioGroups":[
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+  "configs":{
+    "children":[],
+    "name":"Default",
+  },
+  "defaultScriptType":1,
+  "Folders":[
+    {"$GMFolder":"","%Name":"Auxiliares","folderPath":"folders/Auxiliares.yy","name":"Auxiliares","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"quarto1","folderPath":"folders/quarto1.yy","name":"quarto1","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Móveis","folderPath":"folders/quarto1/Móveis.yy","name":"Móveis","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"spr_personagem","folderPath":"folders/spr_personagem.yy","name":"spr_personagem","resourceType":"GMFolder","resourceVersion":"2.0",},
+  ],
+  "ForcedPrefabProjectReferences":[],
+  "IncludedFiles":[],
+  "isEcma":false,
+  "LibraryEmitters":[],
+  "MetaData":{
+    "IDEVersion":"2024.14.4.222",
+  },
+  "name":"Sparkle Of Hope",
+  "resources":[
+    {"id":{"name":"obj_armario","path":"objects/obj_armario/obj_armario.yy",},},
+    {"id":{"name":"obj_cama","path":"objects/obj_cama/obj_cama.yy",},},
+    {"id":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},},
+    {"id":{"name":"obj_porta","path":"objects/obj_porta/obj_porta.yy",},},
+    {"id":{"name":"obj_relogio","path":"objects/obj_relogio/obj_relogio.yy",},},
+    {"id":{"name":"obj_solido","path":"objects/obj_solido/obj_solido.yy",},},
+    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
+    {"id":{"name":"spr_costas","path":"sprites/spr_costas/spr_costas.yy",},},
+    {"id":{"name":"spr_frente","path":"sprites/spr_frente/spr_frente.yy",},},
+    {"id":{"name":"spr_hotspot","path":"sprites/spr_hotspot/spr_hotspot.yy",},},
+    {"id":{"name":"spr_perfil","path":"sprites/spr_perfil/spr_perfil.yy",},},
+  ],
+  "resourceType":"GMProject",
+  "resourceVersion":"2.0",
+  "RoomOrderNodes":[
+    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+  ],
+  "templateType":null,
+  "TextureGroups":[
+    {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+}

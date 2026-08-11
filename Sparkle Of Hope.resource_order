@@ -1,0 +1,17 @@
+{
+  "FolderOrderSettings":[
+    {"name":"Auxiliares","order":2,"path":"folders/Auxiliares.yy",},
+    {"name":"quarto1","order":3,"path":"folders/quarto1.yy",},
+    {"name":"Móveis","order":1,"path":"folders/quarto1/Móveis.yy",},
+    {"name":"spr_personagem","order":1,"path":"folders/spr_personagem.yy",},
+  ],
+  "ResourceOrderSettings":[
+    {"name":"obj_cama","order":1,"path":"objects/obj_cama/obj_cama.yy",},
+    {"name":"obj_jogador","order":2,"path":"objects/obj_jogador/obj_jogador.yy",},
+    {"name":"obj_porta","order":2,"path":"objects/obj_porta/obj_porta.yy",},
+    {"name":"obj_relogio","order":3,"path":"objects/obj_relogio/obj_relogio.yy",},
+    {"name":"obj_solido","order":1,"path":"objects/obj_solido/obj_solido.yy",},
+    {"name":"spr_costas","order":1,"path":"sprites/spr_costas/spr_costas.yy",},
+    {"name":"spr_perfil","order":2,"path":"sprites/spr_perfil/spr_perfil.yy",},
+  ],
+}
