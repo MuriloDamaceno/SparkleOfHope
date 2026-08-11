@@ -11,7 +11,10 @@
     "name":"Menu",
     "path":"folders/Menu.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_botao",
+    "path":"objects/obj_botao/obj_botao.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -29,7 +32,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_botao_opcoes",
+    "path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }

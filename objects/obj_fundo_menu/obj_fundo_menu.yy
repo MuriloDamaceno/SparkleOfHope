@@ -29,7 +29,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_menu_fundo",
+    "path":"sprites/spr_menu_fundo/spr_menu_fundo.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
