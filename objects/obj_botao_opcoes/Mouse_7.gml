@@ -1,1 +1,1 @@
-room_goto(rm_opcoes);
+global.opcoes_aberta = true;
