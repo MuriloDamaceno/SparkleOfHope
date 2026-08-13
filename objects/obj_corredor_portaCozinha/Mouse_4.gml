@@ -2,7 +2,7 @@ var _dist = point_distance(x, y, obj_jogador.x, obj_jogador.y);
 
 if (_dist <= 120) {
     
-    room_goto(Room1); 
+    room_goto(rm_cozinha); 
 } else {
     
     obj_jogador.target_x = x;
