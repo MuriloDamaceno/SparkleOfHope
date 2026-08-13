@@ -9,3 +9,5 @@ global.opcoes_aberta = false;
 // if (audio_exists(mus_tema)) {
 //     global.music_id = audio_play_sound(mus_tema, 1, true, global.volume_musica);
 // }
+global.caixa_aberta = false;
+global.caixa_texto = "";	
