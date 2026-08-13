@@ -14,4 +14,7 @@ global.caixa_texto = "";
 
 global.caixa_aberta = false;
 global.caixa_texto = "";
-global.indo_para_porta = false;   // NOVO
+global.indo_para_porta = false;  
+
+global.porta_alvo = noone;
+global.room_alvo = noone;
