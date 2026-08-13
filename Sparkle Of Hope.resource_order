@@ -1,8 +1,9 @@
 {
   "FolderOrderSettings":[
-    {"name":"Corredor","order":6,"path":"folders/Corredor.yy",},
     {"name":"Auxiliares","order":7,"path":"folders/Auxiliares.yy",},
+    {"name":"Corredor","order":6,"path":"folders/Corredor.yy",},
     {"name":"moveis","order":3,"path":"folders/Corredor/moveis.yy",},
+    {"name":"Cozinha","order":9,"path":"folders/Cozinha.yy",},
     {"name":"Menu","order":3,"path":"folders/Menu.yy",},
     {"name":"Opcoes","order":9,"path":"folders/Menu/Opcoes.yy",},
     {"name":"quarto1","order":2,"path":"folders/quarto1.yy",},
@@ -34,7 +35,10 @@
     {"name":"obj_solido","order":1,"path":"objects/obj_solido/obj_solido.yy",},
     {"name":"obj_titulo","order":8,"path":"objects/obj_titulo/obj_titulo.yy",},
     {"name":"objeto_corredor_armario","order":2,"path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},
+    {"name":"objeto_corredor_portaBanheiro","order":5,"path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},
+    {"name":"objeto_corredor_portaPais","order":4,"path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},
     {"name":"rm_corredor","order":5,"path":"rooms/rm_corredor/rm_corredor.yy",},
+    {"name":"rm_cozinha","order":8,"path":"rooms/rm_cozinha/rm_cozinha.yy",},
     {"name":"rm_menu","order":4,"path":"rooms/rm_menu/rm_menu.yy",},
     {"name":"spr_botao_iniciar","order":1,"path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},
     {"name":"spr_botao_opcoes","order":3,"path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},
