@@ -11,8 +11,9 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Auxiliares","folderPath":"folders/Auxiliares.yy","name":"Auxiliares","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"Opcoes","folderPath":"folders/Menu/Opcoes.yy","name":"Opcoes","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Corredor","folderPath":"folders/Corredor.yy","name":"Corredor","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menu","folderPath":"folders/Menu.yy","name":"Menu","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Opcoes","folderPath":"folders/Menu/Opcoes.yy","name":"Opcoes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"quarto1","folderPath":"folders/quarto1.yy","name":"quarto1","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Móveis","folderPath":"folders/quarto1/Móveis.yy","name":"Móveis","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"spr_personagem","folderPath":"folders/spr_personagem.yy","name":"spr_personagem","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -46,6 +47,7 @@
     {"id":{"name":"obj_slider","path":"objects/obj_slider/obj_slider.yy",},},
     {"id":{"name":"obj_solido","path":"objects/obj_solido/obj_solido.yy",},},
     {"id":{"name":"obj_titulo","path":"objects/obj_titulo/obj_titulo.yy",},},
+    {"id":{"name":"rm_corredor","path":"rooms/rm_corredor/rm_corredor.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
@@ -53,6 +55,7 @@
     {"id":{"name":"spr_botao_opcoes","path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},},
     {"id":{"name":"spr_botao_sair","path":"sprites/spr_botao_sair/spr_botao_sair.yy",},},
     {"id":{"name":"spr_caixa_dialogo","path":"sprites/spr_caixa_dialogo/spr_caixa_dialogo.yy",},},
+    {"id":{"name":"spr_corredor","path":"sprites/spr_corredor/spr_corredor.yy",},},
     {"id":{"name":"spr_costas","path":"sprites/spr_costas/spr_costas.yy",},},
     {"id":{"name":"spr_frente","path":"sprites/spr_frente/spr_frente.yy",},},
     {"id":{"name":"spr_hotspot","path":"sprites/spr_hotspot/spr_hotspot.yy",},},
@@ -67,6 +70,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_corredor","path":"rooms/rm_corredor/rm_corredor.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
