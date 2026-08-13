@@ -26,7 +26,7 @@
   },
   "name":"Sparkle Of Hope",
   "resources":[
-    {"id":{"name":"dnt_dialogo","path":"fonts/dnt_dialogo/dnt_dialogo.yy",},},
+    {"id":{"name":"fnt_dialogo","path":"fonts/fnt_dialogo/fnt_dialogo.yy",},},
     {"id":{"name":"obj_armario","path":"objects/obj_armario/obj_armario.yy",},},
     {"id":{"name":"obj_botao_fechar","path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},},
     {"id":{"name":"obj_botao_iniciar","path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},},

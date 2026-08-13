@@ -8,7 +8,7 @@
     {"name":"spr_personagem","order":1,"path":"folders/spr_personagem.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"dnt_dialogo","order":5,"path":"fonts/dnt_dialogo/dnt_dialogo.yy",},
+    {"name":"fnt_dialogo","order":5,"path":"fonts/fnt_dialogo/fnt_dialogo.yy",},
     {"name":"obj_botao_fechar","order":4,"path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},
     {"name":"obj_botao_iniciar","order":4,"path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},
     {"name":"obj_botao_opcoes","order":5,"path":"objects/obj_botao_opcoes/obj_botao_opcoes.yy",},
