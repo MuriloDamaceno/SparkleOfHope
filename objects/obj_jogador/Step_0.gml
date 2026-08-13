@@ -84,7 +84,7 @@ last_x = x;
 last_y = y;
 
 if (_moving) {
-    image_speed = 0.2;
+    image_speed = 0.15;
 } else {
     image_speed = 0;
     image_index = 0;

@@ -18,3 +18,4 @@ global.indo_para_porta = false;
 
 global.porta_alvo = noone;
 global.room_alvo = noone;
+

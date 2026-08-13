@@ -5,8 +5,8 @@ if (global.caixa_aberta) {
 
     if (_dist <= 120) {
         global.caixa_aberta = true;
-        global.caixa_texto = "Uma mesa antiga, sem nada em cima.";
+        global.caixa_texto = "Não sei porque a pia é tãooo alta...";
     } else {
-        show_debug_message("Não sei porque a pia é tãooo alta...");
+        show_debug_message("Preciso chegar mais perto!");
     }
 }

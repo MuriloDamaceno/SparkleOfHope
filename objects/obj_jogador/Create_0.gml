@@ -1,4 +1,4 @@
-spd = 2;
+spd = 1.5;
 image_speed = 0;
 image_index = 0;
 floor_top = 161;

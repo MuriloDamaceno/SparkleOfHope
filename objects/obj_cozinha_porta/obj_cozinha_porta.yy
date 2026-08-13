@@ -14,8 +14,8 @@
     "path":"folders/Cozinha.yy",
   },
   "parentObjectId":{
-    "name":"obj_solido",
-    "path":"objects/obj_solido/obj_solido.yy",
+    "name":"obj_porta",
+    "path":"objects/obj_porta/obj_porta.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
