@@ -91,9 +91,14 @@ if (_moving) {
 }
 
 if (global.indo_para_porta) {
-    var _dist_porta = point_distance(x, y, global.porta_alvo.x, global.porta_alvo.y);
-    if (_dist_porta <= 120) {
+    if (instance_exists(global.porta_alvo)) {
+        var _dist_porta = point_distance(x, y, global.porta_alvo.x, global.porta_alvo.y);
+        if (_dist_porta <= 120) {
+            global.indo_para_porta = false;
+            room_goto(global.room_alvo);
+        }
+    } else {
+        // A porta-alvo não existe mais (ex: mudou de sala por outro caminho) — cancela com segurança
         global.indo_para_porta = false;
-        room_goto(global.room_alvo);
     }
 }
