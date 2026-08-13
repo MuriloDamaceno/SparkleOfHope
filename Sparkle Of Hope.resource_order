@@ -28,7 +28,6 @@
     {"name":"obj_solido","order":1,"path":"objects/obj_solido/obj_solido.yy",},
     {"name":"obj_titulo","order":8,"path":"objects/obj_titulo/obj_titulo.yy",},
     {"name":"rm_menu","order":5,"path":"rooms/rm_menu/rm_menu.yy",},
-    {"name":"rm_opcoes","order":6,"path":"rooms/rm_opcoes/rm_opcoes.yy",},
     {"name":"spr_botao_iniciar","order":1,"path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},
     {"name":"spr_botao_opcoes","order":3,"path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},
     {"name":"spr_botao_sair","order":2,"path":"sprites/spr_botao_sair/spr_botao_sair.yy",},

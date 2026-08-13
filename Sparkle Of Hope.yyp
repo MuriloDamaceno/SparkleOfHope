@@ -47,7 +47,6 @@
     {"id":{"name":"obj_solido","path":"objects/obj_solido/obj_solido.yy",},},
     {"id":{"name":"obj_titulo","path":"objects/obj_titulo/obj_titulo.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
-    {"id":{"name":"rm_opcoes","path":"rooms/rm_opcoes/rm_opcoes.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
     {"id":{"name":"spr_botao_iniciar","path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},},
@@ -68,7 +67,6 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"rm_opcoes","path":"rooms/rm_opcoes/rm_opcoes.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[

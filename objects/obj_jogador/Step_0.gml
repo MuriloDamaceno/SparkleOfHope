@@ -89,3 +89,11 @@ if (_moving) {
     image_speed = 0;
     image_index = 0;
 }
+
+if (global.indo_para_porta) {
+    var _dist_porta = point_distance(x, y, obj_porta.x, obj_porta.y);
+    if (_dist_porta <= 120) {
+        global.indo_para_porta = false;
+        room_goto(rm_NOME_DA_SALA); // <-- mesmo nome da sala acima
+    }
+}

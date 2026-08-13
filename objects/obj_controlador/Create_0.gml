@@ -10,4 +10,8 @@ global.opcoes_aberta = false;
 //     global.music_id = audio_play_sound(mus_tema, 1, true, global.volume_musica);
 // }
 global.caixa_aberta = false;
-global.caixa_texto = "";	
+global.caixa_texto = "";
+
+global.caixa_aberta = false;
+global.caixa_texto = "";
+global.indo_para_porta = false;   // NOVO
