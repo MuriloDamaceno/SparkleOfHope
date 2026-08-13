@@ -11,7 +11,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
     draw_set_halign(fa_left);
     draw_set_valign(fa_top);
     draw_set_color(c_black);
-    draw_text_ext(_box_x + 20, _box_y + 15, global.caixa_texto, 20, sprite_width - 40);
+    draw_text_ext(_box_x + 10, _box_y + 12, global.caixa_texto, 12, sprite_width - 40);
     draw_set_color(c_white);
-    draw_set_font(-1);
+    draw_set_font(-5);
 }
