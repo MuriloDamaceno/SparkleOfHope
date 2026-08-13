@@ -34,6 +34,9 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":null,
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"spr_hotspot",
+    "path":"sprites/spr_hotspot/spr_hotspot.yy",
+  },
   "visible":true,
 }
