@@ -32,5 +32,6 @@
     {"name":"spr_costas","order":1,"path":"sprites/spr_costas/spr_costas.yy",},
     {"name":"spr_painel_opcoes","order":1,"path":"sprites/spr_painel_opcoes/spr_painel_opcoes.yy",},
     {"name":"spr_perfil","order":2,"path":"sprites/spr_perfil/spr_perfil.yy",},
+    {"name":"spr_titulo","order":10,"path":"sprites/spr_titulo/spr_titulo.yy",},
   ],
 }

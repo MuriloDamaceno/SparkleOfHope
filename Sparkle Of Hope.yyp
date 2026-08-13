@@ -56,6 +56,7 @@
     {"id":{"name":"spr_menu_fundo","path":"sprites/spr_menu_fundo/spr_menu_fundo.yy",},},
     {"id":{"name":"spr_painel_opcoes","path":"sprites/spr_painel_opcoes/spr_painel_opcoes.yy",},},
     {"id":{"name":"spr_perfil","path":"sprites/spr_perfil/spr_perfil.yy",},},
+    {"id":{"name":"spr_titulo","path":"sprites/spr_titulo/spr_titulo.yy",},},
     {"id":{"name":"spr_x_fechar","path":"sprites/spr_x_fechar/spr_x_fechar.yy",},},
   ],
   "resourceType":"GMProject",
