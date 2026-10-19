@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_ambiente_cozinha",
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"sons",
+    "path":"folders/sons.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

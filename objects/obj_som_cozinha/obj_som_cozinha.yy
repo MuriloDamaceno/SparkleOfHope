@@ -9,8 +9,8 @@
   "name":"obj_som_cozinha",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"sons",
+    "path":"folders/sons.yy",
   },
   "parentObjectId":null,
   "persistent":false,

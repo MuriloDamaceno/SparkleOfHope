@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":9,
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"Auxiliares",
+    "path":"folders/Auxiliares.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

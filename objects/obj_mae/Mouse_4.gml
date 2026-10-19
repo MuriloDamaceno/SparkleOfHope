@@ -5,7 +5,7 @@ if (global.caixa_aberta) {
 
     if (_dist <= 120) {
         global.caixa_aberta = true;
-        global.caixa_texto = "Acho que alguém deixou ligado.";
+        global.caixa_texto = "Acho que a mamãe está ocupada...";
     } else {
         show_debug_message("Preciso chegar mais perto!");
     }
