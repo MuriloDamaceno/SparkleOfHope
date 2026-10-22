@@ -1,9 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"rm_patio",
+  "%Name":"obj_patio",
   "eventList":[],
   "managed":true,
-  "name":"rm_patio",
+  "name":"obj_patio",
   "overriddenProperties":[],
   "parent":{
     "name":"Sparkle Of Hope",
@@ -27,10 +27,7 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":{
-    "name":"Sprite18",
-    "path":"sprites/Sprite18/Sprite18.yy",
-  },
+  "spriteId":null,
   "spriteMaskId":null,
   "visible":true,
 }
