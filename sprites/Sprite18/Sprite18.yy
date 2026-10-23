@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"patio",
+    "path":"folders/patio.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

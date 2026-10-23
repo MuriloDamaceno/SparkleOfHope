@@ -6,8 +6,8 @@
   "name":"obj_patio",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"patio",
+    "path":"folders/patio.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"Sprite18",
+    "path":"sprites/Sprite18/Sprite18.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
