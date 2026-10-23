@@ -1,7 +1,7 @@
 spd = 1.5;
 image_speed = 0;
 image_index = 0;
-floor_top = 161;
+
 
 target_x = x;
 target_y = y;
@@ -15,3 +15,10 @@ last_y = y;
 passo_timer = 0;
 passo_intervalo = 20; // a cada quantos frames toca o som (ajuste ao gosto)
 passo_som_id = -1; // guarda a instância do som tocando
+
+// No pátio quem limita são os obj_solido; nas outras salas mantém o limite antigo
+if (room == rm_patio) {
+    floor_top = 0;
+} else {
+    floor_top = 161;
+}
