@@ -8,7 +8,7 @@ var _kb_input = keyboard_check(vk_right) || keyboard_check(vk_left) || keyboard_
 
 if (_kb_input) {
     has_target = false;
-}
+}a
 
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
     if (!place_meeting(x + spd, y, obj_solido)) x += spd;
