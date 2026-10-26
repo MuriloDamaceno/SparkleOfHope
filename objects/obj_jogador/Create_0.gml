@@ -13,8 +13,8 @@ last_y = y;
 
 // controle do som de passo
 passo_timer = 0;
-passo_intervalo = 20; // a cada quantos frames toca o som (ajuste ao gosto)
-passo_som_id = -1; // guarda a instância do som tocando
+passo_intervalo = 20; 
+passo_som_id = -1; 
 
 // No pátio quem limita são os obj_solido; nas outras salas mantém o limite antigo
 if (room == rm_patio) {
