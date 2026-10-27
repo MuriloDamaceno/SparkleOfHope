@@ -18,6 +18,7 @@
     {"name":"inst_1AEA7ABD","path":"rooms/rm_patio/rm_patio.yy",},
     {"name":"inst_6871021E","path":"rooms/rm_patio/rm_patio.yy",},
     {"name":"inst_DD7BADE","path":"rooms/rm_patio/rm_patio.yy",},
+    {"name":"inst_1FB494A6","path":"rooms/rm_patio/rm_patio.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -34,6 +35,7 @@
         {"$GMRInstance":"v4","%Name":"inst_1AEA7ABD","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1AEA7ABD","objectId":{"name":"obj_cerca","path":"objects/obj_cerca/obj_cerca.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-0.26124382,"scaleX":-0.1795206,"scaleY":0.37506402,"x":184.3071,"y":127.59429,},
         {"$GMRInstance":"v4","%Name":"inst_6871021E","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6871021E","objectId":{"name":"obj_cerca","path":"objects/obj_cerca/obj_cerca.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-0.26124382,"scaleX":-0.22062628,"scaleY":0.25006402,"x":198.5,"y":135.71107,},
         {"$GMRInstance":"v4","%Name":"inst_DD7BADE","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_DD7BADE","objectId":{"name":"obj_cerca","path":"objects/obj_cerca/obj_cerca.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-0.26124382,"scaleX":-0.20500128,"scaleY":0.12452918,"x":211.65628,"y":143.74066,},
+        {"$GMRInstance":"v4","%Name":"inst_1FB494A6","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1FB494A6","objectId":{"name":"obj_saida_rua","path":"objects/obj_saida_rua/obj_saida_rua.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.09375,"scaleY":0.89843786,"x":494.0,"y":68.59705,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
