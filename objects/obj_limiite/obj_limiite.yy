@@ -6,8 +6,8 @@
   "name":"obj_limiite",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"ruacasa",
+    "path":"folders/ruacasa.yy",
   },
   "parentObjectId":{
     "name":"obj_solido",

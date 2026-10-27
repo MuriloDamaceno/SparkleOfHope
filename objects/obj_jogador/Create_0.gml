@@ -19,6 +19,8 @@ passo_som_id = -1;
 // No pátio quem limita são os obj_solido; nas outras salas mantém o limite antigo
 if (room == rm_patio) {
     floor_top = 0;
+} else if (room == rm_rua) {
+    floor_top = 0;   // ajuste esse valor conforme o chão do rm_rua
 } else {
     floor_top = 161;
 }
