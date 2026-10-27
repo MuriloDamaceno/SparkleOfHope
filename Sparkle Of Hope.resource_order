@@ -36,7 +36,6 @@
     {"name":"Obj_fundo_cozinha","order":1,"path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},
     {"name":"obj_fundo_menu","order":7,"path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},
     {"name":"obj_jogador","order":2,"path":"objects/obj_jogador/obj_jogador.yy",},
-    {"name":"obj_limiite","order":4,"path":"objects/obj_limiite/obj_limiite.yy",},
     {"name":"obj_limite","order":2,"path":"objects/obj_limite/obj_limite.yy",},
     {"name":"obj_mae","order":3,"path":"objects/obj_mae/obj_mae.yy",},
     {"name":"obj_painel_opcoes","order":3,"path":"objects/obj_painel_opcoes/obj_painel_opcoes.yy",},

@@ -56,7 +56,6 @@
     {"id":{"name":"Obj_fundo_cozinha","path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},},
     {"id":{"name":"obj_fundo_menu","path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},},
     {"id":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},},
-    {"id":{"name":"obj_limiite","path":"objects/obj_limiite/obj_limiite.yy",},},
     {"id":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},},
     {"id":{"name":"obj_mae","path":"objects/obj_mae/obj_mae.yy",},},
     {"id":{"name":"obj_painel_opcoes","path":"objects/obj_painel_opcoes/obj_painel_opcoes.yy",},},
