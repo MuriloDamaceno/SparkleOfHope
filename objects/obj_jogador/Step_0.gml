@@ -123,3 +123,19 @@ if (global.indo_para_porta) {
         global.indo_para_porta = false;
     }
 }
+
+//rm_patio para rm_rua
+
+if (room == rm_patio) {
+    // direita
+    if (x >= room_width - 10) {
+        room_goto(rm_rua);
+		
+		
+    }
+	
+if (place_meeting(x, y, obj_jogador)) {
+    room_goto(rm_rua);
+}
+  
+}
