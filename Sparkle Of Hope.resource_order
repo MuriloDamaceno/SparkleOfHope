@@ -46,6 +46,7 @@
     {"name":"obj_rua","order":1,"path":"objects/obj_rua/obj_rua.yy",},
     {"name":"obj_ruabeco","order":1,"path":"objects/obj_ruabeco/obj_ruabeco.yy",},
     {"name":"obj_ruacasa","order":2,"path":"objects/obj_ruacasa/obj_ruacasa.yy",},
+    {"name":"obj_saida_beco","order":3,"path":"objects/obj_saida_beco/obj_saida_beco.yy",},
     {"name":"obj_saida_rua","order":3,"path":"objects/obj_saida_rua/obj_saida_rua.yy",},
     {"name":"obj_slider_musica","order":6,"path":"objects/obj_slider_musica/obj_slider_musica.yy",},
     {"name":"obj_slider_som","order":7,"path":"objects/obj_slider_som/obj_slider_som.yy",},

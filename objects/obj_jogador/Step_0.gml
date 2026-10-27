@@ -139,3 +139,9 @@ if (place_meeting(x, y, obj_jogador)) {
 }
   
 }
+
+//rm_rua para rm_ruabeco
+
+if (place_meeting(x, y, obj_jogador)) {
+    room_goto(rua_beco);
+}

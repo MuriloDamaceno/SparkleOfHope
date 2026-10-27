@@ -66,6 +66,7 @@
     {"id":{"name":"obj_rua","path":"objects/obj_rua/obj_rua.yy",},},
     {"id":{"name":"obj_ruabeco","path":"objects/obj_ruabeco/obj_ruabeco.yy",},},
     {"id":{"name":"obj_ruacasa","path":"objects/obj_ruacasa/obj_ruacasa.yy",},},
+    {"id":{"name":"obj_saida_beco","path":"objects/obj_saida_beco/obj_saida_beco.yy",},},
     {"id":{"name":"obj_saida_rua","path":"objects/obj_saida_rua/obj_saida_rua.yy",},},
     {"id":{"name":"obj_slider_musica","path":"objects/obj_slider_musica/obj_slider_musica.yy",},},
     {"id":{"name":"obj_slider_som","path":"objects/obj_slider_som/obj_slider_som.yy",},},
