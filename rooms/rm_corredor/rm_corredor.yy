@@ -16,6 +16,7 @@
     {"name":"inst_5483EE0E","path":"rooms/rm_corredor/rm_corredor.yy",},
     {"name":"inst_BB9B2A0","path":"rooms/rm_corredor/rm_corredor.yy",},
     {"name":"inst_6651AF52","path":"rooms/rm_corredor/rm_corredor.yy",},
+    {"name":"inst_60B3AB37","path":"rooms/rm_corredor/rm_corredor.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -30,6 +31,7 @@
         {"$GMRInstance":"v4","%Name":"inst_5483EE0E","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5483EE0E","objectId":{"name":"objeto_corredor_portaPais","path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.9,"scaleY":1.3,"x":148.0,"y":79.59999,},
         {"$GMRInstance":"v4","%Name":"inst_BB9B2A0","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_BB9B2A0","objectId":{"name":"objeto_corredor_portaBanheiro","path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8,"scaleY":1.2,"x":297.8,"y":85.999985,},
         {"$GMRInstance":"v4","%Name":"inst_6651AF52","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_6651AF52","objectId":{"name":"obj_corredor_portaCozinha","path":"objects/obj_corredor_portaCozinha/obj_corredor_portaCozinha.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.8,"scaleY":1.2,"x":425.8,"y":85.0,},
+        {"$GMRInstance":"v4","%Name":"inst_60B3AB37","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_60B3AB37","objectId":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.05,"scaleY":0.05,"x":0.0,"y":0.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
   ],
   "name":"rm_corredor",

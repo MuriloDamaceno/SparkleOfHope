@@ -9,6 +9,7 @@
     {"name":"inst_37F3EEAD","path":"rooms/rua_beco/rua_beco.yy",},
     {"name":"inst_53C7E8B5","path":"rooms/rua_beco/rua_beco.yy",},
     {"name":"inst_19C26471","path":"rooms/rua_beco/rua_beco.yy",},
+    {"name":"inst_8BD89A3","path":"rooms/rua_beco/rua_beco.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -16,6 +17,7 @@
         {"$GMRInstance":"v4","%Name":"inst_37F3EEAD","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_37F3EEAD","objectId":{"name":"obj_ruabeco","path":"objects/obj_ruabeco/obj_ruabeco.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_53C7E8B5","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_53C7E8B5","objectId":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":6.390625,"scaleY":0.703125,"x":0.0,"y":155.0,},
         {"$GMRInstance":"v4","%Name":"inst_19C26471","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_19C26471","objectId":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":6.390625,"scaleY":1.5625,"x":-4.5,"y":0.0,},
+        {"$GMRInstance":"v4","%Name":"inst_8BD89A3","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_8BD89A3","objectId":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.05,"scaleY":0.05,"x":0.0,"y":5.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

@@ -13,6 +13,7 @@
     {"name":"inst_2158BE0C","path":"rooms/rm_rua/rm_rua.yy",},
     {"name":"inst_40216E2D","path":"rooms/rm_rua/rm_rua.yy",},
     {"name":"inst_7A415F21","path":"rooms/rm_rua/rm_rua.yy",},
+    {"name":"inst_47AC1FAB","path":"rooms/rm_rua/rm_rua.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -24,6 +25,7 @@
         {"$GMRInstance":"v4","%Name":"inst_7A415F21","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_7A415F21","objectId":{"name":"obj_ruacasa","path":"objects/obj_ruacasa/obj_ruacasa.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":89.744125,"scaleX":1.1723607,"scaleY":3.8914838,"x":50.612427,"y":200.05199,},
         {"$GMRInstance":"v4","%Name":"inst_26F0C280","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_26F0C280","objectId":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.18238425,"scaleX":0.7,"scaleY":0.65,"x":15.556733,"y":189.56117,},
         {"$GMRInstance":"v4","%Name":"inst_40216E2D","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_40216E2D","objectId":{"name":"obj_saida_beco","path":"objects/obj_saida_beco/obj_saida_beco.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.24617672,"scaleY":0.5321975,"x":292.12234,"y":107.93936,},
+        {"$GMRInstance":"v4","%Name":"inst_47AC1FAB","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_47AC1FAB","objectId":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.05,"scaleY":0.05,"x":0.0,"y":0.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"Sprite19","path":"sprites/Sprite19/Sprite19.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
