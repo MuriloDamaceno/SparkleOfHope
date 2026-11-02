@@ -1,8 +1,20 @@
-// Variável global: true enquanto a transição está rodando
-global.em_transicao = false;
 
-/// @desc Inicia a transição em blocos pretos e troca para a room de destino
 function transicao_iniciar(_room) {
-    if (instance_exists(obj_transicao)) return; // impede duas transições ao mesmo tempo
-    instance_create_depth(0, 0, -16000, obj_transicao, { room_destino: _room });
+
+    show_debug_message("TRANSICAO: funcao chamada!");
+
+    if (instance_exists(obj_transicao)) {
+        show_debug_message("TRANSICAO: objeto ja existe!");
+        return;
+    }
+
+    var _t = instance_create_depth(
+        0, 0, -16000, obj_transicao
+    );
+
+    _t.room_destino = _room;
+
+    show_debug_message(
+        "TRANSICAO: objeto criado! ID=" + string(_t)
+    );
 }
