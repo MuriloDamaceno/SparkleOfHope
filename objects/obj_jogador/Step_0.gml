@@ -1,11 +1,9 @@
-if (place_meeting(x, y, obj_solido)) {
-    show_debug_message("COLIDINDO agora - x=" + string(x) + " y=" + string(y));
-}
-
-
 var _moving = false;
 var _kb_input = keyboard_check(vk_right) || keyboard_check(vk_left) || keyboard_check(vk_up) || keyboard_check(vk_down)
             || keyboard_check(ord("D")) || keyboard_check(ord("A")) || keyboard_check(ord("W")) || keyboard_check(ord("S"));
+
+// mantém o tamanho definido na room
+image_yscale = escala;
 
 if (_kb_input) {
     has_target = false;
@@ -14,25 +12,25 @@ if (_kb_input) {
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
     if (!place_meeting(x + spd, y, obj_solido)) x += spd;
     sprite_index = spr_perfil;
-    image_xscale = 1;
+    image_xscale = escala;
     _moving = true;
 }
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
     if (!place_meeting(x - spd, y, obj_solido)) x -= spd;
     sprite_index = spr_perfil;
-    image_xscale = -1;
+    image_xscale = -escala;
     _moving = true;
 }
 if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
     if (!place_meeting(x, y - spd, obj_solido)) y -= spd;
     sprite_index = spr_costas;
-    image_xscale = 1;
+    image_xscale = escala;
     _moving = true;
 }
 if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
     if (!place_meeting(x, y + spd, obj_solido)) y += spd;
     sprite_index = spr_frente;
-    image_xscale = 1;
+    image_xscale = escala;
     _moving = true;
 }
 
@@ -63,10 +61,10 @@ if (!_kb_input && has_target) {
         if (_moved) {
             if (abs(_dx) > 0 && abs(target_x - x) >= abs(target_y - y)) {
                 sprite_index = spr_perfil;
-                image_xscale = _dx;
+                image_xscale = _dx * escala;
             } else if (_dy != 0) {
                 sprite_index = (_dy < 0) ? spr_costas : spr_frente;
-                image_xscale = 1;
+                image_xscale = escala;
             }
             _moving = true;
             stuck_timer = 0;
@@ -88,8 +86,6 @@ y = clamp(y, floor_top, room_height - 3);
 
 last_x = x;
 last_y = y;
-show_debug_message("x=" + string(x) + " has_target=" + string(has_target) + " target_x=" + string(target_x) + " stuck=" + string(stuck_timer) + " indo_porta=" + string(global.indo_para_porta));
-
 
 if (_moving) {
     image_speed = 0.15;
@@ -112,6 +108,7 @@ if (_moving) {
     passo_som_id = -1;
 }
 
+// ir até a porta clicada de longe
 if (global.indo_para_porta) {
     if (instance_exists(global.porta_alvo)) {
         var _dist_porta = point_distance(x, y, global.porta_alvo.x, global.porta_alvo.y);
@@ -124,24 +121,16 @@ if (global.indo_para_porta) {
     }
 }
 
-//rm_patio para rm_rua
-
+// rm_patio -> rm_rua
 if (room == rm_patio) {
-    // direita
-    if (x >= room_width - 10) {
+    if (x >= room_width - 10 || place_meeting(x, y, obj_saida_rua)) {
         room_goto(rm_rua);
-		
-		
     }
-	
-if (place_meeting(x, y, obj_jogador)) {
-    room_goto(rm_rua);
-}
-  
 }
 
-//rm_rua para rm_ruabeco
-
-if (place_meeting(x, y, obj_jogador)) {
-    room_goto(rua_beco);
+// rm_rua -> rua_beco
+if (room == rm_rua) {
+    if (place_meeting(x, y, obj_saida_beco)) {
+        room_goto(rua_beco);
+    }
 }
