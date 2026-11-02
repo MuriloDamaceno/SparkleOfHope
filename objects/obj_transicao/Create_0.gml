@@ -1,3 +1,5 @@
+show_debug_message("OBJ_TRANSICAO FOI CRIADO!");
+
 persistent = true;          // sobrevive à troca de room
 global.em_transicao = true;
 window_set_cursor(cr_default);

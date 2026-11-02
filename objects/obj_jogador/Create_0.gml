@@ -1,3 +1,6 @@
+// Controle global das transições
+global.em_transicao = false;
+
 spd = 1.5;
 image_speed = 0;
 image_index = 0;
