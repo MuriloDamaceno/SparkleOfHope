@@ -1,11 +1,12 @@
 
-global.indo_para_porta = false;
+// ==========================================
+// CONTROLE DA TRANSIÇÃO
+// ==========================================
 
-if (global.room_alvo == rm_patio) {
-    transicao_iniciar(global.room_alvo);
-} else {
-    room_goto(global.room_alvo);
+if (!variable_global_exists("em_transicao")) {
+    global.em_transicao = false;
 }
+
 // Congela o jogador durante a transição
 if (global.em_transicao) {
     has_target = false;
@@ -20,7 +21,7 @@ if (global.em_transicao) {
     exit;
 }
 
-// Proteção caso escala ainda não esteja definida
+// Proteção para escala
 if (!variable_instance_exists(id, "escala")) {
     escala = 1;
 }
@@ -41,7 +42,6 @@ var _kb_input =
     keyboard_check(ord("W")) ||
     keyboard_check(ord("S"));
 
-// Mantém o tamanho definido na room
 image_yscale = escala;
 
 if (_kb_input) {
@@ -243,7 +243,23 @@ if (global.indo_para_porta) {
 
             global.indo_para_porta = false;
 
-            transicao_iniciar(global.room_alvo);
+            // Verifica se o destino é válido
+            if (
+                global.room_alvo != noone &&
+                room_exists(global.room_alvo)
+            ) {
+
+                if (global.room_alvo == rm_patio) {
+
+                    // Entrada no pátio COM animação
+                    transicao_iniciar(rm_patio);
+
+                } else {
+
+                    // Outras rooms SEM animação
+                    room_goto(global.room_alvo);
+                }
+            }
         }
 
     } else {
@@ -252,7 +268,7 @@ if (global.indo_para_porta) {
 }
 
 // ==========================================
-// TRANSIÇÃO: PÁTIO -> RUA
+// PÁTIO -> RUA (COM ANIMAÇÃO)
 // ==========================================
 
 if (room == rm_patio) {
@@ -266,12 +282,12 @@ if (room == rm_patio) {
 }
 
 // ==========================================
-// TRANSIÇÃO: RUA -> BECO
+// RUA -> BECO (SEM ANIMAÇÃO)
 // ==========================================
 
 if (room == rm_rua) {
 
     if (place_meeting(x, y, obj_saida_beco)) {
-        transicao_iniciar(rua_beco);
+        room_goto(rua_beco);
     }
 }
