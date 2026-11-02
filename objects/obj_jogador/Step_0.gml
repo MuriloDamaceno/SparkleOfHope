@@ -1,17 +1,11 @@
-// TESTE TEMPORÁRIO DA TRANSIÇÃO
-if (keyboard_check_pressed(ord("T"))) {
-    show_debug_message("TESTE: iniciando transicao!");
-    transicao_iniciar(rm_corredor);
-}
-// ==========================================
-// CONTROLE DA TRANSIÇÃO
-// ==========================================
 
-// Evita erro se a variável global ainda não existir
-if (!variable_global_exists("em_transicao")) {
-    global.em_transicao = false;
-}
+global.indo_para_porta = false;
 
+if (global.room_alvo == rm_patio) {
+    transicao_iniciar(global.room_alvo);
+} else {
+    room_goto(global.room_alvo);
+}
 // Congela o jogador durante a transição
 if (global.em_transicao) {
     has_target = false;
