@@ -9,8 +9,8 @@
   "name":"Obj_inventario",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"Auxiliares",
+    "path":"folders/Auxiliares.yy",
   },
   "parentObjectId":null,
   "persistent":false,

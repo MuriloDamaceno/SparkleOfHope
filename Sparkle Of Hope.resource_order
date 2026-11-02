@@ -36,7 +36,7 @@
     {"name":"obj_fundo_corredor","order":1,"path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},
     {"name":"Obj_fundo_cozinha","order":1,"path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},
     {"name":"obj_fundo_menu","order":7,"path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},
-    {"name":"Obj_inventario","order":26,"path":"objects/Obj_inventario/Obj_inventario.yy",},
+    {"name":"Obj_inventario","order":9,"path":"objects/Obj_inventario/Obj_inventario.yy",},
     {"name":"obj_jogador","order":2,"path":"objects/obj_jogador/obj_jogador.yy",},
     {"name":"obj_limite","order":2,"path":"objects/obj_limite/obj_limite.yy",},
     {"name":"obj_mae","order":3,"path":"objects/obj_mae/obj_mae.yy",},
@@ -79,6 +79,6 @@
     {"name":"spr_perfil","order":2,"path":"sprites/spr_perfil/spr_perfil.yy",},
     {"name":"spr_titulo","order":10,"path":"sprites/spr_titulo/spr_titulo.yy",},
     {"name":"Sprite17","order":6,"path":"sprites/Sprite17/Sprite17.yy",},
-    {"name":"Sprite21","order":25,"path":"sprites/Sprite21/Sprite21.yy",},
+    {"name":"Sprite21","order":10,"path":"sprites/Sprite21/Sprite21.yy",},
   ],
 }
