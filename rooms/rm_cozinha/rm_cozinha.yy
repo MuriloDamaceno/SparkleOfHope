@@ -20,6 +20,7 @@
     {"name":"inst_23AEF802","path":"rooms/rm_cozinha/rm_cozinha.yy",},
     {"name":"inst_562C7D41","path":"rooms/rm_cozinha/rm_cozinha.yy",},
     {"name":"inst_79AB857E","path":"rooms/rm_cozinha/rm_cozinha.yy",},
+    {"name":"inst_1019CB7D","path":"rooms/rm_cozinha/rm_cozinha.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -38,6 +39,7 @@
         {"$GMRInstance":"v4","%Name":"inst_5A84893A","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_5A84893A","objectId":{"name":"obj_cozinha_geladeira","path":"objects/obj_cozinha_geladeira/obj_cozinha_geladeira.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.5843749,"x":7.0,"y":70.0,},
         {"$GMRInstance":"v4","%Name":"inst_23AEF802","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_23AEF802","objectId":{"name":"obj_som_cozinha","path":"objects/obj_som_cozinha/obj_som_cozinha.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":128.0,"y":96.0,},
         {"$GMRInstance":"v4","%Name":"inst_79AB857E","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_79AB857E","objectId":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.05,"scaleY":0.05,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v4","%Name":"inst_1019CB7D","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1019CB7D","objectId":{"name":"obj_cozinha_portaCorredor","path":"objects/obj_cozinha_portaCorredor/obj_cozinha_portaCorredor.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.109375,"scaleY":1.421875,"x":0.0,"y":108.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

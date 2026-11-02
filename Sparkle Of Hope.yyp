@@ -54,6 +54,7 @@
     {"id":{"name":"obj_cozinha_geladeira","path":"objects/obj_cozinha_geladeira/obj_cozinha_geladeira.yy",},},
     {"id":{"name":"obj_cozinha_pia","path":"objects/obj_cozinha_pia/obj_cozinha_pia.yy",},},
     {"id":{"name":"obj_cozinha_porta","path":"objects/obj_cozinha_porta/obj_cozinha_porta.yy",},},
+    {"id":{"name":"obj_cozinha_portaCorredor","path":"objects/obj_cozinha_portaCorredor/obj_cozinha_portaCorredor.yy",},},
     {"id":{"name":"obj_fundo_corredor","path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},},
     {"id":{"name":"Obj_fundo_cozinha","path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},},
     {"id":{"name":"obj_fundo_menu","path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},},
