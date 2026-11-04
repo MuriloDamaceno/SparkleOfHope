@@ -1,11 +1,6 @@
-// Proteção para escala
 if (!variable_instance_exists(id, "escala")) {
     escala = 1;
 }
-
-// ==========================================
-// MOVIMENTAÇÃO DO JOGADOR
-// ==========================================
 
 var _moving = false;
 
@@ -25,7 +20,6 @@ if (_kb_input) {
     has_target = false;
 }
 
-// DIREITA
 if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
     if (!place_meeting(x + spd, y, obj_solido)) {
         x += spd;
@@ -36,7 +30,6 @@ if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
     _moving = true;
 }
 
-// ESQUERDA
 if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
     if (!place_meeting(x - spd, y, obj_solido)) {
         x -= spd;
@@ -47,7 +40,6 @@ if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
     _moving = true;
 }
 
-// CIMA
 if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
     if (!place_meeting(x, y - spd, obj_solido)) {
         y -= spd;
@@ -58,7 +50,6 @@ if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
     _moving = true;
 }
 
-// BAIXO
 if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
     if (!place_meeting(x, y + spd, obj_solido)) {
         y += spd;
@@ -69,16 +60,9 @@ if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
     _moving = true;
 }
 
-// ==========================================
-// MOVIMENTAÇÃO AUTOMÁTICA
-// ==========================================
-
 if (!_kb_input && has_target) {
 
-    var _dist = point_distance(
-        x, y,
-        target_x, target_y
-    );
+    var _dist = point_distance(x, y, target_x, target_y);
 
     if (_dist > spd) {
 
@@ -125,10 +109,7 @@ if (!_kb_input && has_target) {
 
             } else if (_dy != 0) {
 
-                sprite_index = (_dy < 0)
-                    ? spr_costas
-                    : spr_frente;
-
+                sprite_index = (_dy < 0) ? spr_costas : spr_frente;
                 image_xscale = escala;
             }
 
@@ -149,14 +130,70 @@ if (!_kb_input && has_target) {
     }
 }
 
-// ==========================================
-// LIMITES DO CENÁRIO
-// ==========================================
-
 x = clamp(x, 8, room_width - 8);
 y = clamp(y, floor_top, room_height - 3);
 
 last_x = x;
 last_y = y;
 
-// ==========================================
+if (_moving) {
+
+    image_speed = 0.15;
+
+    passo_timer++;
+
+    if (passo_timer >= passo_intervalo) {
+
+        if (passo_som_id == -1 || !audio_is_playing(passo_som_id)) {
+            passo_som_id = audio_play_sound(snd_passo, 1, false, global.volume_sfx);
+        }
+
+        passo_timer = 0;
+    }
+
+} else {
+
+    image_speed = 0;
+    image_index = 0;
+    passo_timer = passo_intervalo;
+
+    if (passo_som_id != -1 && audio_is_playing(passo_som_id)) {
+        audio_stop_sound(passo_som_id);
+    }
+
+    passo_som_id = -1;
+}
+
+if (global.indo_para_porta) {
+
+    if (instance_exists(global.porta_alvo)) {
+
+        var _dist_porta = point_distance(x, y, global.porta_alvo.x, global.porta_alvo.y);
+
+        if (_dist_porta <= 120) {
+
+            global.indo_para_porta = false;
+
+            if (global.room_alvo != noone && room_exists(global.room_alvo)) {
+                room_goto(global.room_alvo);
+            }
+        }
+
+    } else {
+        global.indo_para_porta = false;
+    }
+}
+
+if (room == rm_patio) {
+
+    if (x >= room_width - 10 || place_meeting(x, y, obj_saida_rua)) {
+        room_goto(rm_rua);
+    }
+}
+
+if (room == rm_rua) {
+
+    if (place_meeting(x, y, obj_saida_beco)) {
+        room_goto(rua_beco);
+    }
+}
