@@ -1,3 +1,7 @@
+
+if (global.caixa_aberta) exit;
+
+
 if (instance_exists(Obj_inventario)) exit;
 
 if (!place_meeting(mouse_x, mouse_y, obj_solido)) {

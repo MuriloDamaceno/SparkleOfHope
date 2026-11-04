@@ -30,7 +30,6 @@
     {"name":"obj_cozinha_armarioAlto","order":4,"path":"objects/obj_cozinha_armarioAlto/obj_cozinha_armarioAlto.yy",},
     {"name":"obj_cozinha_cesto","order":6,"path":"objects/obj_cozinha_cesto/obj_cozinha_cesto.yy",},
     {"name":"obj_cozinha_geladeira","order":2,"path":"objects/obj_cozinha_geladeira/obj_cozinha_geladeira.yy",},
-    {"name":"obj_cozinha_pia","order":7,"path":"objects/obj_cozinha_pia/obj_cozinha_pia.yy",},
     {"name":"obj_cozinha_porta","order":5,"path":"objects/obj_cozinha_porta/obj_cozinha_porta.yy",},
     {"name":"obj_cozinha_portaCorredor","order":9,"path":"objects/obj_cozinha_portaCorredor/obj_cozinha_portaCorredor.yy",},
     {"name":"obj_fundo_corredor","order":1,"path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},

@@ -1,3 +1,25 @@
+
+if (global.caixa_aberta) {
+
+    // Cancela o movimento
+    has_target = false;
+    global.indo_para_porta = false;
+
+    // Para a animação de caminhada
+    image_speed = 0;
+    image_index = 0;
+
+    // Interrompe o som dos passos
+    if (passo_som_id != -1) {
+        audio_stop_sound(passo_som_id);
+        passo_som_id = -1;
+    }
+
+    // Não executa o restante do Step
+    exit;
+}
+
+
 if (!variable_instance_exists(id, "escala")) {
     escala = 1;
 }

@@ -1,4 +1,7 @@
 
+if (global.caixa_aberta) exit;
+
+
 if (global.caixa_aberta) {
     global.caixa_aberta = false;
 } else {
