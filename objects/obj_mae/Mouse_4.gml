@@ -1,3 +1,4 @@
+
 if (global.caixa_aberta) {
     global.caixa_aberta = false;
 } else {
@@ -6,6 +7,9 @@ if (global.caixa_aberta) {
     if (_dist <= 120) {
         global.caixa_aberta = true;
         global.caixa_texto = "Acho que a mamãe está ocupada...";
+
+        // Libera o livro no corredor
+        global.livro_liberado = true;
     } else {
         show_debug_message("Preciso chegar mais perto!");
     }

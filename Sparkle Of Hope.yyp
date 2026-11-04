@@ -61,6 +61,7 @@
     {"id":{"name":"Obj_inventario","path":"objects/Obj_inventario/Obj_inventario.yy",},},
     {"id":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},},
     {"id":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},},
+    {"id":{"name":"obj_livro","path":"objects/obj_livro/obj_livro.yy",},},
     {"id":{"name":"obj_mae","path":"objects/obj_mae/obj_mae.yy",},},
     {"id":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},},
     {"id":{"name":"obj_painel_opcoes","path":"objects/obj_painel_opcoes/obj_painel_opcoes.yy",},},
