@@ -4,4 +4,5 @@ depth = -1000;
 letras_visiveis = 0;
 velocidade_texto = 0.5;
 ultimo_texto = "";
-som_fim_tocado = false;
+som_dialogo_id = -1;
+
