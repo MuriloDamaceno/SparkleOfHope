@@ -70,6 +70,7 @@
     {"name":"rua_beco","order":21,"path":"rooms/rua_beco/rua_beco.yy",},
     {"name":"mus_tema","order":9,"path":"sounds/mus_tema/mus_tema.yy",},
     {"name":"snd_ambiente_cozinha","order":1,"path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},
+    {"name":"snd_fim_dialogo","order":26,"path":"sounds/snd_fim_dialogo/snd_fim_dialogo.yy",},
     {"name":"livro","order":3,"path":"sprites/livro/livro.yy",},
     {"name":"spr_botao_iniciar","order":1,"path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},
     {"name":"spr_botao_opcoes","order":3,"path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},

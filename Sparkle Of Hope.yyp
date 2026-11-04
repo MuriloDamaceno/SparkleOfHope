@@ -93,6 +93,7 @@
     {"id":{"name":"rua_beco","path":"rooms/rua_beco/rua_beco.yy",},},
     {"id":{"name":"mus_tema","path":"sounds/mus_tema/mus_tema.yy",},},
     {"id":{"name":"snd_ambiente_cozinha","path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},},
+    {"id":{"name":"snd_fim_dialogo","path":"sounds/snd_fim_dialogo/snd_fim_dialogo.yy",},},
     {"id":{"name":"snd_passo","path":"sounds/snd_passo/snd_passo.yy",},},
     {"id":{"name":"livro","path":"sprites/livro/livro.yy",},},
     {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
