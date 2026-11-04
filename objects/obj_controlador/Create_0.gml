@@ -19,3 +19,4 @@ global.room_alvo = noone;
 
 
 global.livro_liberado = false;
+global.tem_livro = false;

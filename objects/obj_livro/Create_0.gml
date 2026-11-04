@@ -1,2 +1,4 @@
 
-visible = global.livro_liberado;
+
+visible = global.livro_liberado && !global.tem_livro;
+
