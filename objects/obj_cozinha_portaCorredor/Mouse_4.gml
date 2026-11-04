@@ -7,7 +7,7 @@ global.spawn_y = 185;
 
 if (_dist <= 120) {
     global.indo_para_porta = false;
-    transicao_iniciar(rm_corredor);
+    room_goto(rm_corredor);
 } else {
     obj_jogador.target_x = x;
     obj_jogador.target_y = obj_jogador.floor_top;

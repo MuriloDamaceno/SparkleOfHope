@@ -16,7 +16,7 @@ if (_dist <= 200) {
     global.indo_para_porta = false;
 
     // Inicia a animação antes de entrar no pátio
-    transicao_iniciar(rm_patio);
+    room_goto(rm_patio);
 
 } else {
 
