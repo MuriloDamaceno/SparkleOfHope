@@ -93,6 +93,7 @@
     {"id":{"name":"mus_tema","path":"sounds/mus_tema/mus_tema.yy",},},
     {"id":{"name":"snd_ambiente_cozinha","path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},},
     {"id":{"name":"snd_passo","path":"sounds/snd_passo/snd_passo.yy",},},
+    {"id":{"name":"livro","path":"sprites/livro/livro.yy",},},
     {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
     {"id":{"name":"spr_botao_iniciar","path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},},
     {"id":{"name":"spr_botao_opcoes","path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},},
