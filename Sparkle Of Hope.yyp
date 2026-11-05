@@ -36,6 +36,7 @@
   "name":"Sparkle Of Hope",
   "resources":[
     {"id":{"name":"fnt_dialogo","path":"fonts/fnt_dialogo/fnt_dialogo.yy",},},
+    {"id":{"name":"obj_andador","path":"objects/obj_andador/obj_andador.yy",},},
     {"id":{"name":"obj_armario","path":"objects/obj_armario/obj_armario.yy",},},
     {"id":{"name":"obj_botao_fechar","path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},},
     {"id":{"name":"obj_botao_iniciar","path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},},
@@ -96,6 +97,7 @@
     {"id":{"name":"Sound4","path":"sounds/Sound4/Sound4.yy",},},
     {"id":{"name":"livro","path":"sprites/livro/livro.yy",},},
     {"id":{"name":"QuartoCeleste","path":"sprites/QuartoCeleste/QuartoCeleste.yy",},},
+    {"id":{"name":"spr_andador","path":"sprites/spr_andador/spr_andador.yy",},},
     {"id":{"name":"spr_botao_iniciar","path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},},
     {"id":{"name":"spr_botao_opcoes","path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},},
     {"id":{"name":"spr_botao_sair","path":"sprites/spr_botao_sair/spr_botao_sair.yy",},},

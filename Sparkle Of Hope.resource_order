@@ -16,6 +16,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fnt_dialogo","order":5,"path":"fonts/fnt_dialogo/fnt_dialogo.yy",},
+    {"name":"obj_andador","order":26,"path":"objects/obj_andador/obj_andador.yy",},
     {"name":"obj_botao_fechar","order":4,"path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},
     {"name":"obj_botao_iniciar","order":4,"path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},
     {"name":"obj_botao_opcoes","order":5,"path":"objects/obj_botao_opcoes/obj_botao_opcoes.yy",},
@@ -71,6 +72,7 @@
     {"name":"snd_ambiente_cozinha","order":1,"path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},
     {"name":"Sound4","order":3,"path":"sounds/Sound4/Sound4.yy",},
     {"name":"livro","order":3,"path":"sprites/livro/livro.yy",},
+    {"name":"spr_andador","order":25,"path":"sprites/spr_andador/spr_andador.yy",},
     {"name":"spr_botao_iniciar","order":1,"path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},
     {"name":"spr_botao_opcoes","order":3,"path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},
     {"name":"spr_botao_sair","order":2,"path":"sprites/spr_botao_sair/spr_botao_sair.yy",},
