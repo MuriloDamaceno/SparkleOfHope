@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_andador",
+    "path":"sprites/spr_andador/spr_andador.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
