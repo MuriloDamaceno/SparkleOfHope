@@ -14,8 +14,8 @@
   "exportDir":"",
   "name":"snd_fim_dialogo",
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"sons",
+    "path":"folders/sons.yy",
   },
   "preload":false,
   "resourceType":"GMSound",
