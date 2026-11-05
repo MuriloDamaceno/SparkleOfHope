@@ -83,6 +83,7 @@
     {"id":{"name":"objeto_corredor_armario","path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},},
     {"id":{"name":"objeto_corredor_portaBanheiro","path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},},
     {"id":{"name":"objeto_corredor_portaPais","path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},},
+    {"id":{"name":"forabiblioteca","path":"rooms/forabiblioteca/forabiblioteca.yy",},},
     {"id":{"name":"rm_corredor","path":"rooms/rm_corredor/rm_corredor.yy",},},
     {"id":{"name":"rm_cozinha","path":"rooms/rm_cozinha/rm_cozinha.yy",},},
     {"id":{"name":"rm_menu","path":"rooms/rm_menu/rm_menu.yy",},},
@@ -103,6 +104,7 @@
     {"id":{"name":"spr_corredor","path":"sprites/spr_corredor/spr_corredor.yy",},},
     {"id":{"name":"spr_costas","path":"sprites/spr_costas/spr_costas.yy",},},
     {"id":{"name":"spr_cozinha","path":"sprites/spr_cozinha/spr_cozinha.yy",},},
+    {"id":{"name":"spr_forabiblioteca","path":"sprites/spr_forabiblioteca/spr_forabiblioteca.yy",},},
     {"id":{"name":"spr_frente","path":"sprites/spr_frente/spr_frente.yy",},},
     {"id":{"name":"spr_hotspot","path":"sprites/spr_hotspot/spr_hotspot.yy",},},
     {"id":{"name":"spr_menu_fundo","path":"sprites/spr_menu_fundo/spr_menu_fundo.yy",},},
@@ -127,6 +129,7 @@
     {"roomId":{"name":"rm_patio","path":"rooms/rm_patio/rm_patio.yy",},},
     {"roomId":{"name":"rm_rua","path":"rooms/rm_rua/rm_rua.yy",},},
     {"roomId":{"name":"rua_beco","path":"rooms/rua_beco/rua_beco.yy",},},
+    {"roomId":{"name":"forabiblioteca","path":"rooms/forabiblioteca/forabiblioteca.yy",},},
   ],
   "templateType":null,
   "TextureGroups":[
