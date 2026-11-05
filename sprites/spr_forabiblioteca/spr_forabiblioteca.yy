@@ -44,8 +44,8 @@
   },
   "origin":0,
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"forabiblioteca",
+    "path":"folders/forabiblioteca.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

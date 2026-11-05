@@ -36,48 +36,67 @@ if (room == rm_rua) {
 
     var _teste_y = y;
 
+    // Movimento pelo teclado
     if (
         keyboard_check(vk_up) ||
         keyboard_check(ord("W"))
     ) {
+
         _teste_y -= spd;
 
     } else if (
         keyboard_check(vk_down) ||
         keyboard_check(ord("S"))
     ) {
+
         _teste_y += spd;
 
     } else if (has_target) {
 
+        // Movimento automatico pelo mouse
         if (target_y < y - spd) {
             _teste_y -= spd;
+
         } else if (target_y > y + spd) {
             _teste_y += spd;
         }
     }
 
-    if (
-        _teste_y != y &&
-        (x < 50 || x > 175) &&
-        y >= 105 && y <= 165 &&
-        place_meeting(x, _teste_y, obj_ruacasa)
-    ) {
+    // Procura uma barreira na proxima posicao
+    if (_teste_y != y) {
 
-        has_target = false;
+        var _barreira = instance_place(
+            x, _teste_y, obj_ruacasa
+        );
 
-        global.caixa_aberta = true;
-        global.caixa_texto =
-            "Ei, não posso ir por aqui. . .";
+        if (_barreira != noone) {
 
-        image_speed = 0;
+            // Apenas a barreira marcada com
+            // aviso_travessia pode mostrar o aviso
+            if (variable_instance_exists(
+                _barreira, "aviso_travessia"
+            )) {
 
-        if (passo_som_id != -1) {
-            audio_stop_sound(passo_som_id);
-            passo_som_id = -1;
+                if (_barreira.aviso_travessia) {
+
+                    has_target = false;
+
+                    global.caixa_aberta = true;
+                    global.caixa_texto =
+                        "Ei, não posso ir por aqui. . .";
+
+                    image_speed = 0;
+                    image_index = 0;
+
+                    if (passo_som_id != -1) {
+                        audio_stop_sound(passo_som_id);
+                        passo_som_id = -1;
+                    }
+
+                    exit;
+                }
+            }
         }
-
-        exit;
     }
 }
 
