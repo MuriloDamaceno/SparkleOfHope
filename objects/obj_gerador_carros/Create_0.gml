@@ -10,7 +10,7 @@ sprites_carros = [
 
 // Altura das duas faixas
 y_faixa_1 = 140;
-y_faixa_2 = 165;
+y_faixa_2 = 150;
 
 // Velocidade de cada faixa
 vel_faixa_1 = -1;

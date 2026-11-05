@@ -2,26 +2,28 @@
 /// FAIXA 2 - ESQUERDA PARA DIREITA
 
 var _carro = instance_create_depth(
-    -10,
+    0,
     y_faixa_2,
     50,
     obj_carro
 );
 
-// Cor do carro
+// Escolhe a cor
 _carro.sprite_index = sprites_carros[indice_2];
 
-// Direcao e velocidade
-_carro.velocidade = vel_faixa_2;
+// Anda da esquerda para a direita
+_carro.velocidade = 0.7;
 
-// Espelha o carro para apontar
-// para o lado contrario
 _carro.image_xscale = -1;
+_carro.image_yscale = 1;
 
-// Ordem de cores inversa
+// Comeca totalmente fora da tela
+_carro.x = 0;
+
+// Ordem inversa das cores
 indice_2 = (indice_2 + 2) mod 3;
 
-// Intervalo aleatorio: 4 a 7 segundos
+// Intervalo aleatorio de 4 a 7 segundos
 var _tempo = random_range(4, 7);
 
 alarm[1] = max(
