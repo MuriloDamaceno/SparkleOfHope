@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"Sprite18",
-    "path":"sprites/Sprite18/Sprite18.yy",
+    "name":"spr_patio",
+    "path":"sprites/spr_patio/spr_patio.yy",
   },
   "spriteMaskId":null,
   "visible":true,

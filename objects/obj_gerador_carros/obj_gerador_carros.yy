@@ -10,8 +10,8 @@
   "name":"obj_gerador_carros",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"ruabeco",
+    "path":"folders/ruabeco.yy",
   },
   "parentObjectId":null,
   "persistent":false,
