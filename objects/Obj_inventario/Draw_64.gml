@@ -25,22 +25,22 @@ if (global.tem_livro) {
 
     // Tamanho máximo do livro dentro do espaço
     var _tam = min(
-        (11 * _escala) / sprite_get_width(spr_livro),
-        (8 * _escala) / sprite_get_height(spr_livro)
+        (11 * _escala) / sprite_get_width(livro),
+        (8 * _escala) / sprite_get_height(livro)
     );
 
     // Centraliza o livro independentemente da origem
     var _livro_x = _item_x +
-        (sprite_get_xoffset(spr_livro)
-        - sprite_get_width(spr_livro) / 2) * _tam;
+        (sprite_get_xoffset(livro)
+        - sprite_get_width(livro) / 2) * _tam;
 
     var _livro_y = _item_y +
-        (sprite_get_yoffset(spr_livro)
-        - sprite_get_height(spr_livro) / 2) * _tam;
+        (sprite_get_yoffset(livro)
+        - sprite_get_height(livro) / 2) * _tam;
 
     // Desenha o livro
     draw_sprite_ext(
-        spr_livro, 0,
+        livro, 0,
         round(_livro_x), round(_livro_y),
         _tam, _tam, 0, c_white, 1
     );

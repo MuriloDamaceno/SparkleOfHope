@@ -30,7 +30,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         // Começa a tocar o som
         if (som_dialogo_id == -1) {
             som_dialogo_id = audio_play_sound(
-                snd_fim_dialogo, 1, true, global.volume_sfx
+                Sound4, 1, true, global.volume_sfx
             );
         }
 

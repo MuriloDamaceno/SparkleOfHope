@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_livro",
-    "path":"sprites/spr_livro/spr_livro.yy",
+    "name":"livro",
+    "path":"sprites/livro/livro.yy",
   },
   "spriteMaskId":null,
   "visible":true,

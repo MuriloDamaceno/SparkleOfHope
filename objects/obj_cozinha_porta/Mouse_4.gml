@@ -10,7 +10,7 @@ if (!global.tem_livro) {
 
     // Mostra o diálogo
     global.caixa_aberta = true;
-    global.caixa_texto = "Não tenho por que sair.";
+    global.caixa_texto = "Não tenho o porque sair.";
 
     exit;
 }

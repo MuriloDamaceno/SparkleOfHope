@@ -1,6 +1,6 @@
 {
   "$GMSound":"v2",
-  "%Name":"snd_fim_dialogo",
+  "%Name":"Sound4",
   "audioGroupId":{
     "name":"audiogroup_default",
     "path":"audiogroups/audiogroup_default",
@@ -12,7 +12,7 @@
   "conversionMode":0,
   "duration":2.4099092,
   "exportDir":"",
-  "name":"snd_fim_dialogo",
+  "name":"Sound4",
   "parent":{
     "name":"sons",
     "path":"folders/sons.yy",
@@ -21,6 +21,6 @@
   "resourceType":"GMSound",
   "resourceVersion":"2.0",
   "sampleRate":44100,
-  "soundFile":"snd_fim_dialogo.mp3",
+  "soundFile":"Sound4.mp3",
   "volume":1.0,
 }
