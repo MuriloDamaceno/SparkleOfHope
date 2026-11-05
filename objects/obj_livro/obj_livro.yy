@@ -9,8 +9,8 @@
   "name":"obj_livro",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"Corredor",
+    "path":"folders/Corredor.yy",
   },
   "parentObjectId":null,
   "persistent":false,

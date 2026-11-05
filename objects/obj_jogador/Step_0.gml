@@ -1,5 +1,5 @@
 
-if (global.caixa_aberta) {
+if (global.caixa_aberta || instance_exists(Obj_inventario)) {
 
     // Cancela o movimento
     has_target = false;

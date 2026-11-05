@@ -38,7 +38,7 @@
     {"name":"Obj_inventario","order":9,"path":"objects/Obj_inventario/Obj_inventario.yy",},
     {"name":"obj_jogador","order":2,"path":"objects/obj_jogador/obj_jogador.yy",},
     {"name":"obj_limite","order":2,"path":"objects/obj_limite/obj_limite.yy",},
-    {"name":"obj_livro","order":25,"path":"objects/obj_livro/obj_livro.yy",},
+    {"name":"obj_livro","order":4,"path":"objects/obj_livro/obj_livro.yy",},
     {"name":"obj_mae","order":3,"path":"objects/obj_mae/obj_mae.yy",},
     {"name":"obj_mochila","order":8,"path":"objects/obj_mochila/obj_mochila.yy",},
     {"name":"obj_painel_opcoes","order":3,"path":"objects/obj_painel_opcoes/obj_painel_opcoes.yy",},
