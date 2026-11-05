@@ -59,6 +59,7 @@
     {"id":{"name":"obj_fundo_corredor","path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},},
     {"id":{"name":"Obj_fundo_cozinha","path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},},
     {"id":{"name":"obj_fundo_menu","path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},},
+    {"id":{"name":"obj_gerador_carros","path":"objects/obj_gerador_carros/obj_gerador_carros.yy",},},
     {"id":{"name":"Obj_inventario","path":"objects/Obj_inventario/Obj_inventario.yy",},},
     {"id":{"name":"obj_jogador","path":"objects/obj_jogador/obj_jogador.yy",},},
     {"id":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},},
