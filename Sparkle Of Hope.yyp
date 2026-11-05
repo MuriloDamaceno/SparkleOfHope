@@ -105,6 +105,8 @@
     {"id":{"name":"spr_botao_sair","path":"sprites/spr_botao_sair/spr_botao_sair.yy",},},
     {"id":{"name":"spr_caixa_dialogo","path":"sprites/spr_caixa_dialogo/spr_caixa_dialogo.yy",},},
     {"id":{"name":"spr_carro","path":"sprites/spr_carro/spr_carro.yy",},},
+    {"id":{"name":"spr_carrocamarelo","path":"sprites/spr_carrocamarelo/spr_carrocamarelo.yy",},},
+    {"id":{"name":"spr_carroverde","path":"sprites/spr_carroverde/spr_carroverde.yy",},},
     {"id":{"name":"spr_corredor","path":"sprites/spr_corredor/spr_corredor.yy",},},
     {"id":{"name":"spr_costas","path":"sprites/spr_costas/spr_costas.yy",},},
     {"id":{"name":"spr_cozinha","path":"sprites/spr_cozinha/spr_cozinha.yy",},},
