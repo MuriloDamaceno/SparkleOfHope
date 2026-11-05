@@ -1,3 +1,4 @@
+if (global.despedida_etapa > 0) exit;
 
 var _s = (display_get_gui_height() * 0.184) / sprite_get_height(spr);
 
