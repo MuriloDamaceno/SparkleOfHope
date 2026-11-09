@@ -14,6 +14,12 @@ image_index = 0;
 // para usar nas animacoes e cutscenes
 escala = abs(image_xscale);
 
+// Corrige a proporcao da personagem no patio
+if (room == rm_patio) {
+    image_yscale = 0.6;
+}
+
+
 
 // =====================================
 // MOVIMENTACAO
