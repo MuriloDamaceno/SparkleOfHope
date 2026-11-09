@@ -1,24 +1,26 @@
 
 /// ENTRADA AUTOMATICA DA BIBLIOTECA
 
-// Verifica se a protagonista existe
-if (!instance_exists(obj_jogador)) {
-    exit;
-}
+if (room != rua_beco) exit;
 
-// Calcula a distancia ate a entrada
-var _dist = point_distance(
-    x, y,
-    obj_jogador.x,
-    obj_jogador.y
+if (!instance_exists(obj_jogador)) exit;
+
+// Detecta a protagonista perto da area
+// do objeto, sem precisar clicar
+var _jogador_perto = collision_rectangle(
+    bbox_left - 20,
+    bbox_top - 20,
+    bbox_right + 20,
+    bbox_bottom + 20,
+    obj_jogador,
+    false,
+    true
 );
 
-// Quando a protagonista se aproxima
-if (_dist <= 20) {
+if (_jogador_perto != noone) {
 
     obj_jogador.has_target = false;
     global.indo_para_porta = false;
 
-    // Entra automaticamente no novo cenario
     room_goto(forabiblioteca);
 }
