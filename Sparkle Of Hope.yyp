@@ -89,6 +89,7 @@
     {"id":{"name":"objeto_corredor_armario","path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},},
     {"id":{"name":"objeto_corredor_portaBanheiro","path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},},
     {"id":{"name":"objeto_corredor_portaPais","path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},},
+    {"id":{"name":"objlimite","path":"objects/objlimite/objlimite.yy",},},
     {"id":{"name":"biblioteca","path":"rooms/biblioteca/biblioteca.yy",},},
     {"id":{"name":"forabiblioteca","path":"rooms/forabiblioteca/forabiblioteca.yy",},},
     {"id":{"name":"rm_corredor","path":"rooms/rm_corredor/rm_corredor.yy",},},

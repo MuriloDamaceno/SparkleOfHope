@@ -67,6 +67,7 @@
     {"name":"objeto_corredor_armario","order":2,"path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},
     {"name":"objeto_corredor_portaBanheiro","order":5,"path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},
     {"name":"objeto_corredor_portaPais","order":4,"path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},
+    {"name":"objlimite","order":33,"path":"objects/objlimite/objlimite.yy",},
     {"name":"biblioteca","order":31,"path":"rooms/biblioteca/biblioteca.yy",},
     {"name":"forabiblioteca","order":25,"path":"rooms/forabiblioteca/forabiblioteca.yy",},
     {"name":"rm_corredor","order":5,"path":"rooms/rm_corredor/rm_corredor.yy",},
