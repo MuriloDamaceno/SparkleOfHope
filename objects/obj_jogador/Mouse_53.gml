@@ -1,4 +1,13 @@
 
+// Nao anda ao clicar em um ponto de dialogo
+if (
+    room == rm_corredor &&
+    position_meeting(mouse_x, mouse_y, obj_ponto_dialogo)
+) {
+    exit;
+}
+
+
 if (global.caixa_aberta || instance_exists(Obj_inventario)) {
     exit;
 }

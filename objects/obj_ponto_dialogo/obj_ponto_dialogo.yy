@@ -9,8 +9,8 @@
   "name":"obj_ponto_dialogo",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"ruacasa",
+    "path":"folders/ruacasa.yy",
   },
   "parentObjectId":null,
   "persistent":false,

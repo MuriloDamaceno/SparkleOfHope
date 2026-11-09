@@ -21,6 +21,7 @@
     {"name":"inst_1FB494A6","path":"rooms/rm_patio/rm_patio.yy",},
     {"name":"inst_424C4E82","path":"rooms/rm_patio/rm_patio.yy",},
     {"name":"inst_28EDE875","path":"rooms/rm_patio/rm_patio.yy",},
+    {"name":"inst_77BF88C0","path":"rooms/rm_patio/rm_patio.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -40,6 +41,7 @@
         {"$GMRInstance":"v4","%Name":"inst_DD7BADE","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_DD7BADE","objectId":{"name":"obj_cerca","path":"objects/obj_cerca/obj_cerca.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":-0.26124382,"scaleX":-0.20500128,"scaleY":0.12452918,"x":211.65628,"y":143.74066,},
         {"$GMRInstance":"v4","%Name":"inst_1FB494A6","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_1FB494A6","objectId":{"name":"obj_saida_rua","path":"objects/obj_saida_rua/obj_saida_rua.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.09375,"scaleY":0.82031286,"x":494.0,"y":68.59705,},
         {"$GMRInstance":"v4","%Name":"inst_28EDE875","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_28EDE875","objectId":{"name":"obj_mochila","path":"objects/obj_mochila/obj_mochila.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.05,"scaleY":0.05,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v4","%Name":"inst_77BF88C0","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_77BF88C0","objectId":{"name":"obj_ponto_dialogo","path":"objects/obj_ponto_dialogo/obj_ponto_dialogo.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":0.125,"scaleY":0.5,"x":411.78967,"y":72.54854,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_patio","path":"sprites/spr_patio/spr_patio.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],
