@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"biblioteca",
+    "path":"folders/biblioteca.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

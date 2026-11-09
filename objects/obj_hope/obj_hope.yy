@@ -6,8 +6,8 @@
   "name":"obj_hope",
   "overriddenProperties":[],
   "parent":{
-    "name":"forabiblioteca",
-    "path":"folders/forabiblioteca.yy",
+    "name":"biblioteca",
+    "path":"folders/biblioteca.yy",
   },
   "parentObjectId":null,
   "persistent":false,

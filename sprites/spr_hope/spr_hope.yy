@@ -25,8 +25,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"forabiblioteca",
-    "path":"folders/forabiblioteca.yy",
+    "name":"biblioteca",
+    "path":"folders/biblioteca.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

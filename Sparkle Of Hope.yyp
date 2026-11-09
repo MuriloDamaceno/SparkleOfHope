@@ -11,11 +11,11 @@
   "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Auxiliares","folderPath":"folders/Auxiliares.yy","name":"Auxiliares","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"biblioteca","folderPath":"folders/biblioteca.yy","name":"biblioteca","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Corredor","folderPath":"folders/Corredor.yy","name":"Corredor","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"moveis","folderPath":"folders/Corredor/moveis.yy","name":"moveis","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Cozinha","folderPath":"folders/Cozinha.yy","name":"Cozinha","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"forabiblioteca","folderPath":"folders/forabiblioteca.yy","name":"forabiblioteca","resourceType":"GMFolder","resourceVersion":"2.0",},
-    {"$GMFolder":"","%Name":"biblioteca","folderPath":"folders/biblioteca.yy","name":"biblioteca","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menu","folderPath":"folders/Menu.yy","name":"Menu","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Opcoes","folderPath":"folders/Menu/Opcoes.yy","name":"Opcoes","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"patio","folderPath":"folders/patio.yy","name":"patio","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -38,6 +38,7 @@
   "name":"Sparkle Of Hope",
   "resources":[
     {"id":{"name":"fnt_dialogo","path":"fonts/fnt_dialogo/fnt_dialogo.yy",},},
+    {"id":{"name":"obj_andante","path":"objects/obj_andante/obj_andante.yy",},},
     {"id":{"name":"obj_armario","path":"objects/obj_armario/obj_armario.yy",},},
     {"id":{"name":"obj_botao_fechar","path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},},
     {"id":{"name":"obj_botao_iniciar","path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},},

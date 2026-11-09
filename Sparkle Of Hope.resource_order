@@ -1,11 +1,11 @@
 {
   "FolderOrderSettings":[
     {"name":"Auxiliares","order":7,"path":"folders/Auxiliares.yy",},
+    {"name":"biblioteca","order":32,"path":"folders/biblioteca.yy",},
     {"name":"Corredor","order":6,"path":"folders/Corredor.yy",},
     {"name":"moveis","order":2,"path":"folders/Corredor/moveis.yy",},
     {"name":"Cozinha","order":9,"path":"folders/Cozinha.yy",},
     {"name":"forabiblioteca","order":27,"path":"folders/forabiblioteca.yy",},
-    {"name":"biblioteca","order":32,"path":"folders/biblioteca.yy",},
     {"name":"Menu","order":3,"path":"folders/Menu.yy",},
     {"name":"Opcoes","order":9,"path":"folders/Menu/Opcoes.yy",},
     {"name":"patio","order":14,"path":"folders/patio.yy",},
@@ -18,6 +18,7 @@
   ],
   "ResourceOrderSettings":[
     {"name":"fnt_dialogo","order":5,"path":"fonts/fnt_dialogo/fnt_dialogo.yy",},
+    {"name":"obj_andante","order":33,"path":"objects/obj_andante/obj_andante.yy",},
     {"name":"obj_botao_fechar","order":4,"path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},
     {"name":"obj_botao_iniciar","order":4,"path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},
     {"name":"obj_botao_opcoes","order":5,"path":"objects/obj_botao_opcoes/obj_botao_opcoes.yy",},
@@ -98,6 +99,5 @@
     {"name":"Sprite17","order":6,"path":"sprites/Sprite17/Sprite17.yy",},
     {"name":"Sprite21","order":10,"path":"sprites/Sprite21/Sprite21.yy",},
     {"name":"Sprite27","order":10,"path":"sprites/Sprite27/Sprite27.yy",},
-    {"name":"Sprite32","order":30,"path":"sprites/Sprite32/Sprite32.yy",},
   ],
 }
