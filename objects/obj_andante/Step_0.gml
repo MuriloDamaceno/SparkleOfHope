@@ -1,29 +1,24 @@
 
-/// NPC ANDANTE - STEP
+/// OBJ_ANDANTE - STEP
 
 var _proximo_x = x - velocidade;
 
-// Verifica se ha alguem ou algo bloqueando
-if (
-    !place_meeting(_proximo_x, y, obj_jogador) &&
-    !place_meeting(_proximo_x, y, obj_solido)
-) {
+// Para apenas se encontrar a protagonista
+if (!place_meeting(_proximo_x, y, obj_jogador)) {
 
-    // Caminha para a esquerda
+    // Continua andando para a esquerda
     x = _proximo_x;
 
-    // Continua a animacao
     image_speed = 0.12;
 
 } else {
 
-    // Para ao encontrar um obstaculo
+    // Para quando encontra a protagonista
     image_speed = 0;
     image_index = 0;
 }
 
-// Quando sair inteiramente da sala,
-// reaparece pelo lado direito
+// Quando sair da sala, reaparece pela direita
 if (bbox_right < 0) {
     x = room_width + sprite_width * escala;
 }
