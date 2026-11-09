@@ -49,6 +49,7 @@
     {"name":"obj_mochila","order":8,"path":"objects/obj_mochila/obj_mochila.yy",},
     {"name":"obj_painel_opcoes","order":3,"path":"objects/obj_painel_opcoes/obj_painel_opcoes.yy",},
     {"name":"obj_patio","order":2,"path":"objects/obj_patio/obj_patio.yy",},
+    {"name":"obj_ponto_dialogo","order":33,"path":"objects/obj_ponto_dialogo/obj_ponto_dialogo.yy",},
     {"name":"obj_porta_corredor","order":4,"path":"objects/obj_porta_corredor/obj_porta_corredor.yy",},
     {"name":"obj_porta","order":2,"path":"objects/obj_porta/obj_porta.yy",},
     {"name":"obj_relogio","order":3,"path":"objects/obj_relogio/obj_relogio.yy",},
