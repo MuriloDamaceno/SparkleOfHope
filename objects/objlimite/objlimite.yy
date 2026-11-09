@@ -6,10 +6,13 @@
   "name":"objlimite",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"ruabeco",
+    "path":"folders/ruabeco.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_solido",
+    "path":"objects/obj_solido/obj_solido.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -27,7 +30,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_hotspot",
+    "path":"sprites/spr_hotspot/spr_hotspot.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
