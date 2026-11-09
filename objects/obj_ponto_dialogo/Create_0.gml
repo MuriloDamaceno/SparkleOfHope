@@ -1,5 +1,6 @@
 
 image_alpha = 0;
 
-// Texto padrao
+// Frase padrao, caso a instancia
+// nao tenha um texto personalizado
 texto_dialogo = "Hmm... interessante.";
