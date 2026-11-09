@@ -6,8 +6,8 @@
   "name":"obj_andante",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"ruabeco",
+    "path":"folders/ruabeco.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -27,7 +27,10 @@
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
-  "spriteId":null,
+  "spriteId":{
+    "name":"spr_andante",
+    "path":"sprites/spr_andante/spr_andante.yy",
+  },
   "spriteMaskId":null,
   "visible":true,
 }
