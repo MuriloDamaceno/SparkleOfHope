@@ -38,7 +38,7 @@ if (
             global.despedida_etapa = 4;
 
             global.caixa_texto =
-                "Ta bom entao, mocreia.!";
+                "Ué, ela não deve ter me escutado. . ";
 
             letras_visiveis = 0;
             ultimo_texto = "";
