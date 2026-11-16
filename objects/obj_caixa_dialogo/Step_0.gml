@@ -1,6 +1,12 @@
 
+/// OBJ_CAIXA_DIALOGO - STEP COMPLETO
+
 if (!variable_global_exists("despedida_etapa")) {
     global.despedida_etapa = 0;
+}
+
+if (!variable_global_exists("hope_conversa_ativa")) {
+    global.hope_conversa_ativa = false;
 }
 
 
@@ -21,8 +27,6 @@ if (
         // TERMINOU A PRIMEIRA VIRADA
         if (global.despedida_etapa == 2) {
 
-            // Continua de perfil para a esquerda
-            // enquanto espera a mae responder
             global.despedida_etapa = 3;
 
             tempo_cutscene = max(
@@ -54,6 +58,7 @@ if (
 
             // Agora sim vai para o patio
             room_goto(rm_patio);
+            exit;
         }
     }
 }
@@ -155,10 +160,15 @@ if (
         _box_y + _box_h
     )) {
 
-        // Revela o texto completo
-        // antes de avancar a despedida
+        // =====================================
+        // COMPLETA A FALA ANTES DE AVANCAR
+        // =====================================
+
         if (
-            global.despedida_etapa > 0 &&
+            (
+                global.despedida_etapa > 0 ||
+                global.hope_conversa_ativa
+            ) &&
             letras_visiveis < string_length(global.caixa_texto)
         ) {
 
@@ -167,7 +177,10 @@ if (
 
         }
 
-        // PRIMEIRA FALA TERMINOU
+        // =====================================
+        // CUTSCENE: PRIMEIRA FALA DA MAE
+        // =====================================
+
         else if (global.despedida_etapa == 1) {
 
             global.caixa_texto = "";
@@ -193,11 +206,12 @@ if (
             }
         }
 
-        // ULTIMA FALA TERMINOU
+        // =====================================
+        // CUTSCENE: ULTIMA FALA DA MAE
+        // =====================================
+
         else if (global.despedida_etapa == 4) {
 
-            // Esconde o dialogo, mas mantem
-            // a personagem bloqueada
             global.caixa_texto = "";
             global.despedida_etapa = 5;
 
@@ -215,14 +229,78 @@ if (
                 }
             }
 
-            // Mostra a virada por meio segundo
             tempo_cutscene = max(
                 1,
                 round(game_get_speed(gamespeed_fps) * 0.5)
             );
         }
 
+        // =====================================
+        // CONVERSA COM HOPE
+        // =====================================
+
+        else if (
+            global.despedida_etapa == 0 &&
+            global.hope_conversa_ativa
+        ) {
+
+            // Avanca para a proxima fala
+            global.hope_etapa++;
+
+            // ENTREGA DO LIVRO
+            // Etapa 3 = "Celeste: Aqui esta."
+            if (global.hope_etapa == 3) {
+
+                // Remove o livro do inventario
+                global.tem_livro = false;
+            }
+
+            // Ainda existem falas
+            if (
+                global.hope_etapa <
+                array_length(global.hope_falas)
+            ) {
+
+                global.caixa_texto =
+                    global.hope_falas[global.hope_etapa];
+
+                // Reinicia a animacao do texto
+                letras_visiveis = 0;
+                ultimo_texto = "";
+
+            } else {
+
+                // =====================================
+                // FIM DA CONVERSA COM HOPE
+                // =====================================
+
+                global.hope_conversa_ativa = false;
+                global.hope_concluida = true;
+
+                global.caixa_aberta = false;
+                global.caixa_texto = "";
+
+                global.hope_etapa = 0;
+
+                // Libera a movimentacao da Celeste
+                global.indo_para_porta = false;
+
+                if (instance_exists(obj_jogador)) {
+
+                    with (obj_jogador) {
+
+                        has_target = false;
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+            }
+        }
+
+        // =====================================
         // DIALOGOS NORMAIS
+        // =====================================
+
         else if (global.despedida_etapa == 0) {
 
             global.caixa_aberta = false;
@@ -231,5 +309,8 @@ if (
 }
 
 
-// Impede fechar no mesmo clique
+// =====================================
+// IMPEDE FECHAR NO MESMO CLIQUE
+// =====================================
+
 dialogo_estava_aberto = global.caixa_aberta;
