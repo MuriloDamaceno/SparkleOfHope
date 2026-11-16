@@ -1,5 +1,5 @@
 
-/// OBJ_CAIXA_DIALOGO - STEP COMPLETO
+/// OBJ_CAIXA_DIALOGO - STEP COMPLETO CORRIGIDO
 
 if (!variable_global_exists("despedida_etapa")) {
     global.despedida_etapa = 0;
@@ -24,7 +24,6 @@ if (
 
     if (tempo_cutscene <= 0) {
 
-        // TERMINOU A PRIMEIRA VIRADA
         if (global.despedida_etapa == 2) {
 
             global.despedida_etapa = 3;
@@ -35,8 +34,6 @@ if (
             );
 
         }
-
-        // A MAE NAO RESPONDEU
         else if (global.despedida_etapa == 3) {
 
             global.despedida_etapa = 4;
@@ -48,15 +45,12 @@ if (
             ultimo_texto = "";
 
         }
-
-        // TERMINOU DE VIRAR PARA A DIREITA
         else if (global.despedida_etapa == 5) {
 
             global.despedida_etapa = 0;
             global.caixa_aberta = false;
             global.caixa_texto = "";
 
-            // Agora sim vai para o patio
             room_goto(rm_patio);
             exit;
         }
@@ -65,7 +59,7 @@ if (
 
 
 // =====================================
-// ANIMACAO DAS LETRAS
+// ANIMACAO DAS LETRAS E SOM
 // =====================================
 
 if (global.caixa_aberta && global.caixa_texto != "") {
@@ -86,29 +80,44 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         string_length(global.caixa_texto)
     );
 
-    // Espaco completa as letras
+    // Espaco completa a fala
     if (keyboard_check_pressed(vk_space)) {
-        letras_visiveis = string_length(global.caixa_texto);
+        letras_visiveis =
+            string_length(global.caixa_texto);
     }
 
-    // Som da escrita
-    if (letras_visiveis < string_length(global.caixa_texto)) {
+    // Som enquanto as letras aparecem
+    if (
+        letras_visiveis <
+        string_length(global.caixa_texto)
+    ) {
 
-     som_dialogo_id = audio_play_sound(
-    Sound4, 1, false, global.volume_sfx
-);
+        // Nao cria varios sons simultaneos
+        if (
+            som_dialogo_id == -1 ||
+            !audio_is_playing(som_dialogo_id)
+        ) {
+
+            som_dialogo_id = audio_play_sound(
+                Sound4,
+                1,
+                false,
+                global.volume_sfx
+            );
         }
 
     } else {
 
+        // Para o som quando a fala termina
         if (som_dialogo_id != -1) {
             audio_stop_sound(som_dialogo_id);
             som_dialogo_id = -1;
         }
     }
 
- else {
+} else {
 
+    // Caixa fechada
     letras_visiveis = 0;
     ultimo_texto = "";
 
@@ -152,14 +161,16 @@ if (
     var _my = device_mouse_y_to_gui(0);
 
     if (point_in_rectangle(
-        _mx, _my,
-        _box_x, _box_y,
+        _mx,
+        _my,
+        _box_x,
+        _box_y,
         _box_x + _box_w,
         _box_y + _box_h
     )) {
 
         // =====================================
-        // COMPLETA A FALA ANTES DE AVANCAR
+        // COMPLETA AS LETRAS ANTES DE AVANCAR
         // =====================================
 
         if (
@@ -167,7 +178,8 @@ if (
                 global.despedida_etapa > 0 ||
                 global.hope_conversa_ativa
             ) &&
-            letras_visiveis < string_length(global.caixa_texto)
+            letras_visiveis <
+            string_length(global.caixa_texto)
         ) {
 
             letras_visiveis =
@@ -176,7 +188,7 @@ if (
         }
 
         // =====================================
-        // CUTSCENE: PRIMEIRA FALA DA MAE
+        // PRIMEIRA FALA DA DESPEDIDA
         // =====================================
 
         else if (global.despedida_etapa == 1) {
@@ -189,7 +201,6 @@ if (
                 round(game_get_speed(gamespeed_fps) * 0.25)
             );
 
-            // VIRA PARA A ESQUERDA
             if (instance_exists(obj_jogador)) {
 
                 with (obj_jogador) {
@@ -205,7 +216,7 @@ if (
         }
 
         // =====================================
-        // CUTSCENE: ULTIMA FALA DA MAE
+        // ULTIMA FALA DA DESPEDIDA
         // =====================================
 
         else if (global.despedida_etapa == 4) {
@@ -213,7 +224,6 @@ if (
             global.caixa_texto = "";
             global.despedida_etapa = 5;
 
-            // VIRA PARA A DIREITA
             if (instance_exists(obj_jogador)) {
 
                 with (obj_jogador) {
@@ -242,18 +252,14 @@ if (
             global.hope_conversa_ativa
         ) {
 
-            // Avanca para a proxima fala
             global.hope_etapa++;
 
-            // ENTREGA DO LIVRO
-            // Etapa 3 = "Celeste: Aqui esta."
+            // Celeste entrega o livro
             if (global.hope_etapa == 3) {
-
-                // Remove o livro do inventario
                 global.tem_livro = false;
             }
 
-            // Ainda existem falas
+            // Proxima fala
             if (
                 global.hope_etapa <
                 array_length(global.hope_falas)
@@ -262,16 +268,12 @@ if (
                 global.caixa_texto =
                     global.hope_falas[global.hope_etapa];
 
-                // Reinicia a animacao do texto
                 letras_visiveis = 0;
                 ultimo_texto = "";
 
             } else {
 
-                // =====================================
-                // FIM DA CONVERSA COM HOPE
-                // =====================================
-
+                // FIM DA CONVERSA
                 global.hope_conversa_ativa = false;
                 global.hope_concluida = true;
 
@@ -279,8 +281,6 @@ if (
                 global.caixa_texto = "";
 
                 global.hope_etapa = 0;
-
-                // Libera a movimentacao da Celeste
                 global.indo_para_porta = false;
 
                 if (instance_exists(obj_jogador)) {
