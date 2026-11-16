@@ -9,8 +9,8 @@
   "name":"obj_entrada_biblioteca",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"forabiblioteca",
+    "path":"folders/forabiblioteca.yy",
   },
   "parentObjectId":null,
   "persistent":false,
