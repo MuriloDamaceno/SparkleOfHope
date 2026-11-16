@@ -94,11 +94,9 @@ if (global.caixa_aberta && global.caixa_texto != "") {
     // Som da escrita
     if (letras_visiveis < string_length(global.caixa_texto)) {
 
-        if (som_dialogo_id == -1) {
-
-            som_dialogo_id = audio_play_sound(
-                Sound4, 1, true, global.volume_sfx
-            );
+     som_dialogo_id = audio_play_sound(
+    Sound4, 1, false, global.volume_sfx
+);
         }
 
     } else {
@@ -109,7 +107,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         }
     }
 
-} else {
+ else {
 
     letras_visiveis = 0;
     ultimo_texto = "";
