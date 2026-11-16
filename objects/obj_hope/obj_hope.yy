@@ -12,7 +12,10 @@
     "name":"biblioteca",
     "path":"folders/biblioteca.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_solido",
+    "path":"objects/obj_solido/obj_solido.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,

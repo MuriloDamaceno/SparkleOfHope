@@ -9,7 +9,7 @@ if (global.caixa_aberta || instance_exists(Obj_inventario)) {
     exit;
 }
 
-// Detecta a personagem perto de toda a area da porta
+// Detecta Celeste perto da porta
 var _perto = collision_rectangle(
     bbox_left - 30,
     bbox_top - 30,
@@ -20,6 +20,21 @@ var _perto = collision_rectangle(
     true
 );
 
+// Protecao depois de sair da biblioteca
+if (variable_global_exists("biblioteca_bloquear_entrada")) {
+
+    if (global.biblioteca_bloquear_entrada) {
+
+        // Precisa se afastar da porta primeiro
+        if (_perto == noone) {
+            global.biblioteca_bloquear_entrada = false;
+        }
+
+        exit;
+    }
+}
+
+// Entrada normal
 if (_perto != noone) {
 
     with (obj_jogador) {
