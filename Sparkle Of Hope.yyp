@@ -140,6 +140,7 @@
     {"id":{"name":"spr_ruabeco_depois","path":"sprites/spr_ruabeco_depois/spr_ruabeco_depois.yy",},},
     {"id":{"name":"spr_ruabeco","path":"sprites/spr_ruabeco/spr_ruabeco.yy",},},
     {"id":{"name":"spr_titulo","path":"sprites/spr_titulo/spr_titulo.yy",},},
+    {"id":{"name":"spr_transicao","path":"sprites/spr_transicao/spr_transicao.yy",},},
     {"id":{"name":"spr_x_fechar","path":"sprites/spr_x_fechar/spr_x_fechar.yy",},},
     {"id":{"name":"Sprite17","path":"sprites/Sprite17/Sprite17.yy",},},
     {"id":{"name":"Sprite18","path":"sprites/Sprite18/Sprite18.yy",},},
