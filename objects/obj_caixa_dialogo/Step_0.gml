@@ -1,5 +1,9 @@
 
-/// OBJ_CAIXA_DIALOGO - STEP COMPLETO CORRIGIDO
+/// OBJ_CAIXA_DIALOGO - STEP COMPLETO
+
+// =====================================
+// INICIALIZACAO
+// =====================================
 
 if (!variable_global_exists("despedida_etapa")) {
     global.despedida_etapa = 0;
@@ -7,6 +11,10 @@ if (!variable_global_exists("despedida_etapa")) {
 
 if (!variable_global_exists("hope_conversa_ativa")) {
     global.hope_conversa_ativa = false;
+}
+
+if (!variable_global_exists("npc_beco_ativo")) {
+    global.npc_beco_ativo = false;
 }
 
 
@@ -64,6 +72,7 @@ if (
 
 if (global.caixa_aberta && global.caixa_texto != "") {
 
+    // Detecta quando o texto muda
     if (global.caixa_texto != ultimo_texto) {
 
         ultimo_texto = global.caixa_texto;
@@ -75,6 +84,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         }
     }
 
+    // Anima as letras
     letras_visiveis = min(
         letras_visiveis + velocidade_texto,
         string_length(global.caixa_texto)
@@ -92,7 +102,6 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         string_length(global.caixa_texto)
     ) {
 
-        // Nao cria varios sons simultaneos
         if (
             som_dialogo_id == -1 ||
             !audio_is_playing(som_dialogo_id)
@@ -108,7 +117,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
 
     } else {
 
-        // Para o som quando a fala termina
+        // Para o som quando o texto termina
         if (som_dialogo_id != -1) {
             audio_stop_sound(som_dialogo_id);
             som_dialogo_id = -1;
@@ -146,8 +155,9 @@ if (
         floor(_gui_h / 200), 1, 6
     );
 
-var _box_w = sprite_width * _escala * 1.35;
-var _box_h = sprite_height * _escala;
+    // Caixa com largura aumentada em 35%
+    var _box_w = sprite_width * _escala * 1.35;
+    var _box_h = sprite_height * _escala;
 
     var _box_x = floor(
         (_gui_w - _box_w) / 2
@@ -170,13 +180,14 @@ var _box_h = sprite_height * _escala;
     )) {
 
         // =====================================
-        // COMPLETA AS LETRAS ANTES DE AVANCAR
+        // COMPLETA O TEXTO ANTES DE AVANCAR
         // =====================================
 
         if (
             (
                 global.despedida_etapa > 0 ||
-                global.hope_conversa_ativa
+                global.hope_conversa_ativa ||
+                global.npc_beco_ativo
             ) &&
             letras_visiveis <
             string_length(global.caixa_texto)
@@ -273,7 +284,7 @@ var _box_h = sprite_height * _escala;
 
             } else {
 
-                // FIM DA CONVERSA
+                // Fim da conversa com Hope
                 global.hope_conversa_ativa = false;
                 global.hope_concluida = true;
 
@@ -281,6 +292,53 @@ var _box_h = sprite_height * _escala;
                 global.caixa_texto = "";
 
                 global.hope_etapa = 0;
+                global.indo_para_porta = false;
+
+                if (instance_exists(obj_jogador)) {
+
+                    with (obj_jogador) {
+
+                        has_target = false;
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+            }
+        }
+
+        // =====================================
+        // CONVERSA COM MORADOR DO BECO
+        // =====================================
+
+        else if (
+            global.despedida_etapa == 0 &&
+            global.npc_beco_ativo
+        ) {
+
+            global.npc_beco_etapa++;
+
+            // Proxima fala
+            if (
+                global.npc_beco_etapa <
+                array_length(global.npc_beco_falas)
+            ) {
+
+                global.caixa_texto =
+                    global.npc_beco_falas[global.npc_beco_etapa];
+
+                letras_visiveis = 0;
+                ultimo_texto = "";
+
+            } else {
+
+                // Fim da conversa com o morador
+                global.npc_beco_ativo = false;
+                global.npc_beco_concluido = true;
+
+                global.caixa_aberta = false;
+                global.caixa_texto = "";
+
+                global.npc_beco_etapa = 0;
                 global.indo_para_porta = false;
 
                 if (instance_exists(obj_jogador)) {

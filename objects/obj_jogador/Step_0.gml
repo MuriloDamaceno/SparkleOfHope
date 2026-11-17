@@ -1,9 +1,16 @@
 
-/// OBJ_JOGADOR - STEP
+/// OBJ_JOGADOR - STEP COMPLETO
 
-// Garante que a escala existe
+// =====================================
+// CONFIGURACOES DE SEGURANCA
+// =====================================
+
 if (!variable_instance_exists(id, "escala")) {
     escala = abs(image_xscale);
+}
+
+if (!variable_global_exists("bloquear_entrada_beco")) {
+    global.bloquear_entrada_beco = false;
 }
 
 
@@ -36,7 +43,6 @@ if (room == rm_rua) {
 
     var _teste_y = y;
 
-    // Movimento pelo teclado
     if (
         keyboard_check(vk_up) ||
         keyboard_check(ord("W"))
@@ -53,7 +59,6 @@ if (room == rm_rua) {
 
     } else if (has_target) {
 
-        // Movimento automatico pelo mouse
         if (target_y < y - spd) {
             _teste_y -= spd;
 
@@ -62,7 +67,6 @@ if (room == rm_rua) {
         }
     }
 
-    // Procura uma barreira na proxima posicao
     if (_teste_y != y) {
 
         var _barreira = instance_place(
@@ -71,8 +75,6 @@ if (room == rm_rua) {
 
         if (_barreira != noone) {
 
-            // Apenas a barreira marcada com
-            // aviso_travessia pode mostrar o aviso
             if (variable_instance_exists(
                 _barreira, "aviso_travessia"
             )) {
@@ -122,7 +124,9 @@ if (_kb_input) {
 }
 
 
+// =====================================
 // DIREITA
+// =====================================
 
 if (
     keyboard_check(vk_right) ||
@@ -139,7 +143,9 @@ if (
 }
 
 
+// =====================================
 // ESQUERDA
+// =====================================
 
 if (
     keyboard_check(vk_left) ||
@@ -156,7 +162,9 @@ if (
 }
 
 
+// =====================================
 // CIMA
+// =====================================
 
 if (
     keyboard_check(vk_up) ||
@@ -173,7 +181,9 @@ if (
 }
 
 
+// =====================================
 // BAIXO
+// =====================================
 
 if (
     keyboard_check(vk_down) ||
@@ -372,6 +382,7 @@ if (global.indo_para_porta) {
                 ) {
 
                     room_goto(global.room_alvo);
+                    exit;
                 }
             }
         }
@@ -384,7 +395,7 @@ if (global.indo_para_porta) {
 
 
 // =====================================
-// SAIDA DO PATIO PARA A RUA
+// PATIO -> RUA
 // =====================================
 
 if (room == rm_patio) {
@@ -394,19 +405,70 @@ if (room == rm_patio) {
         place_meeting(x, y, obj_saida_rua)
     ) {
 
+        // Aparece no inicio da rua
+        global.spawn_room = rm_rua;
+        global.spawn_x = 32;
+        global.spawn_y = 111;
+
+        has_target = false;
+        global.indo_para_porta = false;
+
         room_goto(rm_rua);
+        exit;
     }
 }
 
 
 // =====================================
-// SAIDA DA RUA PARA O BECO
+// RUA -> BECO
 // =====================================
 
 if (room == rm_rua) {
 
-    if (place_meeting(x, y, obj_saida_beco)) {
+    var _perto_beco = place_meeting(
+        x, y, obj_saida_beco
+    );
+
+    // Protecao depois de voltar do beco
+    if (global.bloquear_entrada_beco) {
+
+        // Libera nova entrada quando se afastar
+        if (!_perto_beco) {
+            global.bloquear_entrada_beco = false;
+        }
+
+    } else if (_perto_beco) {
+
+        global.spawn_room = rua_beco;
+        global.spawn_x = 18;
+        global.spawn_y = 110;
+
+        has_target = false;
+        global.indo_para_porta = false;
 
         room_goto(rua_beco);
+        exit;
+    }
+}
+
+
+// =====================================
+// RUA -> PATIO
+// =====================================
+
+if (room == rm_rua) {
+
+    // Retorna pelo lado esquerdo da rua
+    if (x <= 9) {
+
+        global.spawn_room = rm_patio;
+        global.spawn_x = 450;
+        global.spawn_y = 130;
+
+        has_target = false;
+        global.indo_para_porta = false;
+
+        room_goto(rm_patio);
+        exit;
     }
 }
