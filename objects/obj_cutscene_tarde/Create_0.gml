@@ -1,4 +1,8 @@
 
+// Sprite da transicao original
+// Substitua pelo nome EXATO do seu sprite
+transicao_sprite = asset_get_index("NOME_DO_SPRITE");
+
 /// OBJ_CUTSCENE_TARDE - CREATE
 
 persistent = true;

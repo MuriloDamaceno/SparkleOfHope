@@ -1,5 +1,5 @@
 
-/// OBJ_CUTSCENE_TARDE - STEP
+/// OBJ_CUTSCENE_TARDE - STEP COMPLETO
 
 if (espera_clique > 0) {
     espera_clique--;
@@ -7,7 +7,7 @@ if (espera_clique > 0) {
 
 
 // =====================================
-// 0 - ESCURECE RAPIDAMENTE
+// ETAPA 0 - ESCURECE A TELA
 // =====================================
 
 if (etapa == 0) {
@@ -25,7 +25,7 @@ if (etapa == 0) {
 
 
 // =====================================
-// 1 - NARRACAO NA TELA PRETA
+// ETAPA 1 - NARRACAO NA TELA PRETA
 // =====================================
 
 if (etapa == 1) {
@@ -59,7 +59,7 @@ if (etapa == 1) {
 
 
 // =====================================
-// 2 - TRANSPORTA PARA O BECO
+// ETAPA 2 - TRANSPORTA PARA RUA_BECO
 // =====================================
 
 if (etapa == 2) {
@@ -80,7 +80,7 @@ if (etapa == 2) {
 
 
 // =====================================
-// 3 - PREPARA E REVELA O NOVO BECO
+// ETAPA 3 - PREPARA O NOVO CENARIO
 // =====================================
 
 if (etapa == 3) {
@@ -90,64 +90,90 @@ if (etapa == 3) {
 
     if (!preparado) {
 
-        // Troca o fundo
+        // =================================
+        // TROCA O FUNDO
+        // =================================
+
         var _fundo = layer_get_id("Background");
 
         if (_fundo != -1) {
+
             layer_background_sprite(
                 _fundo,
                 spr_ruabeco_depois
             );
         }
 
-        // Esconde o primeiro plano antigo
-        var _frente = layer_get_id("Primeiro_Plano");
+        // =================================
+        // ESCONDE PRIMEIRO PLANO ANTIGO
+        // =================================
+
+        var _frente =
+            layer_get_id("Primeiro_Plano");
 
         if (_frente != -1) {
             layer_set_visible(_frente, false);
         }
 
-        // Remove carros antigos
+        // =================================
+        // REMOVE ELEMENTOS ANTIGOS
+        // =================================
+
         with (obj_carro) {
             instance_destroy();
         }
 
-        // Impede novos carros
         with (obj_gerador_carros) {
             instance_destroy();
         }
 
-        // Remove o andante antigo
         with (obj_andante) {
             instance_destroy();
         }
 
-        // Localiza a entrada marcada
+        // =================================
+        // IDENTIFICA A ENTRADA DO BECO
+        // =================================
+
         if (instance_exists(obj_marcador_beco)) {
 
             var _marcador =
                 instance_find(obj_marcador_beco, 0);
 
-            entrada_x = _marcador.x;
-            entrada_y = _marcador.y + 22;
+            // Centro da passagem de 64 pixels
+            entrada_x = _marcador.x + 32;
 
-            // Para antes de entrar
-            destino_x = max(
-                40,
-                entrada_x - 35
-            );
+            // Ponto para entrar no beco
+            entrada_y = 94;
+
+            // Para alinhada horizontalmente
+            // com a entrada
+            destino_x = entrada_x;
+
+        } else {
+
+            // Valores de seguranca
+            entrada_x = 159;
+            entrada_y = 94;
+            destino_x = 159;
         }
 
-        // Prepara a Celeste
+        // =================================
+        // POSICIONA CELESTE
+        // =================================
+
         with (obj_jogador) {
 
             x = 25;
             y = 110;
 
+            target_x = x;
+            target_y = y;
             has_target = false;
 
             sprite_index = spr_perfil;
             image_xscale = abs(escala);
+
             image_speed = 0;
             image_index = 0;
         }
@@ -155,7 +181,7 @@ if (etapa == 3) {
         preparado = true;
     }
 
-    // Abre a tela
+    // Revela o cenario
     cobertura = max(cobertura - 0.15, 0);
 
     if (cobertura <= 0) {
@@ -167,7 +193,7 @@ if (etapa == 3) {
 
 
 // =====================================
-// 4 - CELESTE ANDA PARA A DIREITA
+// ETAPA 4 - CELESTE CAMINHA DEVAGAR
 // =====================================
 
 if (etapa == 4) {
@@ -183,12 +209,13 @@ if (etapa == 4) {
 
         if (x < other.destino_x) {
 
+            // Caminhada mais lenta
             x = min(
-                x + 1.1,
+                x + 0.45,
                 other.destino_x
             );
 
-            image_speed = 0.15;
+            image_speed = 0.12;
 
         } else {
 
@@ -197,6 +224,7 @@ if (etapa == 4) {
         }
     }
 
+    // Chegou na frente da entrada
     if (obj_jogador.x >= destino_x) {
 
         etapa = 5;
@@ -208,7 +236,7 @@ if (etapa == 4) {
 
 
 // =====================================
-// 5 - ELA ESCUTA ALGUMA COISA
+// ETAPA 5 - CELESTE ESCUTA ALGO
 // =====================================
 
 if (etapa == 5) {
@@ -216,13 +244,16 @@ if (etapa == 5) {
     if (!fala_iniciada) {
 
         if (!instance_exists(obj_caixa_dialogo)) {
+
             instance_create_depth(
                 0, 0, -1000,
                 obj_caixa_dialogo
             );
         }
 
-        global.caixa_texto = "Celeste: Hm...?";
+        global.caixa_texto =
+            "Celeste: Hm...?";
+
         global.caixa_aberta = true;
 
         fala_iniciada = true;
@@ -238,7 +269,7 @@ if (etapa == 5) {
 
 
 // =====================================
-// 6 - ELA VIRA PARA O BECO
+// ETAPA 6 - VIRA DE COSTAS
 // =====================================
 
 if (etapa == 6) {
@@ -251,8 +282,11 @@ if (etapa == 6) {
 
                 sprite_index = spr_costas;
                 image_xscale = abs(escala);
+
                 image_speed = 0;
                 image_index = 0;
+
+                has_target = false;
             }
         }
 
@@ -260,11 +294,13 @@ if (etapa == 6) {
             "Celeste: Ué... Que barulho foi esse?";
 
         global.caixa_aberta = true;
+
         fala_iniciada = true;
 
     } else if (!global.caixa_aberta) {
 
         etapa = 7;
+        fala_iniciada = false;
     }
 
     exit;
@@ -272,7 +308,7 @@ if (etapa == 6) {
 
 
 // =====================================
-// 7 - CAMINHA ATE A ENTRADA DO BECO
+// ETAPA 7 - ENTRA NO BECO
 // =====================================
 
 if (etapa == 7) {
@@ -285,41 +321,46 @@ if (etapa == 7) {
 
         var _dx = other.entrada_x - x;
         var _dy = other.entrada_y - y;
+
         var _dist = point_distance(
-            x, y,
+            x,
+            y,
             other.entrada_x,
             other.entrada_y
         );
 
-        if (_dist > 0.8) {
+        if (_dist > 0.45) {
 
-            var _passo = min(0.8, _dist);
+            // Movimento lento em direcao
+            // ao interior do beco
+            var _passo = min(0.45, _dist);
 
             x += (_dx / _dist) * _passo;
             y += (_dy / _dist) * _passo;
 
-            // Olha para o beco
             sprite_index = spr_costas;
             image_xscale = abs(escala);
-            image_speed = 0.15;
+            image_speed = 0.12;
 
         } else {
 
             x = other.entrada_x;
             y = other.entrada_y;
 
+            sprite_index = spr_costas;
             image_speed = 0;
             image_index = 0;
         }
     }
 
+    // Chegou na entrada
     if (
         point_distance(
             obj_jogador.x,
             obj_jogador.y,
             entrada_x,
             entrada_y
-        ) <= 0.8
+        ) <= 0.45
     ) {
 
         etapa = 8;
@@ -330,7 +371,7 @@ if (etapa == 7) {
 
 
 // =====================================
-// 8 - ESCURECE PARA ENTRAR NO BECO
+// ETAPA 8 - ESCURECE AO ENTRAR
 // =====================================
 
 if (etapa == 8) {
@@ -353,7 +394,7 @@ if (etapa == 8) {
 
 
 // =====================================
-// 9 - TERMINA A CUTSCENE
+// ETAPA 9 - FINALIZA
 // =====================================
 
 if (etapa == 9) {
