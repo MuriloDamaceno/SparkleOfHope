@@ -5,21 +5,19 @@ if (espera_clique > 0) {
     espera_clique--;
 }
 
-var _fps = game_get_speed(gamespeed_fps);
-
 
 // =====================================
-// ETAPA 0 - ESCURECER
+// 0 - ESCURECE RAPIDAMENTE
 // =====================================
 
 if (etapa == 0) {
 
-    cobertura = min(cobertura + 0.035, 1);
+    cobertura = min(cobertura + 0.15, 1);
 
     if (cobertura >= 1) {
         etapa = 1;
+        espera_clique = 8;
         letras_narracao = 0;
-        espera_clique = 15;
     }
 
     exit;
@@ -27,13 +25,13 @@ if (etapa == 0) {
 
 
 // =====================================
-// ETAPA 1 - NARRACAO NA TELA PRETA
+// 1 - NARRACAO NA TELA PRETA
 // =====================================
 
 if (etapa == 1) {
 
     letras_narracao = min(
-        letras_narracao + 0.5,
+        letras_narracao + 2,
         string_length(texto_narracao)
     );
 
@@ -47,13 +45,11 @@ if (etapa == 1) {
             string_length(texto_narracao)
         ) {
 
-            // Primeiro clique completa a fala
             letras_narracao =
                 string_length(texto_narracao);
 
         } else {
 
-            // Segundo clique avanca a cena
             etapa = 2;
         }
     }
@@ -63,7 +59,7 @@ if (etapa == 1) {
 
 
 // =====================================
-// ETAPA 2 - PREPARAR A RUA DO BECO
+// 2 - TRANSPORTA PARA O BECO
 // =====================================
 
 if (etapa == 2) {
@@ -71,11 +67,11 @@ if (etapa == 2) {
     global.caixa_aberta = false;
     global.caixa_texto = "";
 
-    // Celeste aparece do lado esquerdo
     global.spawn_room = rua_beco;
     global.spawn_x = 25;
     global.spawn_y = 110;
 
+    preparado = false;
     etapa = 3;
 
     room_goto(rua_beco);
@@ -84,47 +80,83 @@ if (etapa == 2) {
 
 
 // =====================================
-// ETAPA 3 - REVELAR NOVO CENARIO
+// 3 - PREPARA E REVELA O NOVO BECO
 // =====================================
 
 if (etapa == 3) {
 
-    // Aguarda a room estar pronta
     if (room != rua_beco) exit;
     if (!instance_exists(obj_jogador)) exit;
 
-    // Troca o fundo da rua do beco
-    var _fundo = layer_get_id("Background");
+    if (!preparado) {
 
-    if (_fundo != -1) {
-        layer_background_sprite(
-            _fundo,
-            spr_ruabeco_depois
-        );
+        // Troca o fundo
+        var _fundo = layer_get_id("Background");
+
+        if (_fundo != -1) {
+            layer_background_sprite(
+                _fundo,
+                spr_ruabeco_depois
+            );
+        }
+
+        // Esconde o primeiro plano antigo
+        var _frente = layer_get_id("Primeiro_Plano");
+
+        if (_frente != -1) {
+            layer_set_visible(_frente, false);
+        }
+
+        // Remove carros antigos
+        with (obj_carro) {
+            instance_destroy();
+        }
+
+        // Impede novos carros
+        with (obj_gerador_carros) {
+            instance_destroy();
+        }
+
+        // Remove o andante antigo
+        with (obj_andante) {
+            instance_destroy();
+        }
+
+        // Localiza a entrada marcada
+        if (instance_exists(obj_marcador_beco)) {
+
+            var _marcador =
+                instance_find(obj_marcador_beco, 0);
+
+            entrada_x = _marcador.x;
+            entrada_y = _marcador.y + 22;
+
+            // Para antes de entrar
+            destino_x = max(
+                40,
+                entrada_x - 35
+            );
+        }
+
+        // Prepara a Celeste
+        with (obj_jogador) {
+
+            x = 25;
+            y = 110;
+
+            has_target = false;
+
+            sprite_index = spr_perfil;
+            image_xscale = abs(escala);
+            image_speed = 0;
+            image_index = 0;
+        }
+
+        preparado = true;
     }
 
-    // Descobre o marcador da entrada
-    if (instance_exists(obj_marcador_beco)) {
-
-        var _marcador =
-            instance_find(obj_marcador_beco, 0);
-
-        entrada_x = _marcador.x;
-
-        // Para antes da passagem
-        destino_x = max(40, entrada_x - 35);
-    }
-
-    // Deixa Celeste olhando para a direita
-    with (obj_jogador) {
-        sprite_index = spr_perfil;
-        image_xscale = abs(escala);
-        image_speed = 0;
-        has_target = false;
-    }
-
-    // Revela a cena gradualmente
-    cobertura = max(cobertura - 0.035, 0);
+    // Abre a tela
+    cobertura = max(cobertura - 0.15, 0);
 
     if (cobertura <= 0) {
         etapa = 4;
@@ -135,7 +167,7 @@ if (etapa == 3) {
 
 
 // =====================================
-// ETAPA 4 - CELESTE CAMINHA
+// 4 - CELESTE ANDA PARA A DIREITA
 // =====================================
 
 if (etapa == 4) {
@@ -149,10 +181,13 @@ if (etapa == 4) {
         sprite_index = spr_perfil;
         image_xscale = abs(escala);
 
-        // Caminhada automatica para direita
         if (x < other.destino_x) {
 
-            x = min(x + 0.8, other.destino_x);
+            x = min(
+                x + 1.1,
+                other.destino_x
+            );
+
             image_speed = 0.15;
 
         } else {
@@ -163,6 +198,7 @@ if (etapa == 4) {
     }
 
     if (obj_jogador.x >= destino_x) {
+
         etapa = 5;
         fala_iniciada = false;
     }
@@ -172,7 +208,7 @@ if (etapa == 4) {
 
 
 // =====================================
-// ETAPA 5 - PRIMEIRA REACAO
+// 5 - ELA ESCUTA ALGUMA COISA
 // =====================================
 
 if (etapa == 5) {
@@ -202,7 +238,7 @@ if (etapa == 5) {
 
 
 // =====================================
-// ETAPA 6 - VIRA E PERGUNTA
+// 6 - ELA VIRA PARA O BECO
 // =====================================
 
 if (etapa == 6) {
@@ -212,6 +248,7 @@ if (etapa == 6) {
         if (instance_exists(obj_jogador)) {
 
             with (obj_jogador) {
+
                 sprite_index = spr_costas;
                 image_xscale = abs(escala);
                 image_speed = 0;
@@ -223,7 +260,6 @@ if (etapa == 6) {
             "Celeste: Ué... Que barulho foi esse?";
 
         global.caixa_aberta = true;
-
         fala_iniciada = true;
 
     } else if (!global.caixa_aberta) {
@@ -236,34 +272,56 @@ if (etapa == 6) {
 
 
 // =====================================
-// ETAPA 7 - APROXIMA DA ENTRADA
+// 7 - CAMINHA ATE A ENTRADA DO BECO
 // =====================================
 
 if (etapa == 7) {
 
     if (!instance_exists(obj_jogador)) exit;
 
-    // Caminha ate o marcador do beco
     with (obj_jogador) {
 
         has_target = false;
 
-        sprite_index = spr_perfil;
-        image_xscale = abs(escala);
+        var _dx = other.entrada_x - x;
+        var _dy = other.entrada_y - y;
+        var _dist = point_distance(
+            x, y,
+            other.entrada_x,
+            other.entrada_y
+        );
 
-        if (x < other.entrada_x) {
+        if (_dist > 0.8) {
 
-            x = min(x + 0.6, other.entrada_x);
+            var _passo = min(0.8, _dist);
+
+            x += (_dx / _dist) * _passo;
+            y += (_dy / _dist) * _passo;
+
+            // Olha para o beco
+            sprite_index = spr_costas;
+            image_xscale = abs(escala);
             image_speed = 0.15;
 
         } else {
+
+            x = other.entrada_x;
+            y = other.entrada_y;
 
             image_speed = 0;
             image_index = 0;
         }
     }
 
-    if (obj_jogador.x >= entrada_x) {
+    if (
+        point_distance(
+            obj_jogador.x,
+            obj_jogador.y,
+            entrada_x,
+            entrada_y
+        ) <= 0.8
+    ) {
+
         etapa = 8;
     }
 
@@ -272,12 +330,12 @@ if (etapa == 7) {
 
 
 // =====================================
-// ETAPA 8 - ENTRAR NO BECO
+// 8 - ESCURECE PARA ENTRAR NO BECO
 // =====================================
 
 if (etapa == 8) {
 
-    cobertura = min(cobertura + 0.04, 1);
+    cobertura = min(cobertura + 0.15, 1);
 
     if (cobertura >= 1) {
 
@@ -295,7 +353,7 @@ if (etapa == 8) {
 
 
 // =====================================
-// ETAPA 9 - FINALIZAR
+// 9 - TERMINA A CUTSCENE
 // =====================================
 
 if (etapa == 9) {

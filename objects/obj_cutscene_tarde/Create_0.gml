@@ -4,42 +4,36 @@
 persistent = true;
 depth = -100000;
 
-// 0 = escurecer
-// 1 = fala na tela preta
-// 2 = trocar para rua_beco
-// 3 = revelar o cenario
-// 4 = caminhar ate a entrada
-// 5 = primeira reacao
-// 6 = segunda reacao
-// 7 = aproximar da entrada
-// 8 = escurecer e entrar
-// 9 = terminar
+// 0 escurecer
+// 1 narracao
+// 2 mudar de room
+// 3 revelar novo beco
+// 4 caminhar
+// 5 primeira reacao
+// 6 olhar para o beco
+// 7 entrar
+// 8 escurecer
+// 9 finalizar
 etapa = 0;
 
-// 0 = transparente, 1 = preto
 cobertura = 0;
+preparado = false;
+fala_iniciada = false;
 
-// Texto da tela preta
 texto_narracao =
     "Celeste: Acho que tá ficando tarde... Melhor voltar pra casa.";
 
 letras_narracao = 0;
+espera_clique = 0;
 
-// Evita que um clique antigo avance a cena
-espera_clique = 15;
+destino_x = 90;
+entrada_x = 127;
+entrada_y = 105;
 
-// Ponto de parada
-destino_x = 260;
-entrada_x = 285;
-
-// Controle das falas na rua
-fala_iniciada = false;
-
-// Bloqueia controles normais
 global.cutscene_bloqueio = true;
 global.indo_para_porta = false;
+global.porta_alvo = noone;
 
-// Fecha qualquer interface remanescente
 global.caixa_aberta = false;
 global.caixa_texto = "";
 
