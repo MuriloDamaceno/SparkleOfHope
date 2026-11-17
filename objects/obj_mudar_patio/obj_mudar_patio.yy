@@ -8,8 +8,8 @@
   "name":"obj_mudar_patio",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"patio",
+    "path":"folders/patio.yy",
   },
   "parentObjectId":null,
   "persistent":false,
