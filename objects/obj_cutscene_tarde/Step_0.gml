@@ -109,7 +109,7 @@ if (etapa == 1) {
             var _marcador =
                 instance_find(obj_marcador_beco, 0);
 
-            entrada_x = _marcador.x + 32;
+            entrada_x = _marcador.x + 11;
             entrada_y = 94;
             destino_x = entrada_x;
 
