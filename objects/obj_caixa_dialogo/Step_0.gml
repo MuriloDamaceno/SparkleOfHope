@@ -17,6 +17,14 @@ if (!variable_global_exists("npc_beco_ativo")) {
     global.npc_beco_ativo = false;
 }
 
+if (!variable_global_exists("lia_ativa")) {
+    global.lia_ativa = false;
+}
+
+if (!variable_global_exists("lia_concluida")) {
+    global.lia_concluida = false;
+}
+
 
 // =====================================
 // CUTSCENE: DESPEDIDA DA MAE
@@ -72,7 +80,7 @@ if (
 
 if (global.caixa_aberta && global.caixa_texto != "") {
 
-    // Detecta quando o texto muda
+    // Detecta mudanca de fala
     if (global.caixa_texto != ultimo_texto) {
 
         ultimo_texto = global.caixa_texto;
@@ -84,13 +92,13 @@ if (global.caixa_aberta && global.caixa_texto != "") {
         }
     }
 
-    // Anima as letras
+    // Animacao das letras
     letras_visiveis = min(
         letras_visiveis + velocidade_texto,
         string_length(global.caixa_texto)
     );
 
-    // Espaco completa a fala
+    // Espaco completa a fala atual
     if (keyboard_check_pressed(vk_space)) {
         letras_visiveis =
             string_length(global.caixa_texto);
@@ -117,7 +125,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
 
     } else {
 
-        // Para o som quando o texto termina
+        // Para o som ao terminar a fala
         if (som_dialogo_id != -1) {
             audio_stop_sound(som_dialogo_id);
             som_dialogo_id = -1;
@@ -155,7 +163,7 @@ if (
         floor(_gui_h / 200), 1, 6
     );
 
-    // Caixa com largura aumentada em 35%
+    // Largura aumentada em 35%
     var _box_w = sprite_width * _escala * 1.35;
     var _box_h = sprite_height * _escala;
 
@@ -180,14 +188,15 @@ if (
     )) {
 
         // =====================================
-        // COMPLETA O TEXTO ANTES DE AVANCAR
+        // COMPLETA AS LETRAS ANTES DE AVANCAR
         // =====================================
 
         if (
             (
                 global.despedida_etapa > 0 ||
                 global.hope_conversa_ativa ||
-                global.npc_beco_ativo
+                global.npc_beco_ativo ||
+                global.lia_ativa
             ) &&
             letras_visiveis <
             string_length(global.caixa_texto)
@@ -341,6 +350,55 @@ if (
                 global.npc_beco_etapa = 0;
                 global.indo_para_porta = false;
 
+                if (instance_exists(obj_jogador)) {
+
+                    with (obj_jogador) {
+
+                        has_target = false;
+                        image_speed = 0;
+                        image_index = 0;
+                    }
+                }
+            }
+        }
+
+        // =====================================
+        // CONVERSA COM LIA - NOVO PATIO
+        // =====================================
+
+        else if (
+            global.despedida_etapa == 0 &&
+            global.lia_ativa
+        ) {
+
+            // Avanca a conversa
+            global.lia_etapa++;
+
+            // Proxima fala
+            if (
+                global.lia_etapa <
+                array_length(global.lia_falas)
+            ) {
+
+                global.caixa_texto =
+                    global.lia_falas[global.lia_etapa];
+
+                letras_visiveis = 0;
+                ultimo_texto = "";
+
+            } else {
+
+                // Fim da conversa com Lia
+                global.lia_ativa = false;
+                global.lia_concluida = true;
+
+                global.caixa_aberta = false;
+                global.caixa_texto = "";
+
+                global.lia_etapa = 0;
+                global.indo_para_porta = false;
+
+                // Libera a movimentacao
                 if (instance_exists(obj_jogador)) {
 
                     with (obj_jogador) {

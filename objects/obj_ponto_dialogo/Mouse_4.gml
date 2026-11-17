@@ -1,5 +1,5 @@
 
-/// LEFT PRESSED - PONTO DE DIALOGO
+/// OBJ_PONTO_DIALOGO - LEFT PRESSED
 
 if (global.caixa_aberta || instance_exists(Obj_inventario)) {
     exit;
@@ -7,6 +7,7 @@ if (global.caixa_aberta || instance_exists(Obj_inventario)) {
 
 if (!instance_exists(obj_jogador)) exit;
 
+// Distancia de interacao
 var _dist = point_distance(
     obj_jogador.x,
     obj_jogador.y,
@@ -15,9 +16,11 @@ var _dist = point_distance(
 
 if (_dist > 75) exit;
 
-// Garante que existe uma caixa
+// Garante a caixa de dialogo
 if (!instance_exists(obj_caixa_dialogo)) {
-    instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    instance_create_depth(
+        0, 0, -1000, obj_caixa_dialogo
+    );
 }
 
 // Para Celeste
@@ -30,36 +33,101 @@ global.indo_para_porta = false;
 
 
 // =====================================
-// MORADOR DO BECO
+// CONVERSA COM LIA NO PATIO
+// =====================================
+
+if (
+    room == rm_patio &&
+    variable_global_exists("hope_concluida") &&
+    global.hope_concluida
+) {
+
+    if (!variable_global_exists("lia_concluida")) {
+        global.lia_concluida = false;
+    }
+
+    // Depois da primeira conversa
+    if (global.lia_concluida) {
+
+        global.caixa_texto =
+            "Lia: Espero que os bichinhos estejam bem...";
+        global.caixa_aberta = true;
+        exit;
+    }
+
+    global.lia_falas = [
+        "Celeste: Oi. Não sabia que você gostava de ler aqui.",
+        "Lia: É mais tranquilo. Dentro de casa sempre tem alguém falando alguma coisa.",
+        "Celeste: Que livro é esse?",
+        "Lia: Um sobre animais. Peguei na biblioteca da Hope.",
+        "Celeste: Engraçado... Acabei de sair de lá. Estou ajudando ela a cobrar uns livros atrasados.",
+        "Lia: Então espero que não tenha vindo atrás do meu.",
+        "Celeste: Não, não. Pelo menos acho que não.",
+        "Lia: Ainda bem. Estou tentando terminar.",
+        "Celeste: É interessante?",
+        "Lia: É. Mas tem umas partes que me deixam triste.",
+        "Celeste: Por quê?",
+        "Lia: Porque fala de como os animais dependem da gente.",
+        "Lia: E, mesmo assim, tem gente que trata eles como se fossem coisas.",
+        "Celeste: É... Eu vi alguns cachorros na rua hoje.",
+        "Lia: Eu também vejo. Todo dia.",
+        "Lia: O estranho é que, depois de um tempo, a gente quase para de reparar.",
+        "Celeste: Como assim?",
+        "Lia: Sei lá. Um cachorro dormindo na calçada vira parte da paisagem.",
+        "Lia: As pessoas desviam dele como desviam de uma pedra.",
+        "Celeste: Nunca tinha pensado desse jeito.",
+        "Lia: Ontem vi um cachorro esperando na frente de uma casa.",
+        "Lia: Ficou horas lá. Talvez estivesse esperando alguém que nunca ia voltar.",
+        "Celeste: Que triste...",
+        "Lia: O pior é que eu passei por ele também. Não fiz nada.",
+        "Celeste: Mas você não pode ajudar todos.",
+        "Lia: Eu sei. Só fico pensando se a gente usa isso como desculpa para não ajudar nenhum.",
+        "Celeste: Talvez... Mas fazer alguma coisa pequena ainda é melhor do que não fazer nada.",
+        "Lia: É. Acho que sim.",
+        "Celeste: Bom, preciso continuar com os livros. A Hope está contando comigo.",
+        "Lia: Vai lá. E, Celeste... presta atenção nos bichinhos pelo caminho, tá?",
+        "Celeste: Pode deixar."
+    ];
+
+    global.lia_etapa = 0;
+    global.lia_ativa = true;
+
+    global.caixa_texto = global.lia_falas[0];
+    global.caixa_aberta = true;
+
+    exit;
+}
+
+
+// =====================================
+// CONVERSA COM MORADOR DO BECO
 // =====================================
 
 if (room == rua_beco) {
 
-    // Ainda nao recebeu a missao
     if (
         !variable_global_exists("hope_concluida") ||
         !global.hope_concluida
     ) {
+
         global.caixa_texto =
             "Parece que tem alguém em casa.";
         global.caixa_aberta = true;
         exit;
     }
 
-    // Inicializa estado da missao
     if (!variable_global_exists("npc_beco_concluido")) {
         global.npc_beco_concluido = false;
     }
 
-    // Conversa ja realizada
     if (global.npc_beco_concluido) {
+
         global.caixa_texto =
             "Morador: Já falei que devolvo amanhã!";
         global.caixa_aberta = true;
         exit;
     }
 
-    // Sequencia de dialogos
     global.npc_beco_falas = [
         "Celeste: Oi! Estou ajudando a Hope, da biblioteca.",
         "Morador: Biblioteca? O que vocês querem agora?",
@@ -83,7 +151,7 @@ if (room == rua_beco) {
 
 
 // =====================================
-// OUTROS PONTOS DE DIALOGO
+// DIALOGO ANTIGO DOS OUTROS CENARIOS
 // =====================================
 
 global.caixa_texto = texto_dialogo;
