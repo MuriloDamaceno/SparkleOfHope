@@ -394,16 +394,32 @@ if (global.indo_para_porta) {
 }
 
 
+
 // =====================================
 // PATIO -> RUA
 // =====================================
 
 if (room == rm_patio) {
 
-    if (
+    if (!variable_global_exists("bloquear_saida_patio")) {
+        global.bloquear_saida_patio = false;
+    }
+
+    var _perto_saida = (
         x >= room_width - 10 ||
         place_meeting(x, y, obj_saida_rua)
-    ) {
+    );
+
+    // Protecao quando acabou de voltar da rua
+    if (global.bloquear_saida_patio) {
+
+        // Precisa sair da area da passagem
+        // antes de poder entrar novamente
+        if (!_perto_saida) {
+            global.bloquear_saida_patio = false;
+        }
+
+    } else if (_perto_saida) {
 
         // Aparece no inicio da rua
         global.spawn_room = rm_rua;
@@ -452,6 +468,7 @@ if (room == rm_rua) {
 }
 
 
+
 // =====================================
 // RUA -> PATIO
 // =====================================
@@ -461,11 +478,14 @@ if (room == rm_rua) {
     // Retorna pelo lado esquerdo da rua
     if (x <= 9) {
 
-       
-global.spawn_room = rm_patio;
-global.spawn_x = 195;
-global.spawn_y = 123;
+        global.spawn_room = rm_patio;
 
+        // Perto da saida do patio, nao da casa
+        global.spawn_x = 375;
+        global.spawn_y = 155;
+
+        // Protecao contra retorno imediato
+        global.bloquear_saida_patio = true;
 
         has_target = false;
         global.indo_para_porta = false;
