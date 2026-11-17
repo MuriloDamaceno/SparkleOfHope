@@ -87,6 +87,7 @@
     {"name":"snd_ambiente_cozinha","order":1,"path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},
     {"name":"Sound4","order":3,"path":"sounds/Sound4/Sound4.yy",},
     {"name":"livro","order":3,"path":"sprites/livro/livro.yy",},
+    {"name":"portabeco","order":33,"path":"sprites/portabeco/portabeco.yy",},
     {"name":"spr_andante","order":4,"path":"sprites/spr_andante/spr_andante.yy",},
     {"name":"spr_botao_iniciar","order":1,"path":"sprites/spr_botao_iniciar/spr_botao_iniciar.yy",},
     {"name":"spr_botao_opcoes","order":3,"path":"sprites/spr_botao_opcoes/spr_botao_opcoes.yy",},
