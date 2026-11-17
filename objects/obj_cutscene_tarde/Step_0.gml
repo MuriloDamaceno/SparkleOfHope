@@ -1,124 +1,12 @@
 
 /// OBJ_CUTSCENE_TARDE - STEP COMPLETO
-
-if (espera_clique > 0) {
-    espera_clique--;
-}
-
-/// TESTE TEMPORARIO DA CUTSCENE
-
-if (etapa == 0 && cobertura == 0) {
-    show_debug_message("TESTE: cutscene comecou");
-}
-
-if (etapa == 1 && letras_narracao == 0) {
-    show_debug_message("TESTE: entrou no time skip");
-}
-
-if (etapa == 3 && !preparado) {
-    show_debug_message("TESTE: preparando rua beco depois");
-}
-
-if (etapa == 4 && obj_jogador.x < 27) {
-    show_debug_message("TESTE: Celeste comecou a andar");
-}
-
+/// SEM TRANSICAO
 
 // =====================================
-// ETAPA 0 - ESCURECE A TELA
+// ETAPA 0 - IR PARA A RUA DO BECO
 // =====================================
 
-
-if (cobertura >= 1) {
-
-    etapa = 1;
-
-    indice_time_skip = 0;
-    texto_narracao = falas_time_skip[0];
-
-    letras_narracao = 0;
-    tempo_narracao = 0;
-
-    show_debug_message(
-        "CUTSCENE: entrou na narracao do time skip"
-    );
-}
-
-
-   exit;
-
-
-
-
-// =====================================
-// ETAPA 1 - TIME SKIP NA TELA PRETA
-// =====================================
-
-if (etapa == 1) {
-
-    // Mantem a tela preta
-    cobertura = 1;
-
-    // Conta os frames da fala atual
-    tempo_narracao++;
-
-    // Letras aparecem gradualmente
-    letras_narracao = min(
-        letras_narracao + 1.2,
-        string_length(texto_narracao)
-    );
-
-    // Evita pular a fala imediatamente
-    if (tempo_narracao < 30) {
-        exit;
-    }
-
-    // Avanca somente com clique
-    if (mouse_check_button_pressed(mb_left)) {
-
-        // Primeiro completa as letras
-        if (
-            letras_narracao <
-            string_length(texto_narracao)
-        ) {
-
-            letras_narracao =
-                string_length(texto_narracao);
-
-        } else {
-
-            // Passa para a proxima fala
-            indice_time_skip++;
-
-            if (
-                indice_time_skip <
-                array_length(falas_time_skip)
-            ) {
-
-                texto_narracao =
-                    falas_time_skip[indice_time_skip];
-
-                letras_narracao = 0;
-                tempo_narracao = 0;
-
-            } else {
-
-                // Todas as falas terminaram
-                // Agora pode revelar a rua
-                etapa = 2;
-            }
-        }
-    }
-
-    exit;
-}
-
-
-// =====================================
-// ETAPA 2 - TRANSPORTA PARA RUA_BECO
-// =====================================
-
-if (etapa == 2) {
+if (etapa == 0) {
 
     global.caixa_aberta = false;
     global.caixa_texto = "";
@@ -127,8 +15,7 @@ if (etapa == 2) {
     global.spawn_x = 25;
     global.spawn_y = 110;
 
-    preparado = false;
-    etapa = 3;
+    etapa = 1;
 
     room_goto(rua_beco);
     exit;
@@ -136,45 +23,34 @@ if (etapa == 2) {
 
 
 // =====================================
-// ETAPA 3 - PREPARA O NOVO CENARIO
+// ETAPA 1 - PREPARAR O CENARIO
 // =====================================
 
-if (etapa == 3) {
+if (etapa == 1) {
 
     if (room != rua_beco) exit;
     if (!instance_exists(obj_jogador)) exit;
 
     if (!preparado) {
 
-        // =================================
-        // TROCA O FUNDO
-        // =================================
-
+        // Troca o fundo pelo novo beco
         var _fundo = layer_get_id("Background");
 
         if (_fundo != -1) {
-
             layer_background_sprite(
                 _fundo,
                 spr_ruabeco_depois
             );
         }
 
-        // =================================
-        // ESCONDE PRIMEIRO PLANO ANTIGO
-        // =================================
-
-        var _frente =
-            layer_get_id("Primeiro_Plano");
+        // Esconde o primeiro plano antigo
+        var _frente = layer_get_id("Primeiro_Plano");
 
         if (_frente != -1) {
             layer_set_visible(_frente, false);
         }
 
-        // =================================
-        // REMOVE ELEMENTOS ANTIGOS
-        // =================================
-
+        // Remove elementos da rua antiga
         with (obj_carro) {
             instance_destroy();
         }
@@ -187,37 +63,20 @@ if (etapa == 3) {
             instance_destroy();
         }
 
-        // =================================
-        // IDENTIFICA A ENTRADA DO BECO
-        // =================================
-
+        // Encontra a entrada do beco
         if (instance_exists(obj_marcador_beco)) {
 
             var _marcador =
                 instance_find(obj_marcador_beco, 0);
 
-            // Centro da passagem de 64 pixels
+            // Centro do sprite de 64 pixels
             entrada_x = _marcador.x + 32;
-
-            // Ponto para entrar no beco
             entrada_y = 94;
 
-            // Para alinhada horizontalmente
-            // com a entrada
             destino_x = entrada_x;
-
-        } else {
-
-            // Valores de seguranca
-            entrada_x = 159;
-            entrada_y = 94;
-            destino_x = 159;
         }
 
-        // =================================
-        // POSICIONA CELESTE
-        // =================================
-
+        // Posiciona Celeste a esquerda
         with (obj_jogador) {
 
             x = 25;
@@ -235,13 +94,52 @@ if (etapa == 3) {
         }
 
         preparado = true;
+        indice_fala = 0;
+        fala_ativa = false;
     }
 
-    // Revela o cenario
-    cobertura = max(cobertura - 0.15, 0);
+    etapa = 2;
+    exit;
+}
 
-    if (cobertura <= 0) {
-        etapa = 4;
+
+// =====================================
+// ETAPA 2 - TIME SKIP
+// =====================================
+
+if (etapa == 2) {
+
+    // Inicia a fala atual
+    if (!fala_ativa) {
+
+        if (!instance_exists(obj_caixa_dialogo)) {
+            instance_create_depth(
+                0, 0, -1000,
+                obj_caixa_dialogo
+            );
+        }
+
+        global.caixa_texto =
+            falas_time_skip[indice_fala];
+
+        global.caixa_aberta = true;
+        fala_ativa = true;
+
+    }
+    // Espera o jogador fechar a fala
+    else if (!global.caixa_aberta) {
+
+        indice_fala++;
+        fala_ativa = false;
+
+        // Terminou todas as falas
+        if (
+            indice_fala >=
+            array_length(falas_time_skip)
+        ) {
+
+            etapa = 3;
+        }
     }
 
     exit;
@@ -249,10 +147,10 @@ if (etapa == 3) {
 
 
 // =====================================
-// ETAPA 4 - CELESTE CAMINHA DEVAGAR
+// ETAPA 3 - CELESTE CAMINHA
 // =====================================
 
-if (etapa == 4) {
+if (etapa == 3) {
 
     if (!instance_exists(obj_jogador)) exit;
 
@@ -265,7 +163,6 @@ if (etapa == 4) {
 
         if (x < other.destino_x) {
 
-            // Caminhada mais lenta
             x = min(
                 x + 0.45,
                 other.destino_x
@@ -280,11 +177,10 @@ if (etapa == 4) {
         }
     }
 
-    // Chegou na frente da entrada
     if (obj_jogador.x >= destino_x) {
 
-        etapa = 5;
-        fala_iniciada = false;
+        etapa = 4;
+        fala_ativa = false;
     }
 
     exit;
@@ -292,32 +188,29 @@ if (etapa == 4) {
 
 
 // =====================================
-// ETAPA 5 - CELESTE ESCUTA ALGO
+// ETAPA 4 - ELA ESCUTA UM BARULHO
 // =====================================
 
-if (etapa == 5) {
+if (etapa == 4) {
 
-    if (!fala_iniciada) {
+    if (!fala_ativa) {
 
         if (!instance_exists(obj_caixa_dialogo)) {
-
             instance_create_depth(
                 0, 0, -1000,
                 obj_caixa_dialogo
             );
         }
 
-        global.caixa_texto =
-            "Celeste: Hm...?";
-
+        global.caixa_texto = "Celeste: Hm...?";
         global.caixa_aberta = true;
 
-        fala_iniciada = true;
+        fala_ativa = true;
 
     } else if (!global.caixa_aberta) {
 
-        etapa = 6;
-        fala_iniciada = false;
+        etapa = 5;
+        fala_ativa = false;
     }
 
     exit;
@@ -325,12 +218,12 @@ if (etapa == 5) {
 
 
 // =====================================
-// ETAPA 6 - VIRA DE COSTAS
+// ETAPA 5 - VIRA DE COSTAS
 // =====================================
 
-if (etapa == 6) {
+if (etapa == 5) {
 
-    if (!fala_iniciada) {
+    if (!fala_ativa) {
 
         if (instance_exists(obj_jogador)) {
 
@@ -341,22 +234,26 @@ if (etapa == 6) {
 
                 image_speed = 0;
                 image_index = 0;
-
                 has_target = false;
             }
         }
 
+        if (!instance_exists(obj_caixa_dialogo)) {
+            instance_create_depth(
+                0, 0, -1000,
+                obj_caixa_dialogo
+            );
+        }
+
         global.caixa_texto =
-            "Celeste: Ué... Que barulho foi esse?";
+            "Celeste: Ue... Que barulho foi esse?";
 
         global.caixa_aberta = true;
-
-        fala_iniciada = true;
+        fala_ativa = true;
 
     } else if (!global.caixa_aberta) {
 
-        etapa = 7;
-        fala_iniciada = false;
+        etapa = 6;
     }
 
     exit;
@@ -364,10 +261,10 @@ if (etapa == 6) {
 
 
 // =====================================
-// ETAPA 7 - ENTRA NO BECO
+// ETAPA 6 - APROXIMA DO BECO
 // =====================================
 
-if (etapa == 7) {
+if (etapa == 6) {
 
     if (!instance_exists(obj_jogador)) exit;
 
@@ -379,16 +276,13 @@ if (etapa == 7) {
         var _dy = other.entrada_y - y;
 
         var _dist = point_distance(
-            x,
-            y,
+            x, y,
             other.entrada_x,
             other.entrada_y
         );
 
         if (_dist > 0.45) {
 
-            // Movimento lento em direcao
-            // ao interior do beco
             var _passo = min(0.45, _dist);
 
             x += (_dx / _dist) * _passo;
@@ -403,13 +297,11 @@ if (etapa == 7) {
             x = other.entrada_x;
             y = other.entrada_y;
 
-            sprite_index = spr_costas;
             image_speed = 0;
             image_index = 0;
         }
     }
 
-    // Chegou na entrada
     if (
         point_distance(
             obj_jogador.x,
@@ -419,7 +311,7 @@ if (etapa == 7) {
         ) <= 0.45
     ) {
 
-        etapa = 8;
+        etapa = 7;
     }
 
     exit;
@@ -427,39 +319,24 @@ if (etapa == 7) {
 
 
 // =====================================
-// ETAPA 8 - ESCURECE AO ENTRAR
+// ETAPA 7 - ENTRAR NO BECO
 // =====================================
 
-if (etapa == 8) {
+if (etapa == 7) {
 
-    cobertura = min(cobertura + 0.15, 1);
+    global.caixa_aberta = false;
+    global.caixa_texto = "";
 
-    if (cobertura >= 1) {
+    global.spawn_room = rm_beco_interno;
+    global.spawn_x = 40;
+    global.spawn_y = 170;
 
-        etapa = 9;
-
-        global.spawn_room = rm_beco_interno;
-        global.spawn_x = 40;
-        global.spawn_y = 170;
-
-        room_goto(rm_beco_interno);
-    }
-
-    exit;
-}
-
-
-// =====================================
-// ETAPA 9 - FINALIZA
-// =====================================
-
-if (etapa == 9) {
-
-    if (room != rm_beco_interno) exit;
-
-    global.cutscene_bloqueio = false;
     global.cutscene_finalizada = true;
+    global.cutscene_bloqueio = false;
 
+    // Remove o controlador da cutscene
     instance_destroy();
+
+    room_goto(rm_beco_interno);
     exit;
 }
