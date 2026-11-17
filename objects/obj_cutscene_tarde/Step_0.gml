@@ -5,6 +5,24 @@ if (espera_clique > 0) {
     espera_clique--;
 }
 
+/// TESTE TEMPORARIO DA CUTSCENE
+
+if (etapa == 0 && cobertura == 0) {
+    show_debug_message("TESTE: cutscene comecou");
+}
+
+if (etapa == 1 && letras_narracao == 0) {
+    show_debug_message("TESTE: entrou no time skip");
+}
+
+if (etapa == 3 && !preparado) {
+    show_debug_message("TESTE: preparando rua beco depois");
+}
+
+if (etapa == 4 && obj_jogador.x < 27) {
+    show_debug_message("TESTE: Celeste comecou a andar");
+}
+
 
 // =====================================
 // ETAPA 0 - ESCURECE A TELA
