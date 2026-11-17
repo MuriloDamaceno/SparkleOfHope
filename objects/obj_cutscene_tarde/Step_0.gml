@@ -407,28 +407,38 @@ if (etapa == 6) {
 }
 
 
+
 // =====================================
-// ETAPA 7 - IR PARA O INTERIOR DO BECO
+// ETAPA 7 - ENTRAR NO BECO INTERNO
 // =====================================
 
 if (etapa == 7) {
 
+    // Fecha os dialogos anteriores
     global.caixa_aberta = false;
     global.caixa_texto = "";
 
+    // Posicao da Celeste na nova cena
     global.spawn_room = rm_beco_interno;
-    global.spawn_x = 40;
-    global.spawn_y = 170;
+    global.spawn_x = 158;
+    global.spawn_y = 244;
 
+    // Marca a primeira cutscene como concluida
     global.cutscene_finalizada = true;
-    global.cutscene_bloqueio = false;
 
-    // Desativa o controlador da cutscene
+    // Mantem os controles bloqueados
+    // para a cutscene dos bichinhos
+    global.cutscene_bloqueio = true;
+
+    show_debug_message(
+        "ENTRANDO NA ROOM: RM_BECO_INTERNO"
+    );
+
+    // O controlador antigo nao acompanha
+    // a proxima room
     persistent = false;
 
-    // Troca de room
     room_goto(rm_beco_interno);
 
-    instance_destroy();
     exit;
 }
