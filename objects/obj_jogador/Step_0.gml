@@ -461,9 +461,11 @@ if (room == rm_rua) {
     // Retorna pelo lado esquerdo da rua
     if (x <= 9) {
 
-        global.spawn_room = rm_patio;
-        global.spawn_x = 450;
-        global.spawn_y = 130;
+       
+global.spawn_room = rm_patio;
+global.spawn_x = 195;
+global.spawn_y = 123;
+
 
         has_target = false;
         global.indo_para_porta = false;
