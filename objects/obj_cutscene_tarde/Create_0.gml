@@ -1,7 +1,11 @@
 
 /// OBJ_CUTSCENE_TARDE - CREATE
 
-persistent = true;
+
+// Desenha o fundo novo atras dos personagens
+// e na frente do background antigo
+depth = 250;
+
 
 // Etapas da cutscene
 etapa = 0;
