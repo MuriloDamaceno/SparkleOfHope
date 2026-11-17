@@ -10,36 +10,55 @@ if (espera_clique > 0) {
 // ETAPA 0 - ESCURECE A TELA
 // =====================================
 
-if (etapa == 0) {
 
-    cobertura = min(cobertura + 0.15, 1);
+if (cobertura >= 1) {
 
-    if (cobertura >= 1) {
-        etapa = 1;
-        espera_clique = 8;
-        letras_narracao = 0;
-    }
+    etapa = 1;
 
-    exit;
+    indice_time_skip = 0;
+    texto_narracao = falas_time_skip[0];
+
+    letras_narracao = 0;
+    tempo_narracao = 0;
+
+    show_debug_message(
+        "CUTSCENE: entrou na narracao do time skip"
+    );
 }
 
 
+   exit;
+
+
+
+
 // =====================================
-// ETAPA 1 - NARRACAO NA TELA PRETA
+// ETAPA 1 - TIME SKIP NA TELA PRETA
 // =====================================
 
 if (etapa == 1) {
 
+    // Mantem a tela preta
+    cobertura = 1;
+
+    // Conta os frames da fala atual
+    tempo_narracao++;
+
+    // Letras aparecem gradualmente
     letras_narracao = min(
-        letras_narracao + 2,
+        letras_narracao + 1.2,
         string_length(texto_narracao)
     );
 
-    if (
-        espera_clique <= 0 &&
-        mouse_check_button_pressed(mb_left)
-    ) {
+    // Evita pular a fala imediatamente
+    if (tempo_narracao < 30) {
+        exit;
+    }
 
+    // Avanca somente com clique
+    if (mouse_check_button_pressed(mb_left)) {
+
+        // Primeiro completa as letras
         if (
             letras_narracao <
             string_length(texto_narracao)
@@ -50,7 +69,26 @@ if (etapa == 1) {
 
         } else {
 
-            etapa = 2;
+            // Passa para a proxima fala
+            indice_time_skip++;
+
+            if (
+                indice_time_skip <
+                array_length(falas_time_skip)
+            ) {
+
+                texto_narracao =
+                    falas_time_skip[indice_time_skip];
+
+                letras_narracao = 0;
+                tempo_narracao = 0;
+
+            } else {
+
+                // Todas as falas terminaram
+                // Agora pode revelar a rua
+                etapa = 2;
+            }
         }
     }
 

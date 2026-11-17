@@ -12,9 +12,9 @@ draw_set_color(c_white);
 // TRANSICAO COM SPR_TRANSICAO
 // =====================================
 
-// Tela preta durante a narracao
 if (etapa == 1 || etapa == 2 || etapa == 9) {
 
+    // Tela completamente preta
     draw_set_color(c_black);
 
     draw_rectangle(
@@ -25,22 +25,20 @@ if (etapa == 1 || etapa == 2 || etapa == 9) {
 
 } else if (cobertura > 0) {
 
-    // Usa os 18 frames do sprite
-    var _total = sprite_get_number(spr_transicao);
-
-    var _quadro = clamp(
-        floor(cobertura * (_total - 1)),
-        0,
-        _total - 1
-    );
-
     if (cobertura >= 1) {
 
-        // Garante a tela totalmente preta
         draw_set_color(c_black);
         draw_rectangle(0, 0, _w, _h, false);
 
     } else {
+
+        var _total = sprite_get_number(spr_transicao);
+
+        var _quadro = clamp(
+            floor(cobertura * (_total - 1)),
+            0,
+            _total - 1
+        );
 
         draw_set_color(c_white);
 
@@ -55,13 +53,14 @@ if (etapa == 1 || etapa == 2 || etapa == 9) {
 
 
 // =====================================
-// NARRACAO NA TELA PRETA
+// TEXTO DO TIME SKIP
 // =====================================
 
 if (etapa == 1) {
 
     draw_set_font(fnt_dialogo);
     draw_set_color(c_white);
+    draw_set_alpha(1);
 
     draw_set_halign(fa_center);
     draw_set_valign(fa_middle);
@@ -73,12 +72,26 @@ if (etapa == 1) {
     );
 
     draw_text_ext(
-        _w / 2,
-        _h / 2,
+        _w * 0.5,
+        _h * 0.5,
         _texto,
-        14,
-        _w * 0.75
+        12,
+        _w * 0.7
     );
+
+    // Indicacao para avancar
+    if (
+        letras_narracao >=
+        string_length(texto_narracao) &&
+        tempo_narracao >= 30
+    ) {
+
+        draw_text(
+            _w * 0.5,
+            _h * 0.75,
+            "Clique para continuar"
+        );
+    }
 }
 
 
@@ -88,6 +101,5 @@ if (etapa == 1) {
 
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
-
-draw_set_alpha(1);
 draw_set_color(c_white);
+draw_set_alpha(1);

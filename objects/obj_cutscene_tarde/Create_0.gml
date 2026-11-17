@@ -26,8 +26,25 @@ cobertura = 0;
 preparado = false;
 fala_iniciada = false;
 
-texto_narracao =
-    "Celeste: Acho que tá ficando tarde... Melhor voltar pra casa.";
+
+// =====================================
+// NARRACAO DO TIME SKIP
+// =====================================
+
+falas_time_skip = [
+    "Celeste: Passei o resto da tarde indo de casa em casa...",
+    "Celeste: Algumas pessoas foram gentis. Outras nem quiseram me ouvir.",
+    "Celeste: Pelo menos consegui resolver boa parte da lista da Hope.",
+    "Celeste: Acho que tá ficando tarde... Melhor voltar pra casa."
+];
+
+indice_time_skip = 0;
+texto_narracao = falas_time_skip[0];
+
+letras_narracao = 0;
+tempo_narracao = 0;
+espera_clique = 0;
+
 
 letras_narracao = 0;
 espera_clique = 0;
