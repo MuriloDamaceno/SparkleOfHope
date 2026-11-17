@@ -1,4 +1,17 @@
 
+
+// =====================================
+// BLOQUEIO DURANTE CUTSCENE
+// =====================================
+
+if (
+    variable_global_exists("cutscene_bloqueio") &&
+    global.cutscene_bloqueio
+) {
+    exit;
+}
+
+
 /// OBJ_JOGADOR - STEP COMPLETO
 
 // =====================================

@@ -1,4 +1,12 @@
 
+if (
+    variable_global_exists("cutscene_bloqueio") &&
+    global.cutscene_bloqueio
+) {
+    exit;
+}
+
+
 // Nao anda ao clicar em um ponto de dialogo
 if (
     room == rm_corredor &&

@@ -1,4 +1,12 @@
 
+if (
+    variable_global_exists("cutscene_bloqueio") &&
+    global.cutscene_bloqueio
+) {
+    exit;
+}
+
+
 /// STEP - BECO PARA FORA DA BIBLIOTECA
 
 if (room != rua_beco) exit;
