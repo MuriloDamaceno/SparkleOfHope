@@ -8,8 +8,8 @@
   "name":"obj_voltar_beco",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"forabiblioteca",
+    "path":"folders/forabiblioteca.yy",
   },
   "parentObjectId":null,
   "persistent":false,
