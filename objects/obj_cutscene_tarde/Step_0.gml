@@ -1,9 +1,9 @@
 
 /// OBJ_CUTSCENE_TARDE - STEP COMPLETO
-/// SEM TRANSICAO
+/// SEM TRANSICAO, COM TIME SKIP
 
 // =====================================
-// ETAPA 0 - IR PARA A RUA DO BECO
+// ETAPA 0 - CORTAR PARA O NOVO BECO
 // =====================================
 
 if (etapa == 0) {
@@ -15,6 +15,12 @@ if (etapa == 0) {
     global.spawn_x = 25;
     global.spawn_y = 110;
 
+    // Esconde a Celeste anterior
+    with (obj_jogador) {
+        visible = false;
+        has_target = false;
+    }
+
     etapa = 1;
 
     room_goto(rua_beco);
@@ -23,7 +29,7 @@ if (etapa == 0) {
 
 
 // =====================================
-// ETAPA 1 - PREPARAR O CENARIO
+// ETAPA 1 - PREPARAR O NOVO CENARIO
 // =====================================
 
 if (etapa == 1) {
@@ -33,7 +39,7 @@ if (etapa == 1) {
 
     if (!preparado) {
 
-        // Troca o fundo pelo novo beco
+        // Fundo novo
         var _fundo = layer_get_id("Background");
 
         if (_fundo != -1) {
@@ -50,7 +56,7 @@ if (etapa == 1) {
             layer_set_visible(_frente, false);
         }
 
-        // Remove elementos da rua antiga
+        // Remove os carros e o andante
         with (obj_carro) {
             instance_destroy();
         }
@@ -63,20 +69,18 @@ if (etapa == 1) {
             instance_destroy();
         }
 
-        // Encontra a entrada do beco
+        // Localiza o beco
         if (instance_exists(obj_marcador_beco)) {
 
             var _marcador =
                 instance_find(obj_marcador_beco, 0);
 
-            // Centro do sprite de 64 pixels
             entrada_x = _marcador.x + 32;
             entrada_y = 94;
-
             destino_x = entrada_x;
         }
 
-        // Posiciona Celeste a esquerda
+        // Prepara a Celeste invisivel
         with (obj_jogador) {
 
             x = 25;
@@ -91,11 +95,14 @@ if (etapa == 1) {
 
             image_speed = 0;
             image_index = 0;
+
+            // NAO APARECE NO TIME SKIP
+            visible = false;
         }
 
-        preparado = true;
         indice_fala = 0;
         fala_ativa = false;
+        preparado = true;
     }
 
     etapa = 2;
@@ -104,41 +111,59 @@ if (etapa == 1) {
 
 
 // =====================================
-// ETAPA 2 - TIME SKIP
+// ETAPA 2 - TIME SKIP SEM CELESTE
 // =====================================
 
 if (etapa == 2) {
 
-    // Inicia a fala atual
+    // Celeste continua invisivel
+    with (obj_jogador) {
+        visible = false;
+    }
+
     if (!fala_ativa) {
 
+        // Garante que a caixa exista
         if (!instance_exists(obj_caixa_dialogo)) {
+
             instance_create_depth(
                 0, 0, -1000,
                 obj_caixa_dialogo
             );
         }
 
+        // Fala atual
         global.caixa_texto =
             falas_time_skip[indice_fala];
 
         global.caixa_aberta = true;
         fala_ativa = true;
 
-    }
-    // Espera o jogador fechar a fala
-    else if (!global.caixa_aberta) {
+    } else if (!global.caixa_aberta) {
 
+        // Jogador terminou a fala
         indice_fala++;
         fala_ativa = false;
 
-        // Terminou todas as falas
+        // Todas as falas terminaram
         if (
             indice_fala >=
             array_length(falas_time_skip)
         ) {
 
             etapa = 3;
+
+            // Celeste finalmente aparece
+            with (obj_jogador) {
+
+                visible = true;
+
+                sprite_index = spr_perfil;
+                image_xscale = abs(escala);
+
+                image_speed = 0;
+                image_index = 0;
+            }
         }
     }
 
@@ -156,6 +181,7 @@ if (etapa == 3) {
 
     with (obj_jogador) {
 
+        visible = true;
         has_target = false;
 
         sprite_index = spr_perfil;
@@ -188,7 +214,7 @@ if (etapa == 3) {
 
 
 // =====================================
-// ETAPA 4 - ELA ESCUTA UM BARULHO
+// ETAPA 4 - PRIMEIRO BARULHO
 // =====================================
 
 if (etapa == 4) {
@@ -202,9 +228,10 @@ if (etapa == 4) {
             );
         }
 
-        global.caixa_texto = "Celeste: Hm...?";
-        global.caixa_aberta = true;
+        global.caixa_texto =
+            "Celeste: Hm...?";
 
+        global.caixa_aberta = true;
         fala_ativa = true;
 
     } else if (!global.caixa_aberta) {
@@ -218,24 +245,21 @@ if (etapa == 4) {
 
 
 // =====================================
-// ETAPA 5 - VIRA DE COSTAS
+// ETAPA 5 - VIRA DE COSTAS E PERGUNTA
 // =====================================
 
 if (etapa == 5) {
 
     if (!fala_ativa) {
 
-        if (instance_exists(obj_jogador)) {
+        with (obj_jogador) {
 
-            with (obj_jogador) {
+            sprite_index = spr_costas;
+            image_xscale = abs(escala);
 
-                sprite_index = spr_costas;
-                image_xscale = abs(escala);
-
-                image_speed = 0;
-                image_index = 0;
-                has_target = false;
-            }
+            image_speed = 0;
+            image_index = 0;
+            has_target = false;
         }
 
         if (!instance_exists(obj_caixa_dialogo)) {
@@ -246,7 +270,7 @@ if (etapa == 5) {
         }
 
         global.caixa_texto =
-            "Celeste: Ue... Que barulho foi esse?";
+            "Celeste: Ué... Que barulho foi esse?";
 
         global.caixa_aberta = true;
         fala_ativa = true;
@@ -254,6 +278,7 @@ if (etapa == 5) {
     } else if (!global.caixa_aberta) {
 
         etapa = 6;
+        fala_ativa = false;
     }
 
     exit;
@@ -261,7 +286,7 @@ if (etapa == 5) {
 
 
 // =====================================
-// ETAPA 6 - APROXIMA DO BECO
+// ETAPA 6 - CAMINHA PARA DENTRO DO BECO
 // =====================================
 
 if (etapa == 6) {
@@ -319,7 +344,7 @@ if (etapa == 6) {
 
 
 // =====================================
-// ETAPA 7 - ENTRAR NO BECO
+// ETAPA 7 - ENTRA NO BECO
 // =====================================
 
 if (etapa == 7) {
@@ -334,7 +359,6 @@ if (etapa == 7) {
     global.cutscene_finalizada = true;
     global.cutscene_bloqueio = false;
 
-    // Remove o controlador da cutscene
     instance_destroy();
 
     room_goto(rm_beco_interno);

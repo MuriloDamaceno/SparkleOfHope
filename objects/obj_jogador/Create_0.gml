@@ -96,3 +96,17 @@ if (
     // Limpa a posicao salva
     global.spawn_room = noone;
 }
+
+
+// =====================================
+// ESCONDER CELESTE NO TIME SKIP
+// =====================================
+
+if (
+    room == rua_beco &&
+    variable_global_exists("cutscene_bloqueio") &&
+    global.cutscene_bloqueio &&
+    instance_exists(obj_cutscene_tarde)
+) {
+    visible = false;
+}
