@@ -1,4 +1,18 @@
 
+if (etapa == 0) {
+    show_debug_message(
+        "ROOM ATUAL: " + room_get_name(room)
+    );
+
+    show_debug_message(
+        "TAMANHO: " +
+        string(room_width) + " x " +
+        string(room_height)
+    );
+}
+
+
+
 /// OBJ_CUTSCENE_BECO - STEP
 
 // =====================================
