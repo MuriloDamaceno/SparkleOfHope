@@ -146,8 +146,8 @@ if (
         floor(_gui_h / 200), 1, 6
     );
 
-    var _box_w = sprite_width * _escala;
-    var _box_h = sprite_height * _escala;
+var _box_w = sprite_width * _escala * 1.35;
+var _box_h = sprite_height * _escala;
 
     var _box_x = floor(
         (_gui_w - _box_w) / 2

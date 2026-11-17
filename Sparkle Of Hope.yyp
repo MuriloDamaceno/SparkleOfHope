@@ -89,6 +89,8 @@
     {"id":{"name":"obj_solido","path":"objects/obj_solido/obj_solido.yy",},},
     {"id":{"name":"obj_som_cozinha","path":"objects/obj_som_cozinha/obj_som_cozinha.yy",},},
     {"id":{"name":"obj_titulo","path":"objects/obj_titulo/obj_titulo.yy",},},
+    {"id":{"name":"obj_voltar_beco","path":"objects/obj_voltar_beco/obj_voltar_beco.yy",},},
+    {"id":{"name":"obj_voltar_rua","path":"objects/obj_voltar_rua/obj_voltar_rua.yy",},},
     {"id":{"name":"Object35","path":"objects/Object35/Object35.yy",},},
     {"id":{"name":"objeto_corredor_armario","path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},},
     {"id":{"name":"objeto_corredor_portaBanheiro","path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},},

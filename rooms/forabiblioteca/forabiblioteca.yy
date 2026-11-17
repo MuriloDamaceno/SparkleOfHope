@@ -11,6 +11,7 @@
     {"name":"inst_264CB5B7","path":"rooms/forabiblioteca/forabiblioteca.yy",},
     {"name":"inst_3AC4562","path":"rooms/forabiblioteca/forabiblioteca.yy",},
     {"name":"inst_8B8A721","path":"rooms/forabiblioteca/forabiblioteca.yy",},
+    {"name":"inst_2D841863","path":"rooms/forabiblioteca/forabiblioteca.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -20,6 +21,7 @@
         {"$GMRInstance":"v4","%Name":"inst_264CB5B7","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_264CB5B7","objectId":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":14.09375,"scaleY":3.734375,"x":0.0,"y":0.0,},
         {"$GMRInstance":"v4","%Name":"inst_8B8A721","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_8B8A721","objectId":{"name":"obj_limite","path":"objects/obj_limite/obj_limite.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.234375,"scaleY":3.734375,"x":88.0,"y":47.0,},
         {"$GMRInstance":"v4","%Name":"inst_3AC4562","colour":16777215,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3AC4562","objectId":{"name":"obj_entrada_biblioteca","path":"objects/obj_entrada_biblioteca/obj_entrada_biblioteca.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.640625,"scaleY":1.375,"x":451.0,"y":177.0,},
+        {"$GMRInstance":"v4","%Name":"inst_2D841863","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_2D841863","objectId":{"name":"obj_voltar_beco","path":"objects/obj_voltar_beco/obj_voltar_beco.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":334.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_bibi","path":"sprites/spr_bibi/spr_bibi.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
   ],

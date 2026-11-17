@@ -67,6 +67,8 @@
     {"name":"obj_solido","order":1,"path":"objects/obj_solido/obj_solido.yy",},
     {"name":"obj_som_cozinha","order":2,"path":"objects/obj_som_cozinha/obj_som_cozinha.yy",},
     {"name":"obj_titulo","order":8,"path":"objects/obj_titulo/obj_titulo.yy",},
+    {"name":"obj_voltar_beco","order":33,"path":"objects/obj_voltar_beco/obj_voltar_beco.yy",},
+    {"name":"obj_voltar_rua","order":34,"path":"objects/obj_voltar_rua/obj_voltar_rua.yy",},
     {"name":"Object35","order":8,"path":"objects/Object35/Object35.yy",},
     {"name":"objeto_corredor_armario","order":2,"path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},
     {"name":"objeto_corredor_portaBanheiro","order":5,"path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},
