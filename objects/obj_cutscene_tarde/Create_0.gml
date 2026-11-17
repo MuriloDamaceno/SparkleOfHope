@@ -2,9 +2,12 @@
 /// OBJ_CUTSCENE_TARDE - CREATE
 
 
-// Desenha o fundo novo atras dos personagens
-// e na frente do background antigo
+/// Mantem a cutscene viva durante a troca de rooms
+persistent = true;
+
+// Fundo novo atras da Celeste
 depth = 250;
+
 
 
 // Etapas da cutscene
