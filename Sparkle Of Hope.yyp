@@ -59,6 +59,7 @@
     {"id":{"name":"obj_cozinha_pia","path":"objects/obj_cozinha_pia/obj_cozinha_pia.yy",},},
     {"id":{"name":"obj_cozinha_porta","path":"objects/obj_cozinha_porta/obj_cozinha_porta.yy",},},
     {"id":{"name":"obj_cozinha_portaCorredor","path":"objects/obj_cozinha_portaCorredor/obj_cozinha_portaCorredor.yy",},},
+    {"id":{"name":"obj_cutscene_beco","path":"objects/obj_cutscene_beco/obj_cutscene_beco.yy",},},
     {"id":{"name":"obj_cutscene_tarde","path":"objects/obj_cutscene_tarde/obj_cutscene_tarde.yy",},},
     {"id":{"name":"obj_entrada_biblioteca","path":"objects/obj_entrada_biblioteca/obj_entrada_biblioteca.yy",},},
     {"id":{"name":"obj_fundo_corredor","path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},},
