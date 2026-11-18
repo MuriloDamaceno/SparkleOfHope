@@ -626,16 +626,66 @@ if (etapa == 14) {
 }
 
 
-// =====================================
-// ETAPA 15 - AGUARDA A REACAO
-// =====================================
+// ETAPA 15 - O ANIMAL RECEBE CARINHO
 
 if (etapa == 15) {
-
     global.cutscene_bloqueio = true;
 
-    // Na proxima etapa vamos programar
-    // as reacoes do gato e do cachorro.
+    var _bichinho = instance_find(obj_bichinho, 0);
 
+    if (_bichinho == noone) {
+        global.cutscene_bloqueio = false;
+        instance_destroy();
+        exit;
+    }
+
+    _bichinho.calmo = true;
+
+    var _nome;
+    var _nome_som;
+
+    if (_bichinho.animal == 1) {
+        _nome = "O gato";
+        _bichinho.sprite_index = spr_gatocalmo;
+        _nome_som = "snd_gato_ronronando";
+    } else {
+        _nome = "O cachorro";
+        _bichinho.sprite_index = spr_cachorrocalmo;
+        _nome_som = "snd_cachorro_carinho";
+    }
+
+    if (global.escolha_confianca == 1) {
+        global.caixa_texto =
+            "Você estendeu a mão. " + _nome +
+            " veio cheirá-la e se esfregou nos seus dedos. Você fez carinho nele.";
+    } else {
+        global.caixa_texto =
+            "Você falou baixinho. " + _nome +
+            " se aproximou ao ouvir sua voz. Você o acariciou de leve.";
+    }
+
+    // SOM DO CARINHO - toca uma vez quando a mensagem aparece.
+    var _som_carinho = asset_get_index(_nome_som);
+
+    if (_som_carinho != -1) {
+        audio_play_sound(_som_carinho, 1, false, global.volume_sfx);
+    }
+
+    if (!instance_exists(obj_caixa_dialogo)) {
+        instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    }
+
+    global.caixa_aberta = true;
+    etapa = 16;
+    exit;
+}
+
+// ETAPA 16 - ESPERA FECHAR A MENSAGEM DO CARINHO
+
+if (etapa == 16) {
+    if (global.caixa_aberta) exit;
+
+    global.cutscene_bloqueio = false;
+    instance_destroy();
     exit;
 }
