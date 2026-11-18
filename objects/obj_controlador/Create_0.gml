@@ -23,3 +23,5 @@ global.tem_livro = false;
 
 global.despedida_etapa = 0;
 
+cursor_clique_frames = 0;
+window_set_cursor(cr_none);
