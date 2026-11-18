@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_gatobravo",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":10.736326,
+  "exportDir":"",
+  "name":"snd_gatobravo",
+  "parent":{
+    "name":"Sparkle Of Hope",
+    "path":"Sparkle Of Hope.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_gatobravo.mp3",
+  "volume":1.0,
+}

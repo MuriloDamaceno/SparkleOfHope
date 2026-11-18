@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"snd_cachorrobravo",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":9.064489,
+  "exportDir":"",
+  "name":"snd_cachorrobravo",
+  "parent":{
+    "name":"Sparkle Of Hope",
+    "path":"Sparkle Of Hope.yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_cachorrobravo.mp3",
+  "volume":1.0,
+}

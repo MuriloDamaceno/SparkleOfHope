@@ -345,14 +345,59 @@ if (etapa == 6) {
 }
 
 
+
 // =====================================
-// ETAPA 7 - ANIMAL REVELADO
+// ETAPA 7 - PRIMEIRA INTERACAO
 // =====================================
 
 if (etapa == 7) {
 
-    // Espera a proxima interacao
     global.cutscene_bloqueio = true;
+
+    // Abre a escolha de aproximacao
+    if (!instance_exists(obj_escolha_aproximacao)) {
+
+        instance_create_depth(
+            0,
+            0,
+            -2000,
+            obj_escolha_aproximacao
+        );
+    }
+
+    etapa = 8;
+    exit;
+}
+
+
+// =====================================
+// ETAPA 8 - AGUARDA A ESCOLHA
+// =====================================
+
+if (etapa == 8) {
+
+    global.cutscene_bloqueio = true;
+
+    // Espera o jogador decidir
+    if (global.escolha_aproximacao != 0) {
+
+        etapa = 9;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 9 - PREPARADA PARA A REACAO
+// =====================================
+
+if (etapa == 9) {
+
+    global.cutscene_bloqueio = true;
+
+    // Aqui vamos colocar as reacoes
+    // na proxima etapa.
 
     exit;
 }
