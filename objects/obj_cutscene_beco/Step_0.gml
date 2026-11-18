@@ -199,28 +199,110 @@ if (etapa == 2) {
 }
 
 
+
+
 // =====================================
-// ETAPA 3 - AGUARDA PROXIMA CENA
+// ETAPA 3 - ABRIR A ESCOLHA
 // =====================================
 
 if (etapa == 3) {
 
-    // Mantem o controle bloqueado
     global.cutscene_bloqueio = true;
 
-    // Sons continuam porque a briga
-    // ainda esta acontecendo
-
+    // Mantem Celeste parada
     if (instance_exists(obj_jogador)) {
 
         with (obj_jogador) {
-
             has_target = false;
             sprite_index = spr_costas;
             image_speed = 0;
             image_index = 0;
         }
     }
+
+    // Abre a interface de escolha
+    if (!instance_exists(obj_escolha_animal)) {
+
+        instance_create_depth(
+            0, 0, -2000,
+            obj_escolha_animal
+        );
+    }
+
+    etapa = 4;
+    exit;
+}
+
+
+// =====================================
+// ETAPA 4 - AGUARDAR A DECISAO
+// =====================================
+
+if (etapa == 4) {
+
+    global.cutscene_bloqueio = true;
+
+    // Espera o jogador escolher
+    if (global.animal_escolhido != 0) {
+
+        etapa = 5;
+        fala_ativa = false;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 5 - REAGIR A ESCOLHA
+// =====================================
+
+if (etapa == 5) {
+
+    if (!fala_ativa) {
+
+        if (!instance_exists(obj_caixa_dialogo)) {
+
+            instance_create_depth(
+                0, 0, -1000,
+                obj_caixa_dialogo
+            );
+        }
+
+        if (global.animal_escolhido == 1) {
+
+            global.caixa_texto =
+                "Celeste: Vou tentar afastar o gato!";
+
+        } else {
+
+            global.caixa_texto =
+                "Celeste: Vou tentar afastar o cachorro!";
+        }
+
+        global.caixa_aberta = true;
+        fala_ativa = true;
+
+    } else if (!global.caixa_aberta) {
+
+        etapa = 6;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 6 - AGUARDA A CONSEQUENCIA
+// =====================================
+
+if (etapa == 6) {
+
+    // A escolha foi salva.
+    // A briga continua ate criarmos
+    // a cena que separa os animais.
+
+    global.cutscene_bloqueio = true;
 
     exit;
 }
