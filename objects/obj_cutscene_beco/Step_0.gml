@@ -583,16 +583,59 @@ if (etapa == 12) {
 }
 
 
+
 // =====================================
-// ETAPA 13 - AGUARDA PROXIMA INTERACAO
+// ETAPA 13 - SEGUNDA ESCOLHA
 // =====================================
 
 if (etapa == 13) {
 
     global.cutscene_bloqueio = true;
 
-    // Aqui continuaremos a historia
-    // com a segunda escolha.
+    // Cria a interface de confianca
+    if (!instance_exists(obj_escolha_confianca)) {
+
+        instance_create_depth(
+            0,
+            0,
+            -2000,
+            obj_escolha_confianca
+        );
+    }
+
+    etapa = 14;
+    exit;
+}
+
+
+// =====================================
+// ETAPA 14 - AGUARDA A ESCOLHA
+// =====================================
+
+if (etapa == 14) {
+
+    global.cutscene_bloqueio = true;
+
+    // Espera o jogador escolher
+    if (global.escolha_confianca != 0) {
+
+        etapa = 15;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 15 - AGUARDA A REACAO
+// =====================================
+
+if (etapa == 15) {
+
+    global.cutscene_bloqueio = true;
+
+    // Na proxima etapa vamos programar
+    // as reacoes do gato e do cachorro.
 
     exit;
 }
