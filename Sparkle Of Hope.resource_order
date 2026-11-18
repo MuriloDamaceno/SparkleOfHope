@@ -115,6 +115,7 @@
     {"name":"spr_carrocamarelo","order":6,"path":"sprites/spr_carrocamarelo/spr_carrocamarelo.yy",},
     {"name":"spr_carroverde","order":9,"path":"sprites/spr_carroverde/spr_carroverde.yy",},
     {"name":"spr_costas","order":1,"path":"sprites/spr_costas/spr_costas.yy",},
+    {"name":"spr_cursor_mao","order":50,"path":"sprites/spr_cursor_mao/spr_cursor_mao.yy",},
     {"name":"spr_dialogo","order":11,"path":"sprites/spr_dialogo/spr_dialogo.yy",},
     {"name":"spr_gatocalmo","order":41,"path":"sprites/spr_gatocalmo/spr_gatocalmo.yy",},
     {"name":"spr_hope","order":2,"path":"sprites/spr_hope/spr_hope.yy",},

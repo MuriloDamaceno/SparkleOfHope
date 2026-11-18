@@ -110,3 +110,53 @@ if (
 ) {
     visible = false;
 }
+if (room == rm_beco_interno) {
+    floor_top = 119;
+}
+
+// Verifica a posição onde a Celeste quer pisar.
+pode_pisar = function(_x, _y) {
+    if (place_meeting(_x, _y, obj_solido)) return false;
+    if (room != rm_beco_interno) return true;
+
+    // Área ocupada pelos pés da Celeste.
+    var _esq = _x - 6;
+    var _dir = _x + 6;
+    var _cima = _y - 3;
+    var _baixo = _y;
+
+    // Parede de tijolos ao fundo.
+    if (_cima < 116) return false;
+
+    // Parede vermelha à esquerda. A borda é inclinada.
+    var _borda_parede = lerp(49, 18, clamp(_y / 256, 0, 1));
+    if (_esq <= _borda_parede) return false;
+
+    // Lixeira verde comprida, encostada na parede esquerda.
+    var _borda_lixeira = lerp(95, 83, clamp((_y - 96) / 119, 0, 1));
+    if (_cima <= 215 && _baixo >= 96 && _esq <= _borda_lixeira) {
+        return false;
+    }
+
+    // Lixeira cinza junto à parede do fundo.
+    if (rectangle_in_rectangle(
+        _esq, _cima, _dir, _baixo, 154, 78, 197, 127
+    )) return false;
+
+    // Lixeira redonda no canto inferior esquerdo.
+    if (rectangle_in_rectangle(
+        _esq, _cima, _dir, _baixo, 20, 220, 65, 255
+    )) return false;
+
+    // Usa a base do bichinho para a Celeste poder passar atrás dele.
+    var _animal = instance_find(obj_bichinho, 0);
+    if (_animal != noone) {
+        if (rectangle_in_rectangle(
+            _esq, _cima, _dir, _baixo,
+            _animal.bbox_left,  _animal.bbox_bottom - 6,
+            _animal.bbox_right, _animal.bbox_bottom
+        )) return false;
+    }
+
+    return true;
+};
