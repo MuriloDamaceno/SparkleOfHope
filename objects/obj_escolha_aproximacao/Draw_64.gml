@@ -4,26 +4,24 @@
 draw_set_color(c_white);
 draw_set_alpha(1);
 
+
 // Caixa principal
-draw_sprite_stretched(
-    spr_dialogo, 0,
-    principal_x, principal_y,
-    principal_w, principal_h
-);
+principal_w = _w * 0.48;
+principal_h = _h * 0.10;
 
-// Caixa esquerda
-draw_sprite_stretched(
-    spr_dialogo, 0,
-    esquerda_x, opcoes_y,
-    opcao_w, opcao_h
-);
+principal_x = (_w - principal_w) / 2;
+principal_y = _h * 0.50;
 
-// Caixa direita
-draw_sprite_stretched(
-    spr_dialogo, 0,
-    direita_x, opcoes_y,
-    opcao_w, opcao_h
-);
+// Caixas menores
+opcao_w = _w * 0.23;
+opcao_h = _h * 0.085;
+
+// Centraliza as duas opcoes
+esquerda_x = _w * 0.26;
+direita_x = _w * 0.51;
+
+opcoes_y = _h * 0.62;
+
 
 // Textos
 draw_set_font(fnt_dialogo);

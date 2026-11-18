@@ -388,16 +388,211 @@ if (etapa == 8) {
 }
 
 
+
 // =====================================
-// ETAPA 9 - PREPARADA PARA A REACAO
+// ETAPA 9 - PREPARA A REACAO
 // =====================================
 
 if (etapa == 9) {
 
     global.cutscene_bloqueio = true;
 
-    // Aqui vamos colocar as reacoes
-    // na proxima etapa.
+    // Zera o controle do dialogo
+    fala_ativa = false;
+
+    // Se escolheu aproximar-se
+    if (global.escolha_aproximacao == 1) {
+
+        // Celeste vai andar apenas 7 pixels
+        passo_restante = 7;
+
+        etapa = 10;
+
+    } else {
+
+        // Ficou parada, sem se aproximar
+        etapa = 11;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 10 - CELESTE DA UM PASSINHO
+// =====================================
+
+if (etapa == 10) {
+
+    if (!instance_exists(obj_jogador)) {
+        exit;
+    }
+
+    if (!instance_exists(obj_bichinho)) {
+        exit;
+    }
+
+    var _jogador = instance_find(obj_jogador, 0);
+    var _bichinho = instance_find(obj_bichinho, 0);
+
+    // Direcao do animal
+    var _direcao = point_direction(
+        _jogador.x,
+        _jogador.y,
+        _bichinho.x,
+        _bichinho.y
+    );
+
+    // Passo pequeno e lento
+    var _passo = min(0.45, passo_restante);
+
+    _jogador.x += lengthdir_x(_passo, _direcao);
+    _jogador.y += lengthdir_y(_passo, _direcao);
+
+    _jogador.has_target = false;
+    _jogador.sprite_index = spr_costas;
+    _jogador.image_speed = 0.12;
+
+    passo_restante -= _passo;
+
+    // Terminou o passo
+    if (passo_restante <= 0) {
+
+        _jogador.image_speed = 0;
+        _jogador.image_index = 0;
+
+        etapa = 11;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 11 - REACAO DO ANIMAL
+// =====================================
+
+if (etapa == 11) {
+
+    global.cutscene_bloqueio = true;
+
+    if (!instance_exists(obj_bichinho)) {
+        exit;
+    }
+
+    var _animal = instance_find(obj_bichinho, 0);
+
+    // ---------------------------------
+    // ESCOLHA 1 - APROXIMAR-SE
+    // ---------------------------------
+
+    if (global.escolha_aproximacao == 1) {
+
+        // O animal continua assustado
+        _animal.calmo = false;
+
+        if (_animal.animal == 1) {
+
+            // GATO
+            _animal.sprite_index = gatobravo;
+
+            audio_play_sound(
+                snd_gatobravo,
+                1,
+                false,
+                global.volume_sfx
+            );
+
+        } else {
+
+            // CACHORRO
+            _animal.sprite_index = cachorrobravo;
+
+            audio_play_sound(
+                snd_cachorrobravo,
+                1,
+                false,
+                global.volume_sfx
+            );
+        }
+
+        global.caixa_texto =
+            "Celeste: Opa! Ta bom, nao vou chegar mais perto...";
+
+    }
+
+    // ---------------------------------
+    // ESCOLHA 2 - FICAR ONDE ESTA
+    // ---------------------------------
+
+    else {
+
+        // O animal comeca a confiar
+        _animal.calmo = true;
+
+        if (_animal.animal == 1) {
+
+            // GATO
+            _animal.sprite_index = spr_gatocalmo;
+
+        } else {
+
+            // CACHORRO
+            _animal.sprite_index = spr_cachorrocalmo;
+        }
+
+        global.caixa_texto =
+            "Celeste: Isso... Nao precisa ter medo.";
+    }
+
+    // Abre o dialogo da Celeste
+    if (!instance_exists(obj_caixa_dialogo)) {
+
+        instance_create_depth(
+            0,
+            0,
+            -1000,
+            obj_caixa_dialogo
+        );
+    }
+
+    global.caixa_aberta = true;
+    fala_ativa = true;
+
+    etapa = 12;
+    exit;
+}
+
+
+// =====================================
+// ETAPA 12 - ESPERA O DIALOGO TERMINAR
+// =====================================
+
+if (etapa == 12) {
+
+    global.cutscene_bloqueio = true;
+
+    // Jogador terminou de ler a fala
+    if (fala_ativa && !global.caixa_aberta) {
+
+        fala_ativa = false;
+        etapa = 13;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 13 - AGUARDA PROXIMA INTERACAO
+// =====================================
+
+if (etapa == 13) {
+
+    global.cutscene_bloqueio = true;
+
+    // Aqui continuaremos a historia
+    // com a segunda escolha.
 
     exit;
 }
