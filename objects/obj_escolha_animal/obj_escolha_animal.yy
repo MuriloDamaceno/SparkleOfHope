@@ -10,8 +10,8 @@
   "name":"obj_escolha_animal",
   "overriddenProperties":[],
   "parent":{
-    "name":"Sparkle Of Hope",
-    "path":"Sparkle Of Hope.yyp",
+    "name":"beco",
+    "path":"folders/beco.yy",
   },
   "parentObjectId":null,
   "persistent":false,
