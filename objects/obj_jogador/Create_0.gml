@@ -5,7 +5,7 @@
 // CONFIGURACOES INICIAIS
 // =====================================
 
-spd = 1.5;
+spd = 5;
 
 image_speed = 0;
 image_index = 0;
@@ -51,17 +51,17 @@ passo_som_id = -1;
 if (room == rm_patio) {
 
     floor_top = 0;
-    spd = 0.8;
+    spd = 5;
 
 } else if (room == rm_rua) {
 
     floor_top = 0;
-    spd = 0.8;
+    spd = 5;
 
 } else if (room == rua_beco) {
 
     floor_top = 0;
-    spd = 0.8;
+    spd = 5;
 
 } else {
 
