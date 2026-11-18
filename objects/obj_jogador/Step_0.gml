@@ -304,16 +304,26 @@ x = clamp(x, 8, room_width - 8);
 y = clamp(y, floor_top, room_height - 3);
 
 // Saida pelo centro da borda inferior do beco
-if (room == rm_beco_interno && abs(x - room_width / 2) <= 25
-    && y >= room_height - 8 && y > _y_antes_de_andar) {
-    has_target = false;
-    global.indo_para_porta = false;
-    global.porta_alvo = noone;
-    global.spawn_room = rua_beco;
-    global.spawn_x = 136;
-    global.spawn_y = 114;
-    room_goto(rua_beco);
-    exit;
+// Saída do beco: alinhada com o caminho da cutscene
+if (room == rm_beco_interno) {
+    var _centro_saida = 158;
+    var _na_passagem = abs(x - _centro_saida) <= 25;
+    var _no_fim_do_chao = y >= room_height - 8;
+    var _andou_para_baixo = y > _y_antes_de_andar;
+
+    if (_na_passagem && _no_fim_do_chao && _andou_para_baixo) {
+        has_target = false;
+        global.indo_para_porta = false;
+        global.porta_alvo = noone;
+
+        // Reaparece na calçada, em frente à entrada do beco.
+        global.spawn_room = rua_beco;
+        global.spawn_x = 138;
+        global.spawn_y = 114;
+
+        room_goto(rua_beco);
+        exit;
+    }
 }
 
 last_x = x;
