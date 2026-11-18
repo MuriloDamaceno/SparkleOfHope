@@ -77,6 +77,7 @@
     {"name":"obj_voltar_beco","order":2,"path":"objects/obj_voltar_beco/obj_voltar_beco.yy",},
     {"name":"obj_voltar_rua","order":15,"path":"objects/obj_voltar_rua/obj_voltar_rua.yy",},
     {"name":"Object35","order":8,"path":"objects/Object35/Object35.yy",},
+    {"name":"Object65","order":46,"path":"objects/Object65/Object65.yy",},
     {"name":"objeto_corredor_armario","order":2,"path":"objects/objeto_corredor_armario/objeto_corredor_armario.yy",},
     {"name":"objeto_corredor_portaBanheiro","order":5,"path":"objects/objeto_corredor_portaBanheiro/objeto_corredor_portaBanheiro.yy",},
     {"name":"objeto_corredor_portaPais","order":4,"path":"objects/objeto_corredor_portaPais/objeto_corredor_portaPais.yy",},

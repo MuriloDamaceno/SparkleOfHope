@@ -13,8 +13,8 @@
     "path":"folders/ruabeco.yy",
   },
   "parentObjectId":{
-    "name":"obj_solido",
-    "path":"objects/obj_solido/obj_solido.yy",
+    "name":"Object65",
+    "path":"objects/Object65/Object65.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
