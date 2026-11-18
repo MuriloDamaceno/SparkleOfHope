@@ -292,16 +292,66 @@ if (etapa == 5) {
 }
 
 
+
 // =====================================
-// ETAPA 6 - AGUARDA A CONSEQUENCIA
+// ETAPA 6 - PISCADA E FIM DA BRIGA
 // =====================================
 
 if (etapa == 6) {
 
-    // A escolha foi salva.
-    // A briga continua ate criarmos
-    // a cena que separa os animais.
+    global.cutscene_bloqueio = true;
 
+    piscada_tempo++;
+
+    // Quando a tela estiver escura
+    if (piscada_tempo == 10) {
+
+        // Esconde a nuvem de briga
+        var _camada = layer_get_id("Assets_1");
+
+        if (_camada != -1) {
+            layer_set_visible(_camada, false);
+        }
+
+        // Para os dois sons
+        if (som_briga_id != -1) {
+            audio_stop_sound(som_briga_id);
+            som_briga_id = -1;
+        }
+
+        if (som_nuvem_id != -1) {
+            audio_stop_sound(som_nuvem_id);
+            som_nuvem_id = -1;
+        }
+
+        // Mostra o animal que permaneceu
+        if (!instance_exists(obj_bichinho)) {
+
+            instance_create_depth(
+                120,
+                140,
+                50,
+                obj_bichinho
+            );
+        }
+    }
+
+    // Termina a piscada
+    if (piscada_tempo >= piscada_duracao) {
+        etapa = 7;
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 7 - ANIMAL REVELADO
+// =====================================
+
+if (etapa == 7) {
+
+    // Espera a proxima interacao
     global.cutscene_bloqueio = true;
 
     exit;

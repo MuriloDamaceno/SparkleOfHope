@@ -41,6 +41,7 @@
     {"id":{"name":"fnt_dialogo","path":"fonts/fnt_dialogo/fnt_dialogo.yy",},},
     {"id":{"name":"obj_andante","path":"objects/obj_andante/obj_andante.yy",},},
     {"id":{"name":"obj_armario","path":"objects/obj_armario/obj_armario.yy",},},
+    {"id":{"name":"obj_bichinho","path":"objects/obj_bichinho/obj_bichinho.yy",},},
     {"id":{"name":"obj_botao_fechar","path":"objects/obj_botao_fechar/obj_botao_fechar.yy",},},
     {"id":{"name":"obj_botao_iniciar","path":"objects/obj_botao_iniciar/obj_botao_iniciar.yy",},},
     {"id":{"name":"obj_botao_opcoes","path":"objects/obj_botao_opcoes/obj_botao_opcoes.yy",},},
