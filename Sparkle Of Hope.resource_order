@@ -40,6 +40,7 @@
     {"name":"obj_cutscene_beco","order":2,"path":"objects/obj_cutscene_beco/obj_cutscene_beco.yy",},
     {"name":"obj_cutscene_tarde","order":19,"path":"objects/obj_cutscene_tarde/obj_cutscene_tarde.yy",},
     {"name":"obj_entrada_biblioteca","order":1,"path":"objects/obj_entrada_biblioteca/obj_entrada_biblioteca.yy",},
+    {"name":"obj_escolha_animal","order":42,"path":"objects/obj_escolha_animal/obj_escolha_animal.yy",},
     {"name":"obj_fundo_corredor","order":1,"path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},
     {"name":"Obj_fundo_cozinha","order":1,"path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},
     {"name":"obj_fundo_menu","order":7,"path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},
