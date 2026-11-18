@@ -4,34 +4,44 @@
 draw_set_color(c_white);
 draw_set_alpha(1);
 
+// =====================================
+// DESENHA AS TRES CAIXAS
+// =====================================
 
 // Caixa principal
-principal_w = _w * 0.48;
-principal_h = _h * 0.10;
+draw_sprite_stretched(
+    spr_dialogo, 0,
+    principal_x, principal_y,
+    principal_w, principal_h
+);
 
-principal_x = (_w - principal_w) / 2;
-principal_y = _h * 0.50;
+// Caixa esquerda
+draw_sprite_stretched(
+    spr_dialogo, 0,
+    esquerda_x, opcoes_y,
+    opcao_w, opcao_h
+);
 
-// Caixas menores
-opcao_w = _w * 0.23;
-opcao_h = _h * 0.085;
+// Caixa direita
+draw_sprite_stretched(
+    spr_dialogo, 0,
+    direita_x, opcoes_y,
+    opcao_w, opcao_h
+);
 
-// Centraliza as duas opcoes
-esquerda_x = _w * 0.26;
-direita_x = _w * 0.51;
+// =====================================
+// TEXTOS
+// =====================================
 
-opcoes_y = _h * 0.62;
-
-
-// Textos
 draw_set_font(fnt_dialogo);
 draw_set_color(c_black);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 
+// Escala menor para acompanhar as caixas
 var _escala = max(
-    1,
-    floor(display_get_gui_height() / 256)
+    0.5,
+    display_get_gui_height() / 550
 );
 
 // Pergunta principal
@@ -58,7 +68,7 @@ draw_text_transformed(
     _escala, _escala, 0
 );
 
-// Restaura configuracoes
+// Restaura as configuracoes
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_color(c_white);
