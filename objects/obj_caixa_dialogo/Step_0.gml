@@ -172,7 +172,7 @@ if (
     );
 
     var _box_y = floor(
-        _gui_h - _box_h - 10 * _escala
+        _gui_h - _box_h - 4 * _escala
     );
 
     var _mx = device_mouse_x_to_gui(0);

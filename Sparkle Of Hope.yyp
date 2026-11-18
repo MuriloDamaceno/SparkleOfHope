@@ -65,6 +65,7 @@
     {"id":{"name":"obj_entrada_biblioteca","path":"objects/obj_entrada_biblioteca/obj_entrada_biblioteca.yy",},},
     {"id":{"name":"obj_escolha_animal","path":"objects/obj_escolha_animal/obj_escolha_animal.yy",},},
     {"id":{"name":"obj_escolha_aproximacao","path":"objects/obj_escolha_aproximacao/obj_escolha_aproximacao.yy",},},
+    {"id":{"name":"obj_escolha_confianca","path":"objects/obj_escolha_confianca/obj_escolha_confianca.yy",},},
     {"id":{"name":"obj_fundo_corredor","path":"objects/obj_fundo_corredor/obj_fundo_corredor.yy",},},
     {"id":{"name":"Obj_fundo_cozinha","path":"objects/Obj_fundo_cozinha/Obj_fundo_cozinha.yy",},},
     {"id":{"name":"obj_fundo_menu","path":"objects/obj_fundo_menu/obj_fundo_menu.yy",},},

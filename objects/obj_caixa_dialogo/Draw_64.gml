@@ -14,7 +14,7 @@ if (global.caixa_aberta && global.caixa_texto != "") {
 
     var _box_x = floor((_gui_w - _box_w) / 2);
     var _box_y = floor(
-        _gui_h - _box_h - 10 * _escala
+        _gui_h - _box_h - 4 * _escala
     );
 
     // Desenha a caixa mais larga
