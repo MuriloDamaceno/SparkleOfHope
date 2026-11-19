@@ -680,12 +680,152 @@ if (etapa == 15) {
     exit;
 }
 
-// ETAPA 16 - ESPERA FECHAR A MENSAGEM DO CARINHO
-
+// ETAPA 16 - Espera fechar a mensagem do carinho
 if (etapa == 16) {
+    global.cutscene_bloqueio = true;
+
     if (global.caixa_aberta) exit;
 
-    global.cutscene_bloqueio = false;
-    instance_destroy();
+    global.caixa_texto =
+        "Celeste: Ai, meu Deus... E agora? Não posso deixar ele aqui sozinho.";
+
+    if (!instance_exists(obj_caixa_dialogo)) {
+        instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    }
+
+    global.caixa_aberta = true;
+    etapa = 17;
+    exit;
+}
+
+
+// ETAPA 17 - Espera o jogador terminar de ler a fala da Celeste
+if (etapa == 17) {
+    if (global.caixa_aberta) exit;
+    if (!instance_exists(obj_jogador)) exit;
+
+    companheiro = instance_find(obj_bichinho, 0);
+    global.destino_bichinhos = 0;
+
+    with (obj_jogador) {
+        has_target = false;
+
+        // Continua olhando para o bichinho enquanto recua.
+        sprite_index = spr_costas;
+        image_index = 0;
+        image_speed = -0.12;
+    }
+
+    etapa = 18;
+    exit;
+}
+
+
+// ETAPA 18 - Celeste recua até sair pela parte de baixo do beco
+if (etapa == 18) {
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    // Mantém o mesmo X: ela só dá passos para trás.
+    _celeste.y += 0.7;
+
+    // Espera a Celeste desaparecer pela borda da tela.
+    if (_celeste.bbox_top <= room_height) exit;
+
+    // Na rua, ela reaparece na mesma entrada usada na ida.
+    global.spawn_room = rua_beco;
+    global.spawn_x = 138;
+    global.spawn_y = 94;
+
+    // O controlador da cena precisa acompanhar a troca de sala.
+    persistent = true;
+    etapa = 19;
+    room_goto(rua_beco);
+    exit;
+}
+
+
+// ETAPA 19 - Prepara a mesma rua noturna da ida
+if (etapa == 19) {
+    if (room != rua_beco) exit;
+
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    persistent = false;
+
+    var _camada = layer_get_id("Background");
+    if (_camada != -1) {
+        var _fundo = layer_background_get_id(_camada);
+        if (_fundo != -1) {
+            layer_background_sprite(_fundo, spr_ruabeco_depois);
+            layer_background_visible(_fundo, true);
+        }
+    }
+
+    var _frente = layer_get_id("Primeiro_Plano");
+    if (_frente != -1) {
+        layer_set_visible(_frente, false);
+    }
+
+    with (obj_gerador_carros) instance_destroy();
+    with (obj_carro) instance_destroy();
+    with (obj_andante) instance_destroy();
+
+    _celeste.visible = true;
+    _celeste.has_target = false;
+    _celeste.sprite_index = spr_costas;
+    _celeste.image_index = 0;
+    _celeste.image_speed = -0.12;
+
+    etapa = 20;
+    exit;
+}
+
+
+// ETAPA 20 - Celeste recua sozinha e vira de frente ao parar
+if (etapa == 20) {
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    _celeste.y = min(_celeste.y + 0.5, 110);
+    if (_celeste.y < 110) exit;
+
+    // Chegou ao meio da calçada: vira de frente para a pergunta.
+    _celeste.sprite_index = spr_frente;
+    _celeste.image_xscale = abs(_celeste.escala);
+    _celeste.image_speed = 0;
+    _celeste.image_index = 0;
+
+    instance_create_depth(
+        0, 0, -2000, obj_escolha_confianca,
+        { modo_destino: true }
+    );
+
+    etapa = 21;
+    exit;
+}
+
+
+// ETAPA 21 - Guarda a escolha e vira para a casa escolhida
+if (etapa == 21) {
+    if (global.destino_bichinhos == 0) exit;
+
+    with (obj_jogador) {
+        sprite_index = spr_perfil;
+        image_speed = 0;
+        image_index = 0;
+        has_target = false;
+
+        if (global.destino_bichinhos == 1) {
+            image_xscale = -abs(escala); // Casa da Celeste: esquerda
+        } else {
+            image_xscale = abs(escala);  // Casa da Hope: direita
+        }
+    }
+
+    // Celeste continua parada para a próxima parte da história.
+    global.cutscene_bloqueio = true;
+    etapa = 22;
     exit;
 }
