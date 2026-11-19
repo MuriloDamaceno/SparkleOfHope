@@ -65,7 +65,7 @@ draw_text_transformed(
 draw_text_transformed(
     direita_x + opcao_w / 2,
     opcoes_y + opcao_h / 2,
-    texto_esquerda,
+    texto_direita,
     _escala, _escala, 0
 );
 

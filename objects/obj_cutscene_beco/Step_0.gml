@@ -826,6 +826,38 @@ if (etapa == 21) {
 
     // Celeste continua parada para a próxima parte da história.
     global.cutscene_bloqueio = true;
-    etapa = 22;
+		tempo_final = 0;
+		fade_final = 0;
+		etapa = 22;
+	exit;
+}
+// ETAPA 22 - Celeste olha para o lado escolhido por 2 segundos
+if (etapa == 22) {
+    tempo_final += delta_time / 1000000;
+
+    if (tempo_final >= 2) {
+        etapa = 23;
+    }
+
+    exit;
+}
+
+// ETAPA 23 - Escurece a tela e volta ao menu inicial
+if (etapa == 23) {
+    if (fade_final < 1) {
+        fade_final = min(1, fade_final + delta_time / 1000000);
+        exit;
+    }
+
+    // Prepara as missões para quem clicar em Iniciar de novo.
+    global.cutscene_bloqueio = false;
+    global.cutscene_iniciada = false;
+    global.cutscene_finalizada = false;
+    global.hope_concluida = false;
+    global.lia_concluida = false;
+    global.npc_beco_concluido = false;
+
+    audio_stop_all();
+    game_restart();
     exit;
 }
