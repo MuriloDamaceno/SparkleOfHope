@@ -29,8 +29,8 @@ if (_perto != noone) {
 
     // Define onde Celeste vai aparecer
     global.spawn_room = forabiblioteca;
-    global.spawn_x = 500;
-    global.spawn_y = 350;
+	global.spawn_x = 500;
+	global.spawn_y = 310;
 
     // Impede que entre novamente de imediato
     global.biblioteca_bloquear_entrada = true;

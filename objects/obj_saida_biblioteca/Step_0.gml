@@ -41,8 +41,8 @@ if (variable_global_exists("bloquear_entrada_fora")) {
 if (_perto != noone) {
 
     global.spawn_room = forabiblioteca;
-    global.spawn_x = 500;
-    global.spawn_y = 350;
+	global.spawn_x = 38;
+	global.spawn_y = 365;
 
     obj_jogador.has_target = false;
     global.indo_para_porta = false;
