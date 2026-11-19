@@ -6,7 +6,20 @@
 // 1 = estender a mao
 // 2 = falar baixinho
 
-global.escolha_confianca = 0;
+if (!variable_instance_exists(id, "modo_destino")) {
+    modo_destino = false;
+}
+
+if (modo_destino) {
+    pergunta = "Para onde levar o bichinho?";
+    texto_esquerda = "Casa da Celeste";
+    texto_direita = "Casa da Hope";
+} else {
+    global.escolha_confianca = 0;
+    pergunta = "Como tentar tranquilizá-lo?";
+    texto_esquerda = "Estender a mão";
+    texto_direita = "Falar baixinho";
+}
 
 // Impede Celeste de andar
 global.cutscene_bloqueio = true;

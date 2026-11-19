@@ -626,127 +626,238 @@ if (etapa == 14) {
 }
 
 
-
-/// =====================================
-/// ETAPA 15 - REACAO DE CONFIANCA
-/// =====================================
+// ETAPA 15 - O ANIMAL RECEBE CARINHO
 
 if (etapa == 15) {
-
     global.cutscene_bloqueio = true;
 
-    if (!instance_exists(obj_bichinho)) {
+    var _bichinho = instance_find(obj_bichinho, 0);
+
+    if (_bichinho == noone) {
+        global.cutscene_bloqueio = false;
+        instance_destroy();
         exit;
     }
 
-    var _animal = instance_find(obj_bichinho, 0);
+    _bichinho.calmo = true;
 
-    // O animal fica calmo nas duas escolhas
-    _animal.calmo = true;
+    var _nome;
+    var _nome_som;
 
-    if (_animal.animal == 1) {
-        _animal.sprite_index = spr_gatocalmo;
+    if (_bichinho.animal == 1) {
+        _nome = "O gato";
+        _bichinho.sprite_index = spr_gatocalmo;
+        _nome_som = "snd_gato_ronronando";
     } else {
-        _animal.sprite_index = spr_cachorrocalmo;
+        _nome = "O cachorro";
+        _bichinho.sprite_index = spr_cachorrocalmo;
+        _nome_som = "snd_cachorro_carinho";
     }
-
-    _animal.image_speed = 0;
-
-    // ---------------------------------
-    // ESCOLHA 1 - ESTENDER A MAO
-    // ---------------------------------
 
     if (global.escolha_confianca == 1) {
-
-        if (_animal.animal == 1) {
-
-            falas_confianca = [
-                "Celeste: Pode chegar... Se quiser.",
-                "Celeste: Ah! Entao voce e curioso!"
-            ];
-
-        } else {
-
-            falas_confianca = [
-                "Celeste: Pode chegar... Eu nao vou te machucar.",
-                "Celeste: Viu so? Nao precisa ter medo."
-            ];
-        }
-
+        global.caixa_texto =
+            "Você estendeu a mão. " + _nome +
+            " veio cheirá-la e se esfregou nos seus dedos. Você fez carinho nele.";
+    } else {
+        global.caixa_texto =
+            "Você falou baixinho. " + _nome +
+            " se aproximou ao ouvir sua voz. Você o acariciou de leve.";
     }
 
-    // ---------------------------------
-    // ESCOLHA 2 - FALAR BAIXINHO
-    // ---------------------------------
+    // SOM DO CARINHO - toca uma vez quando a mensagem aparece.
+    var _som_carinho = asset_get_index(_nome_som);
 
-    else {
-
-        falas_confianca = [
-            "Celeste: Calma... Esta tudo bem.",
-            "Celeste: Isso... Pode ficar tranquilo."
-        ];
+    if (_som_carinho != -1) {
+        audio_play_sound(_som_carinho, 1, false, global.volume_sfx);
     }
 
-    indice_confianca = 0;
-    fala_ativa = false;
+    if (!instance_exists(obj_caixa_dialogo)) {
+        instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    }
 
+    global.caixa_aberta = true;
     etapa = 16;
     exit;
 }
 
-
-// =====================================
-// ETAPA 16 - DIALOGOS DE CONFIANCA
-// =====================================
-
+// ETAPA 16 - Espera fechar a mensagem do carinho
 if (etapa == 16) {
-
     global.cutscene_bloqueio = true;
 
-    if (!fala_ativa) {
+    if (global.caixa_aberta) exit;
 
-        if (!instance_exists(obj_caixa_dialogo)) {
+    global.caixa_texto =
+        "Celeste: Ai, meu Deus... E agora? Não posso deixar ele aqui sozinho.";
 
-            instance_create_depth(
-                0,
-                0,
-                -1000,
-                obj_caixa_dialogo
-            );
+    if (!instance_exists(obj_caixa_dialogo)) {
+        instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    }
+
+    global.caixa_aberta = true;
+    etapa = 17;
+    exit;
+}
+
+
+// ETAPA 17 - Espera o jogador terminar de ler a fala da Celeste
+if (etapa == 17) {
+    if (global.caixa_aberta) exit;
+    if (!instance_exists(obj_jogador)) exit;
+
+    companheiro = instance_find(obj_bichinho, 0);
+    global.destino_bichinhos = 0;
+
+    with (obj_jogador) {
+        has_target = false;
+
+        // Continua olhando para o bichinho enquanto recua.
+        sprite_index = spr_costas;
+        image_index = 0;
+        image_speed = -0.12;
+    }
+
+    etapa = 18;
+    exit;
+}
+
+
+// ETAPA 18 - Celeste recua até sair pela parte de baixo do beco
+if (etapa == 18) {
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    // Mantém o mesmo X: ela só dá passos para trás.
+    _celeste.y += 0.7;
+
+    // Espera a Celeste desaparecer pela borda da tela.
+    if (_celeste.bbox_top <= room_height) exit;
+
+    // Na rua, ela reaparece na mesma entrada usada na ida.
+    global.spawn_room = rua_beco;
+    global.spawn_x = 138;
+    global.spawn_y = 94;
+
+    // O controlador da cena precisa acompanhar a troca de sala.
+    persistent = true;
+    etapa = 19;
+    room_goto(rua_beco);
+    exit;
+}
+
+
+// ETAPA 19 - Prepara a mesma rua noturna da ida
+if (etapa == 19) {
+    if (room != rua_beco) exit;
+
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    persistent = false;
+
+    var _camada = layer_get_id("Background");
+    if (_camada != -1) {
+        var _fundo = layer_background_get_id(_camada);
+        if (_fundo != -1) {
+            layer_background_sprite(_fundo, spr_ruabeco_depois);
+            layer_background_visible(_fundo, true);
         }
+    }
 
-        global.caixa_texto =
-            falas_confianca[indice_confianca];
+    var _frente = layer_get_id("Primeiro_Plano");
+    if (_frente != -1) {
+        layer_set_visible(_frente, false);
+    }
 
-        global.caixa_aberta = true;
-        fala_ativa = true;
+    with (obj_gerador_carros) instance_destroy();
+    with (obj_carro) instance_destroy();
+    with (obj_andante) instance_destroy();
 
-    } else if (!global.caixa_aberta) {
+    _celeste.visible = true;
+    _celeste.has_target = false;
+    _celeste.sprite_index = spr_costas;
+    _celeste.image_index = 0;
+    _celeste.image_speed = -0.12;
 
-        indice_confianca++;
-        fala_ativa = false;
+    etapa = 20;
+    exit;
+}
 
-        if (
-            indice_confianca >=
-            array_length(falas_confianca)
-        ) {
-            etapa = 17;
+
+// ETAPA 20 - Celeste recua sozinha e vira de frente ao parar
+if (etapa == 20) {
+    var _celeste = instance_find(obj_jogador, 0);
+    if (_celeste == noone) exit;
+
+    _celeste.y = min(_celeste.y + 0.5, 110);
+    if (_celeste.y < 110) exit;
+
+    // Chegou ao meio da calçada: vira de frente para a pergunta.
+    _celeste.sprite_index = spr_frente;
+    _celeste.image_xscale = abs(_celeste.escala);
+    _celeste.image_speed = 0;
+    _celeste.image_index = 0;
+
+    instance_create_depth(
+        0, 0, -2000, obj_escolha_confianca,
+        { modo_destino: true }
+    );
+
+    etapa = 21;
+    exit;
+}
+
+
+// ETAPA 21 - Guarda a escolha e vira para a casa escolhida
+if (etapa == 21) {
+    if (global.destino_bichinhos == 0) exit;
+
+    with (obj_jogador) {
+        sprite_index = spr_perfil;
+        image_speed = 0;
+        image_index = 0;
+        has_target = false;
+
+        if (global.destino_bichinhos == 1) {
+            image_xscale = -abs(escala); // Casa da Celeste: esquerda
+        } else {
+            image_xscale = abs(escala);  // Casa da Hope: direita
         }
+    }
+
+    // Celeste continua parada para a próxima parte da história.
+    global.cutscene_bloqueio = true;
+		tempo_final = 0;
+		fade_final = 0;
+		etapa = 22;
+	exit;
+}
+// ETAPA 22 - Celeste olha para o lado escolhido por 2 segundos
+if (etapa == 22) {
+    tempo_final += delta_time / 1000000;
+
+    if (tempo_final >= 2) {
+        etapa = 23;
     }
 
     exit;
 }
 
+// ETAPA 23 - Escurece a tela e volta ao menu inicial
+if (etapa == 23) {
+    if (fade_final < 1) {
+        fade_final = min(1, fade_final + delta_time / 1000000);
+        exit;
+    }
 
-// =====================================
-// ETAPA 17 - AGUARDA PROXIMA INTERACAO
-// =====================================
+    // Prepara as missões para quem clicar em Iniciar de novo.
+    global.cutscene_bloqueio = false;
+    global.cutscene_iniciada = false;
+    global.cutscene_finalizada = false;
+    global.hope_concluida = false;
+    global.lia_concluida = false;
+    global.npc_beco_concluido = false;
 
-if (etapa == 17) {
-
-    global.cutscene_bloqueio = true;
-
-    // Proxima parte: carinho!
-
+    audio_stop_all();
+    game_restart();
     exit;
 }

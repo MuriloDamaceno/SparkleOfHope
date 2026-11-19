@@ -49,7 +49,7 @@ var _escala = max(
 draw_text_transformed(
     principal_x + principal_w / 2,
     principal_y + principal_h / 2,
-    "Como tentar tranquiliza-lo?",
+    pergunta,
     _escala, _escala, 0
 );
 
@@ -57,7 +57,7 @@ draw_text_transformed(
 draw_text_transformed(
     esquerda_x + opcao_w / 2,
     opcoes_y + opcao_h / 2,
-    "Estender a mao",
+    texto_esquerda,
     _escala, _escala, 0
 );
 
@@ -65,7 +65,7 @@ draw_text_transformed(
 draw_text_transformed(
     direita_x + opcao_w / 2,
     opcoes_y + opcao_h / 2,
-    "Falar baixinho",
+    texto_direita,
     _escala, _escala, 0
 );
 

@@ -1,5 +1,4 @@
 
-
 // =====================================
 // BLOQUEIO DURANTE CUTSCENE
 // =====================================
@@ -120,6 +119,7 @@ if (room == rm_rua) {
 // MOVIMENTACAO
 // =====================================
 
+var _y_antes_de_andar = y;
 var _moving = false;
 
 var _kb_input =
@@ -146,7 +146,7 @@ if (
     keyboard_check(ord("D"))
 ) {
 
-    if (!place_meeting(x + spd, y, obj_solido)) {
+    if (pode_pisar(x + spd, y)) {
         x += spd;
     }
 
@@ -165,7 +165,7 @@ if (
     keyboard_check(ord("A"))
 ) {
 
-    if (!place_meeting(x - spd, y, obj_solido)) {
+    if (pode_pisar(x - spd, y)) {
         x -= spd;
     }
 
@@ -184,7 +184,7 @@ if (
     keyboard_check(ord("W"))
 ) {
 
-    if (!place_meeting(x, y - spd, obj_solido)) {
+    if (pode_pisar(x, y - spd)) {
         y -= spd;
     }
 
@@ -203,7 +203,7 @@ if (
     keyboard_check(ord("S"))
 ) {
 
-    if (!place_meeting(x, y + spd, obj_solido)) {
+    if (pode_pisar(x, y + spd)) {
         y += spd;
     }
 
@@ -236,7 +236,7 @@ if (!_kb_input && has_target) {
             if (
                 _next_x >= 8 &&
                 _next_x <= room_width - 8 &&
-                !place_meeting(_next_x, y, obj_solido)
+                pode_pisar(_next_x, y)
             ) {
                 x = _next_x;
                 _moved = true;
@@ -250,7 +250,7 @@ if (!_kb_input && has_target) {
             if (
                 _next_y >= floor_top &&
                 _next_y <= room_height - 3 &&
-                !place_meeting(x, _next_y, obj_solido)
+                pode_pisar(x, _next_y)
             ) {
                 y = _next_y;
                 _moved = true;
@@ -302,6 +302,29 @@ if (!_kb_input && has_target) {
 
 x = clamp(x, 8, room_width - 8);
 y = clamp(y, floor_top, room_height - 3);
+
+// Saida pelo centro da borda inferior do beco
+// Saída do beco: alinhada com o caminho da cutscene
+if (room == rm_beco_interno) {
+    var _centro_saida = 158;
+    var _na_passagem = abs(x - _centro_saida) <= 25;
+    var _no_fim_do_chao = y >= room_height - 8;
+    var _andou_para_baixo = y > _y_antes_de_andar;
+
+    if (_na_passagem && _no_fim_do_chao && _andou_para_baixo) {
+        has_target = false;
+        global.indo_para_porta = false;
+        global.porta_alvo = noone;
+
+        // Reaparece na calçada, em frente à entrada do beco.
+        global.spawn_room = rua_beco;
+        global.spawn_x = 138;
+        global.spawn_y = 114;
+
+        room_goto(rua_beco);
+        exit;
+    }
+}
 
 last_x = x;
 last_y = y;
