@@ -626,16 +626,127 @@ if (etapa == 14) {
 }
 
 
-// =====================================
-// ETAPA 15 - AGUARDA A REACAO
-// =====================================
+
+/// =====================================
+/// ETAPA 15 - REACAO DE CONFIANCA
+/// =====================================
 
 if (etapa == 15) {
 
     global.cutscene_bloqueio = true;
 
-    // Na proxima etapa vamos programar
-    // as reacoes do gato e do cachorro.
+    if (!instance_exists(obj_bichinho)) {
+        exit;
+    }
+
+    var _animal = instance_find(obj_bichinho, 0);
+
+    // O animal fica calmo nas duas escolhas
+    _animal.calmo = true;
+
+    if (_animal.animal == 1) {
+        _animal.sprite_index = spr_gatocalmo;
+    } else {
+        _animal.sprite_index = spr_cachorrocalmo;
+    }
+
+    _animal.image_speed = 0;
+
+    // ---------------------------------
+    // ESCOLHA 1 - ESTENDER A MAO
+    // ---------------------------------
+
+    if (global.escolha_confianca == 1) {
+
+        if (_animal.animal == 1) {
+
+            falas_confianca = [
+                "Celeste: Pode chegar... Se quiser.",
+                "Celeste: Ah! Entao voce e curioso!"
+            ];
+
+        } else {
+
+            falas_confianca = [
+                "Celeste: Pode chegar... Eu nao vou te machucar.",
+                "Celeste: Viu so? Nao precisa ter medo."
+            ];
+        }
+
+    }
+
+    // ---------------------------------
+    // ESCOLHA 2 - FALAR BAIXINHO
+    // ---------------------------------
+
+    else {
+
+        falas_confianca = [
+            "Celeste: Calma... Esta tudo bem.",
+            "Celeste: Isso... Pode ficar tranquilo."
+        ];
+    }
+
+    indice_confianca = 0;
+    fala_ativa = false;
+
+    etapa = 16;
+    exit;
+}
+
+
+// =====================================
+// ETAPA 16 - DIALOGOS DE CONFIANCA
+// =====================================
+
+if (etapa == 16) {
+
+    global.cutscene_bloqueio = true;
+
+    if (!fala_ativa) {
+
+        if (!instance_exists(obj_caixa_dialogo)) {
+
+            instance_create_depth(
+                0,
+                0,
+                -1000,
+                obj_caixa_dialogo
+            );
+        }
+
+        global.caixa_texto =
+            falas_confianca[indice_confianca];
+
+        global.caixa_aberta = true;
+        fala_ativa = true;
+
+    } else if (!global.caixa_aberta) {
+
+        indice_confianca++;
+        fala_ativa = false;
+
+        if (
+            indice_confianca >=
+            array_length(falas_confianca)
+        ) {
+            etapa = 17;
+        }
+    }
+
+    exit;
+}
+
+
+// =====================================
+// ETAPA 17 - AGUARDA PROXIMA INTERACAO
+// =====================================
+
+if (etapa == 17) {
+
+    global.cutscene_bloqueio = true;
+
+    // Proxima parte: carinho!
 
     exit;
 }
