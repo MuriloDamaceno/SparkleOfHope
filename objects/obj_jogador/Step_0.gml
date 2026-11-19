@@ -468,10 +468,10 @@ if (room == rm_patio) {
 
     } else if (_perto_saida) {
 
-        // Aparece no inicio da rua
-       global.spawn_room = rm_rua;
-	   global.spawn_x = 22;
-	   global.spawn_y = 92;
+        global.spawn_room = rm_rua;
+			global.spawn_x = 25;
+			global.spawn_y = 103;
+			global.bloquear_retorno_patio = true;
 
         has_target = false;
         global.indo_para_porta = false;
@@ -519,20 +519,21 @@ if (room == rm_rua) {
 // =====================================
 // RUA -> PATIO
 // =====================================
-
+// RUA -> PATIO
 if (room == rm_rua) {
+    if (!variable_global_exists("bloquear_retorno_patio")) {
+        global.bloquear_retorno_patio = false;
+    }
 
-    // Retorna pelo lado esquerdo da rua
-    if (x <= 9) {
+    // Lado do cercadinho, logo depois da faixa
+    var _perto_do_cercado = (x <= 65 && y >= 122 && y <= 150);
 
+    if (!_perto_do_cercado) {
+        global.bloquear_retorno_patio = false;
+    } else if (!global.bloquear_retorno_patio) {
         global.spawn_room = rm_patio;
-
-        // Perto da saida do patio, nao da casa
-       global.spawn_room = rm_patio;
-	   global.spawn_x = 478;
-       global.spawn_y = 109;
-
-        // Protecao contra retorno imediato
+        global.spawn_x = 438;
+        global.spawn_y = 109;
         global.bloquear_saida_patio = true;
 
         has_target = false;

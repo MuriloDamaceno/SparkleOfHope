@@ -114,7 +114,7 @@ if (room == rm_beco_interno) {
     floor_top = 119;
 }
 
-// Verifica a posição onde a Celeste quer pisar.
+// Verifica a posição onde a Celeste quer pisar.	
 pode_pisar = function(_x, _y) {
     if (place_meeting(_x, _y, obj_solido)) return false;
 	if (room == rua_beco) {
@@ -202,17 +202,17 @@ atualizar_perspectiva = function() {
             break;
 
         case forabiblioteca:
-            _fundo = 275;
-            _frente = 395;
-            _menor = 0.68;
-            _maior = 1.35;
-            break;
+			_fundo = 275;
+			_frente = 395;
+			_menor = 1.60;
+			_maior = 2.15;
+			break;
 
         case biblioteca:
             _fundo = 250;
             _frente = 390;
             _menor = 0.95;
-            _maior = 1.65;
+            _maior = 2.20;
             break;
     }
 

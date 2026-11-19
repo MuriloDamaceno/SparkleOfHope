@@ -665,7 +665,27 @@ if (etapa == 15) {
     }
 
     // SOM DO CARINHO - toca uma vez quando a mensagem aparece.
-    var _som_carinho = asset_get_index(_nome_som);
+    if (_bichinho.animal == 1) {
+    falas_carinho = [
+        "No segundo carinho, o gato se encolhe. Entre os pelos, você vê uma ferida fina em volta do pescoço.",
+        "Celeste: Opa... Foi aí que doeu?",
+        "Celeste: Parece marca de corda. Será que alguém amarrou você?",
+        "Celeste: Tá bom. Só na testa, então.",
+        "Você deixa a mão parada. Depois de um instante, o gato encosta a testa nos seus dedos outra vez."
+    ];
+} else {
+    falas_carinho = [
+        "No segundo carinho, sua mão passa pelo ombro do cachorro. Ele solta um ganido.",
+        "Celeste: Ai, desculpa... Eu encostei bem em cima.",
+        "Entre os pelos, você vê duas marcas compridas, uma ao lado da outra.",
+        "Celeste: Que marcas são essas...? Alguém bateu em você?",
+        "Você oferece a mão de novo. O cachorro cheira seus dedos e inclina a cabeça.",
+        "Celeste: Atrás da orelha, né? Aqui você gosta."
+    ];
+}
+
+indice_carinho = 0;
+	var _som_carinho = asset_get_index(_nome_som);
 
     if (_som_carinho != -1) {
         audio_play_sound(_som_carinho, 1, false, global.volume_sfx);
@@ -680,19 +700,22 @@ if (etapa == 15) {
     exit;
 }
 
-// ETAPA 16 - Espera fechar a mensagem do carinho
+// ETAPA 16 - Celeste percebe o machucado durante o carinho
 if (etapa == 16) {
     global.cutscene_bloqueio = true;
 
+    // Espera o jogador fechar a mensagem atual.
     if (global.caixa_aberta) exit;
 
-    global.caixa_texto =
-        "Celeste: Ai, meu Deus... E agora? Não posso deixar ele aqui sozinho.";
-
-    if (!instance_exists(obj_caixa_dialogo)) {
-        instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+    if (indice_carinho < array_length(falas_carinho)) {
+        global.caixa_texto = falas_carinho[indice_carinho];
+        indice_carinho++;
+        global.caixa_aberta = true;
+        exit;
     }
 
+    global.caixa_texto =
+        "Celeste: Vem, vamos sair daqui. Eu vou te ajudar.";
     global.caixa_aberta = true;
     etapa = 17;
     exit;
@@ -783,20 +806,48 @@ if (etapa == 19) {
 }
 
 
-// ETAPA 20 - Celeste recua sozinha e vira de frente ao parar
+// ETAPA 20 - Celeste para na calçada, pensa e escolhe o destino
 if (etapa == 20) {
     var _celeste = instance_find(obj_jogador, 0);
     if (_celeste == noone) exit;
 
-    _celeste.y = min(_celeste.y + 0.5, 110);
-    if (_celeste.y < 110) exit;
+    if (!variable_instance_exists(id, "pensamento_calcada")) {
+        pensamento_calcada = 0;
+    }
 
-    // Chegou ao meio da calçada: vira de frente para a pergunta.
-    _celeste.sprite_index = spr_frente;
-    _celeste.image_xscale = abs(_celeste.escala);
-    _celeste.image_speed = 0;
-    _celeste.image_index = 0;
+    // Celeste termina de andar antes de abrir a primeira fala.
+    if (pensamento_calcada == 0) {
+        _celeste.y = min(_celeste.y + 0.5, 110);
+        if (_celeste.y < 110) exit;
 
+        _celeste.sprite_index = spr_frente;
+        _celeste.image_xscale = abs(_celeste.escala);
+        _celeste.image_speed = 0;
+        _celeste.image_index = 0;
+
+        if (!instance_exists(obj_caixa_dialogo)) {
+            instance_create_depth(0, 0, -1000, obj_caixa_dialogo);
+        }
+
+        global.caixa_texto =
+            "Celeste: A Hope deve saber o que fazer com esse machucado. Mas será que você aguenta andar até lá?";
+        global.caixa_aberta = true;
+        pensamento_calcada = 1;
+        exit;
+    }
+
+    // Espera a caixa fechar e o jogador soltar o botão.
+    // Assim o clique da fala não escolhe uma casa sem querer.
+    if (global.caixa_aberta || mouse_check_button(mb_left)) exit;
+
+    if (pensamento_calcada == 1) {
+        global.caixa_texto = "Celeste: Mas minha casa é mais perto...";
+        global.caixa_aberta = true;
+        pensamento_calcada = 2;
+        exit;
+    }
+
+    global.destino_bichinhos = 0;
     instance_create_depth(
         0, 0, -2000, obj_escolha_confianca,
         { modo_destino: true }
@@ -861,3 +912,5 @@ if (etapa == 23) {
     game_restart();
     exit;
 }
+
+
