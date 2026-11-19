@@ -708,13 +708,12 @@ if (etapa == 17) {
     global.destino_bichinhos = 0;
 
     with (obj_jogador) {
-        has_target = false;
-
-        // Continua olhando para o bichinho enquanto recua.
-        sprite_index = spr_costas;
-        image_index = 0;
-        image_speed = -0.12;
-    }
+    has_target = false;
+    sprite_index = spr_frente;
+    image_xscale = abs(escala);
+    image_index = 0;
+    image_speed = 0.12;
+}
 
     etapa = 18;
     exit;
@@ -773,10 +772,11 @@ if (etapa == 19) {
     with (obj_andante) instance_destroy();
 
     _celeste.visible = true;
-    _celeste.has_target = false;
-    _celeste.sprite_index = spr_costas;
-    _celeste.image_index = 0;
-    _celeste.image_speed = -0.12;
+	_celeste.has_target = false;
+	_celeste.sprite_index = spr_frente;
+	_celeste.image_xscale = abs(_celeste.escala);
+	_celeste.image_index = 0;
+	_celeste.image_speed = 0.12;
 
     etapa = 20;
     exit;

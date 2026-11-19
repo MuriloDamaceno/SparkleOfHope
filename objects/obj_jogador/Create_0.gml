@@ -117,6 +117,17 @@ if (room == rm_beco_interno) {
 // Verifica a posição onde a Celeste quer pisar.
 pode_pisar = function(_x, _y) {
     if (place_meeting(_x, _y, obj_solido)) return false;
+	if (room == rua_beco) {
+    var _total = instance_number(obj_andante);
+
+    for (var i = 0; i < _total; i++) {
+        var _andante = instance_find(obj_andante, i);
+
+        if (scr_pes_se_encostam(id, _x - x, _y - y, _andante)) {
+            return false;
+        }
+    }
+}
     if (room != rm_beco_interno) return true;
 
     // Área ocupada pelos pés da Celeste.
@@ -160,3 +171,63 @@ pode_pisar = function(_x, _y) {
 
     return true;
 };
+escala_da_room = abs(image_xscale);
+
+atualizar_perspectiva = function() {
+    var _fundo = 0;
+    var _frente = room_height;
+    var _menor = escala_da_room;
+    var _maior = escala_da_room;
+
+    switch (room) {
+        case rm_patio:
+            _fundo = 95;
+            _frente = 185;
+            _menor = 0.48;
+            _maior = 0.68;
+            break;
+
+        case rm_rua:
+            _fundo = 75;
+            _frente = 180;
+            _menor = 0.44;
+            _maior = 0.68;
+            break;
+
+        case rua_beco:
+            _fundo = 102;
+            _frente = 125;
+            _menor = 0.43;
+            _maior = 0.51;
+            break;
+
+        case forabiblioteca:
+            _fundo = 275;
+            _frente = 395;
+            _menor = 0.68;
+            _maior = 1.35;
+            break;
+
+        case biblioteca:
+            _fundo = 250;
+            _frente = 390;
+            _menor = 0.95;
+            _maior = 1.65;
+            break;
+    }
+
+    var _t = clamp((y - _fundo) / max(1, _frente - _fundo), 0, 1);
+    var _lado = (image_xscale < 0) ? -1 : 1;
+
+    escala = lerp(_menor, _maior, _t);
+    image_xscale = _lado * escala;
+    image_yscale = escala;
+
+    // Em mapas maiores ela percorre mais pixels por segundo.
+    // No fundo da cena, o passo diminui junto com o sprite.
+    var _vel_mapa = clamp(room_width * 0.19, 57, 145);
+    var _fator = escala / max(0.01, _maior);
+    spd = (_vel_mapa * _fator) / game_get_speed(gamespeed_fps);
+};
+
+atualizar_perspectiva();

@@ -25,3 +25,9 @@ gato_x = _w * 0.17;
 cachorro_x = _w * 0.52;
 
 opcoes_y = _h * 0.63;
+
+if (room == rm_beco_interno) {
+    var _descer = display_get_gui_height() * 0.10;
+    principal_y += _descer;
+    opcoes_y += _descer;
+}

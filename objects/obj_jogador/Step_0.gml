@@ -46,7 +46,7 @@ if (global.caixa_aberta || instance_exists(Obj_inventario)) {
     exit;
 }
 
-
+atualizar_perspectiva();	
 // =====================================
 // AVISO DA FAIXA DE PEDESTRES
 // =====================================
@@ -135,6 +135,17 @@ var _kb_input =
 if (_kb_input) {
     has_target = false;
 }
+var _horizontal =
+    (keyboard_check(vk_right) || keyboard_check(ord("D"))) -
+    (keyboard_check(vk_left)  || keyboard_check(ord("A")));
+
+var _vertical =
+    (keyboard_check(vk_down) || keyboard_check(ord("S"))) -
+    (keyboard_check(vk_up)   || keyboard_check(ord("W")));
+
+var _passo_tecla = (_horizontal != 0 && _vertical != 0)
+    ? spd / sqrt(2)
+    : spd;
 
 
 // =====================================
@@ -231,7 +242,7 @@ if (!_kb_input && has_target) {
 
         if (_dx != 0) {
 
-            var _next_x = x + _dx * spd;
+            var _next_x = x + (target_x - x) / _dist * spd;
 
             if (
                 _next_x >= 8 &&
@@ -458,9 +469,9 @@ if (room == rm_patio) {
     } else if (_perto_saida) {
 
         // Aparece no inicio da rua
-        global.spawn_room = rm_rua;
-        global.spawn_x = 32;
-        global.spawn_y = 111;
+       global.spawn_room = rm_rua;
+	   global.spawn_x = 22;
+	   global.spawn_y = 92;
 
         has_target = false;
         global.indo_para_porta = false;
@@ -517,8 +528,9 @@ if (room == rm_rua) {
         global.spawn_room = rm_patio;
 
         // Perto da saida do patio, nao da casa
-        global.spawn_x = 375;
-        global.spawn_y = 155;
+       global.spawn_room = rm_patio;
+	   global.spawn_x = 478;
+       global.spawn_y = 109;
 
         // Protecao contra retorno imediato
         global.bloquear_saida_patio = true;

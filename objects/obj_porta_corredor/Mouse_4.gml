@@ -1,13 +1,22 @@
-var _dist = point_distance(x, y, obj_jogador.x, obj_jogador.y);
+if (!instance_exists(obj_jogador)) exit;
+if (global.caixa_aberta || instance_exists(Obj_inventario)) exit;
+if (variable_global_exists("cutscene_bloqueio") && global.cutscene_bloqueio) exit;
 
-if (_dist <= 120) {
-    room_goto(rm_cozinha);
-} else {
-    var _dir = sign(x - obj_jogador.x);
-    obj_jogador.target_x = x - (_dir * 60);
-    obj_jogador.target_y = obj_jogador.y; // mantém a altura atual, não sobe pra zona de colisão
-    obj_jogador.has_target = true;
-    global.indo_para_porta = true;
-    global.porta_alvo = id;
-    global.room_alvo = rm_cozinha;
+var _celeste = instance_find(obj_jogador, 0);
+
+if (point_distance(_celeste.x, _celeste.y, x, y) <= 120) {
+    _celeste.has_target = false;
+    global.indo_para_porta = false;
+    global.porta_alvo = noone;
+    room_goto(Room1);
+    exit;
 }
+
+// Caminha até o chão em frente à porta do quarto.
+_celeste.target_x = x + 22;
+_celeste.target_y = _celeste.floor_top + 8;
+_celeste.has_target = true;
+
+global.porta_alvo = id;
+global.room_alvo = Room1;
+global.indo_para_porta = true;

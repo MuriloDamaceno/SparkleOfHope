@@ -116,6 +116,7 @@
     {"id":{"name":"rm_rua","path":"rooms/rm_rua/rm_rua.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"rua_beco","path":"rooms/rua_beco/rua_beco.yy",},},
+    {"id":{"name":"scr_pes_se_encostam","path":"scripts/scr_pes_se_encostam/scr_pes_se_encostam.yy",},},
     {"id":{"name":"mus_tema","path":"sounds/mus_tema/mus_tema.yy",},},
     {"id":{"name":"snd_ambiente_cozinha","path":"sounds/snd_ambiente_cozinha/snd_ambiente_cozinha.yy",},},
     {"id":{"name":"snd_briga","path":"sounds/snd_briga/snd_briga.yy",},},
